@@ -21,9 +21,17 @@ export const Navbar: React.FC = () => {
 
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-      <a href="#hero" className="nav-logo" onClick={handleLinkClick}>
-        <span className="nav-logo-dot" />
-        EvandroMqs
+      <a href="#hero" className="nav-logo" onClick={handleLinkClick} aria-label="Início">
+        <img
+          src="/favicon.svg"
+          alt="Logo"
+          style={{
+            width: '28px',
+            height: '28px',
+            filter: 'drop-shadow(0 0 10px rgba(0, 212, 255, 0.55))',
+            display: 'block',
+          }}
+        />
       </a>
 
       {/* Desktop Links */}
@@ -37,7 +45,7 @@ export const Navbar: React.FC = () => {
       {/* Desktop CTA */}
       <div className="nav-actions">
         <a
-          href="https://github.com/EvandroMarquesPF"
+          href="https://github.com/evandromqs"
           target="_blank"
           rel="noopener noreferrer"
           className="nav-cta"
@@ -64,22 +72,22 @@ export const Navbar: React.FC = () => {
       <div className={`nav-mobile-menu ${isMobileOpen ? 'open' : ''}`}>
         <a href="#hero" onClick={handleLinkClick}>
           <span>Início</span>
-          <span>→</span>
+          <ArrowUpRight size={18} />
         </a>
         <a href="#sobre" onClick={handleLinkClick}>
           <span>Sobre & Trajetória</span>
-          <span>→</span>
+          <ArrowUpRight size={18} />
         </a>
         <a href="#projetos" onClick={handleLinkClick}>
           <span>Projetos & Portfólio</span>
-          <span>→</span>
+          <ArrowUpRight size={18} />
         </a>
         <a href="#contato" onClick={handleLinkClick}>
           <span>Contato</span>
-          <span>→</span>
+          <ArrowUpRight size={18} />
         </a>
         <a
-          href="https://github.com/EvandroMarquesPF"
+          href="https://github.com/evandromqs"
           target="_blank"
           rel="noopener noreferrer"
           onClick={handleLinkClick}

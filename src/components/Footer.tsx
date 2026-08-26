@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
   const socialLinks = [
     {
       name: 'GitHub',
-      url: 'https://github.com/EvandroMarquesPF',
+      url: 'https://github.com/evandromqs',
       icon: <GithubIcon size={18} />,
     },
     {
@@ -154,14 +154,15 @@ export const Footer: React.FC = () => {
 
         <div className="footer-copy">
           <p>
-            Desenvolvido com <span style={{ color: 'var(--neon-cyan)' }}>♥</span> e React por Evandro Mqs &bull; © {new Date().getFullYear()}
+            Desenvolvido com React & TypeScript por Evandro Mqs &bull; &copy; {new Date().getFullYear()}
           </p>
         </div>
       </div>
 
       {copied && (
         <div className="copy-toast">
-          ✓ E-mail copiado: contato@evandromqs.site
+          <Check size={15} style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '6px' }} />
+          <span>E-mail copiado: {emailContact}</span>
         </div>
       )}
     </footer>

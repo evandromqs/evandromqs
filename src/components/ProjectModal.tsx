@@ -34,6 +34,17 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           <X size={24} />
         </button>
 
+        {project.image && (
+          <div className="modal-image-wrapper">
+            <img
+              src={project.image}
+              alt={`Screenshot de ${project.name}`}
+              className="modal-image-img"
+            />
+            <div className="modal-image-overlay" />
+          </div>
+        )}
+
         <span className="modal-tagline">{project.tagline}</span>
         <h2 className="modal-title">{project.name}</h2>
 
@@ -55,27 +66,27 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         </div>
 
         <div className="modal-actions">
-          {project.githubUrl && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-            >
-              <GithubIcon size={16} />
-              <span>Ver no GitHub</span>
-            </a>
-          )}
-
           {project.liveUrl && (
             <a
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-secondary"
+              className="btn-primary"
             >
               <ExternalLink size={16} />
-              <span>Acessar Demo / Website</span>
+              <span>Acessar Website / Demo</span>
+            </a>
+          )}
+
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={project.liveUrl ? 'btn-secondary' : 'btn-primary'}
+            >
+              <GithubIcon size={16} />
+              <span>Ver no GitHub</span>
             </a>
           )}
         </div>

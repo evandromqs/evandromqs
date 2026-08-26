@@ -42,7 +42,7 @@ Portfólio oficial de Evandro Mqs desenvolvido com **React 18**, **TypeScript**,
 ## 🌐 Deploy na Vercel
 
 1. Conecte sua conta do GitHub à [Vercel](https://vercel.com).
-2. Importe o repositório `EvandroMarquesPF/evandromqs`.
+2. Importe o repositório `evandromqs/evandromqs`.
 3. A Vercel detectará automaticamente a configuração do Vite e o arquivo `vercel.json`:
    - **Framework Preset:** Vite
    - **Build Command:** `npm run build`
@@ -53,5 +53,5 @@ Portfólio oficial de Evandro Mqs desenvolvido com **React 18**, **TypeScript**,
 ## 👨‍💻 Autor
 
 - **Evandro Mqs**
-- **GitHub:** [@EvandroMarquesPF](https://github.com/EvandroMarquesPF)
+- **GitHub:** [@evandromqs](https://github.com/evandromqs)
 - **Blog:** [evandromqs.blogspot.com](https://evandromqs.blogspot.com)

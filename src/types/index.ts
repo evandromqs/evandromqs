@@ -11,6 +11,7 @@ export interface Project {
   status: 'active' | 'dev' | 'concept';
   githubUrl?: string;
   liveUrl?: string;
+  image?: string;
   featured?: boolean;
 }
 
