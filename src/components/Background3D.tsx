@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
 export const Background3D: React.FC = () => {
@@ -8,9 +8,13 @@ export const Background3D: React.FC = () => {
     const container = containerRef.current;
     if (!container) return;
 
+    const isLightMode = () =>
+      document.documentElement.getAttribute('data-theme') === 'light';
+
     // --- Scene, Camera, Renderer ---
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x050508, 0.015);
+    const fogColor = isLightMode() ? 0xf8fafc : 0x050508;
+    scene.fog = new THREE.FogExp2(fogColor, 0.015);
 
     const camera = new THREE.PerspectiveCamera(
       60,
@@ -27,7 +31,7 @@ export const Background3D: React.FC = () => {
     });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0x050508, 0);
+    renderer.setClearColor(fogColor, 0);
     container.appendChild(renderer.domElement);
 
     // --- 1. Fixed 3D Undulating Digital Surface at Footer Base ---
@@ -42,15 +46,15 @@ export const Background3D: React.FC = () => {
     );
     gridGeometry.rotateX(-Math.PI / 2);
 
+    const initialGridColor = isLightMode() ? 0x0284c7 : 0x00d4ff;
     const gridMaterial = new THREE.MeshBasicMaterial({
-      color: 0x00d4ff,
+      color: initialGridColor,
       wireframe: true,
       transparent: true,
-      opacity: 0.06,
+      opacity: isLightMode() ? 0.12 : 0.06,
     });
 
     const gridMesh = new THREE.Mesh(gridGeometry, gridMaterial);
-    // Fixed firmly at the footer base level in 3D world space
     gridMesh.position.set(0, -32, 0);
     scene.add(gridMesh);
 
@@ -65,35 +69,41 @@ export const Background3D: React.FC = () => {
       basePos: { x: number; y: number; z: number };
       floatSpeed: number;
       floatOffset: number;
+      coreMat: THREE.MeshBasicMaterial;
+      edgeMat: THREE.LineBasicMaterial;
+      darkEdgeColor: number;
+      lightEdgeColor: number;
     }
 
     const floatingObjects: FloatingMesh[] = [];
 
     const createCyberShape = (
       geometry: THREE.BufferGeometry,
-      edgeColor: number,
+      darkColor: number,
+      lightColor: number,
       pos: [number, number, number],
       rotSpeed: { x: number; y: number; z: number },
       floatSpeed: number,
       floatOffset: number
     ) => {
       const group = new THREE.Group();
+      const currentLight = isLightMode();
 
-      // Translucent Dark Core
+      // Translucent Core
       const coreMat = new THREE.MeshBasicMaterial({
-        color: 0x080816,
+        color: currentLight ? 0xe2e8f0 : 0x080816,
         transparent: true,
-        opacity: 0.8,
+        opacity: currentLight ? 0.75 : 0.8,
       });
       const coreMesh = new THREE.Mesh(geometry, coreMat);
       group.add(coreMesh);
 
-      // Glowing Neon Wireframe Edges
+      // Glowing Wireframe Edges
       const edges = new THREE.EdgesGeometry(geometry);
       const edgeMat = new THREE.LineBasicMaterial({
-        color: edgeColor,
+        color: currentLight ? lightColor : darkColor,
         transparent: true,
-        opacity: 0.75,
+        opacity: currentLight ? 0.85 : 0.75,
       });
       const edgeLines = new THREE.LineSegments(edges, edgeMat);
       group.add(edgeLines);
@@ -107,6 +117,10 @@ export const Background3D: React.FC = () => {
         basePos: { x: pos[0], y: pos[1], z: pos[2] },
         floatSpeed,
         floatOffset,
+        coreMat,
+        edgeMat,
+        darkEdgeColor: darkColor,
+        lightEdgeColor: lightColor,
       });
 
       return group;
@@ -116,6 +130,7 @@ export const Background3D: React.FC = () => {
     createCyberShape(
       new THREE.IcosahedronGeometry(1.6, 0),
       0x00d4ff,
+      0x0284c7,
       [-10, 4, -4],
       { x: 0.005, y: 0.008, z: 0.003 },
       0.8,
@@ -125,6 +140,7 @@ export const Background3D: React.FC = () => {
     createCyberShape(
       new THREE.OctahedronGeometry(2.0, 0),
       0x4d9fff,
+      0x2563eb,
       [11, 3, -6],
       { x: -0.006, y: 0.007, z: 0.004 },
       0.7,
@@ -134,6 +150,7 @@ export const Background3D: React.FC = () => {
     createCyberShape(
       new THREE.TetrahedronGeometry(1.5, 0),
       0x00d4ff,
+      0x0284c7,
       [-4, 7, -10],
       { x: -0.004, y: 0.009, z: 0.005 },
       0.85,
@@ -144,6 +161,7 @@ export const Background3D: React.FC = () => {
     createCyberShape(
       new THREE.DodecahedronGeometry(1.5, 0),
       0x00ff88,
+      0x059669,
       [-12, -9, -6],
       { x: 0.007, y: -0.006, z: 0.005 },
       0.9,
@@ -153,6 +171,7 @@ export const Background3D: React.FC = () => {
     createCyberShape(
       new THREE.TorusGeometry(1.8, 0.45, 16, 32),
       0x00d4ff,
+      0x0284c7,
       [12, -11, -5],
       { x: 0.006, y: 0.008, z: -0.004 },
       0.65,
@@ -162,6 +181,7 @@ export const Background3D: React.FC = () => {
     createCyberShape(
       new THREE.IcosahedronGeometry(1.4, 0),
       0x6be3ff,
+      0x0ea5e9,
       [-5, -14, -9],
       { x: 0.005, y: -0.007, z: 0.004 },
       0.8,
@@ -172,6 +192,7 @@ export const Background3D: React.FC = () => {
     createCyberShape(
       new THREE.OctahedronGeometry(2.1, 0),
       0x00d4ff,
+      0x0284c7,
       [-13, -19, -5],
       { x: 0.008, y: 0.006, z: 0.003 },
       0.75,
@@ -181,6 +202,7 @@ export const Background3D: React.FC = () => {
     createCyberShape(
       new THREE.TorusGeometry(2.1, 0.4, 16, 32),
       0x4d9fff,
+      0x2563eb,
       [13, -21, -5],
       { x: -0.005, y: 0.009, z: 0.006 },
       0.7,
@@ -190,6 +212,7 @@ export const Background3D: React.FC = () => {
     createCyberShape(
       new THREE.DodecahedronGeometry(1.7, 0),
       0x00ff88,
+      0x059669,
       [-11, -25, -6],
       { x: 0.006, y: -0.007, z: 0.005 },
       0.85,
@@ -199,6 +222,7 @@ export const Background3D: React.FC = () => {
     createCyberShape(
       new THREE.IcosahedronGeometry(1.8, 0),
       0x6be3ff,
+      0x0ea5e9,
       [11, -26, -7],
       { x: -0.007, y: 0.006, z: -0.005 },
       0.8,
@@ -209,6 +233,7 @@ export const Background3D: React.FC = () => {
     createCyberShape(
       new THREE.OctahedronGeometry(2.2, 0),
       0x4d9fff,
+      0x2563eb,
       [-11, -28, -5],
       { x: 0.006, y: 0.007, z: -0.005 },
       0.75,
@@ -218,6 +243,7 @@ export const Background3D: React.FC = () => {
     createCyberShape(
       new THREE.DodecahedronGeometry(2.0, 0),
       0x00ff88,
+      0x059669,
       [11, -28, -6],
       { x: -0.006, y: 0.008, z: 0.004 },
       0.8,
@@ -227,6 +253,7 @@ export const Background3D: React.FC = () => {
     createCyberShape(
       new THREE.TorusGeometry(2.2, 0.35, 16, 32),
       0x6be3ff,
+      0x0ea5e9,
       [12, -30, -7],
       { x: 0.008, y: -0.005, z: 0.007 },
       0.55,
@@ -236,6 +263,7 @@ export const Background3D: React.FC = () => {
     createCyberShape(
       new THREE.TetrahedronGeometry(1.8, 0),
       0x00d4ff,
+      0x0284c7,
       [-12, -30, -7],
       { x: 0.007, y: -0.005, z: 0.006 },
       0.7,
@@ -266,12 +294,13 @@ export const Background3D: React.FC = () => {
       new THREE.BufferAttribute(particlePositions, 3)
     );
 
+    const currentLight = isLightMode();
     const particleMaterial = new THREE.PointsMaterial({
-      color: 0x00d4ff,
-      size: 0.14,
+      color: currentLight ? 0x0284c7 : 0x00d4ff,
+      size: currentLight ? 0.16 : 0.14,
       transparent: true,
-      opacity: 0.6,
-      blending: THREE.AdditiveBlending,
+      opacity: currentLight ? 0.45 : 0.6,
+      blending: currentLight ? THREE.NormalBlending : THREE.AdditiveBlending,
     });
 
     const particleSystem = new THREE.Points(particleGeometry, particleMaterial);
@@ -295,6 +324,52 @@ export const Background3D: React.FC = () => {
       renderer.setSize(width, height);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     };
+
+    // --- Dynamic Theme Observer ---
+    const updateThemeMaterials = () => {
+      const light = isLightMode();
+      const newFogColor = light ? 0xf8fafc : 0x050508;
+      if (scene.fog) {
+        scene.fog.color.setHex(newFogColor);
+      }
+
+      gridMaterial.color.setHex(light ? 0x0284c7 : 0x00d4ff);
+
+      particleMaterial.color.setHex(light ? 0x0284c7 : 0x00d4ff);
+      particleMaterial.opacity = light ? 0.45 : 0.6;
+      particleMaterial.blending = light
+        ? THREE.NormalBlending
+        : THREE.AdditiveBlending;
+      particleMaterial.needsUpdate = true;
+
+      floatingObjects.forEach((obj) => {
+        obj.coreMat.color.setHex(light ? 0xe2e8f0 : 0x080816);
+        obj.coreMat.opacity = light ? 0.75 : 0.8;
+        obj.coreMat.needsUpdate = true;
+
+        obj.edgeMat.color.setHex(
+          light ? obj.lightEdgeColor : obj.darkEdgeColor
+        );
+        obj.edgeMat.opacity = light ? 0.85 : 0.75;
+        obj.edgeMat.needsUpdate = true;
+      });
+    };
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (
+          mutation.type === 'attributes' &&
+          mutation.attributeName === 'data-theme'
+        ) {
+          updateThemeMaterials();
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme'],
+    });
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
     window.addEventListener('resize', handleResize);
@@ -323,9 +398,7 @@ export const Background3D: React.FC = () => {
       currentScrollProgress +=
         (targetScrollProgress - currentScrollProgress) * 0.07;
 
-      // CAMERA DESCENT & APPROACH EFFECT:
-      // At Top (scrollProgress = 0): Camera is high up at y = 2, z = 26 (surface is far down in perspective)
-      // At Footer (scrollProgress = 1): Camera descends to y = -26, z = 14 (approaching the fixed 3D surface)
+      // Camera Descent & Approach Effect
       const targetCamY = 2 - currentScrollProgress * 28;
       const targetCamZ = 26 - currentScrollProgress * 12;
 
@@ -333,12 +406,14 @@ export const Background3D: React.FC = () => {
       camera.position.y = targetCamY + mouse.y * 1.4;
       camera.position.z = targetCamZ;
 
-      // Look point tilts smoothly towards the upcoming / landing surface
       const lookY = targetCamY - 4 - (1 - currentScrollProgress) * 4;
       camera.lookAt(mouse.x * 1.0, lookY, 0);
 
-      // Dynamic surface opacity increases smoothly as user approaches the footer
-      gridMaterial.opacity = 0.05 + currentScrollProgress * 0.12;
+      // Dynamic surface opacity
+      const light = isLightMode();
+      const baseGridOpacity = light ? 0.1 : 0.05;
+      const scrollGridBoost = light ? 0.16 : 0.12;
+      gridMaterial.opacity = baseGridOpacity + currentScrollProgress * scrollGridBoost;
 
       // Undulate 3D Surface at the footer
       const positions = gridGeometry.attributes.position.array as Float32Array;
@@ -375,7 +450,6 @@ export const Background3D: React.FC = () => {
         pPositions[idx + 1] += particleVelocities[i].y;
         pPositions[idx + 2] += particleVelocities[i].z;
 
-        // Wrap around bounds
         if (pPositions[idx + 1] > 8) pPositions[idx + 1] = -34;
         if (pPositions[idx + 1] < -34) pPositions[idx + 1] = 8;
         if (pPositions[idx] > 34) pPositions[idx] = -34;
@@ -391,6 +465,7 @@ export const Background3D: React.FC = () => {
     // --- Cleanup on unmount ---
     return () => {
       cancelAnimationFrame(animationFrameId);
+      observer.disconnect();
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
 

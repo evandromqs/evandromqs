@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Sun, Moon } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
+import { useTheme } from '../context/ThemeContext';
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,7 +30,7 @@ export const Navbar: React.FC = () => {
           style={{
             width: '28px',
             height: '28px',
-            filter: 'drop-shadow(0 0 10px rgba(0, 212, 255, 0.55))',
+            filter: 'drop-shadow(0 0 10px var(--neon-glow-strong))',
             display: 'block',
           }}
         />
@@ -42,8 +44,17 @@ export const Navbar: React.FC = () => {
         <li><a href="#contato">Contato</a></li>
       </ul>
 
-      {/* Desktop CTA */}
+      {/* Desktop CTA & Theme Toggle */}
       <div className="nav-actions">
+        <button
+          className="theme-toggle-btn"
+          onClick={toggleTheme}
+          aria-label={theme === 'light' ? 'Mudar para tema escuro' : 'Mudar para tema claro'}
+          title={theme === 'light' ? 'Modo Escuro' : 'Modo Claro'}
+        >
+          {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+        </button>
+
         <a
           href="https://github.com/evandromqs"
           target="_blank"
@@ -86,12 +97,27 @@ export const Navbar: React.FC = () => {
           <span>Contato</span>
           <ArrowUpRight size={18} />
         </a>
+
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1rem 0', borderBottom: '1px solid var(--void-line)' }}>
+          <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: '1.2rem', fontWeight: 600, color: 'var(--ink-pure)' }}>
+            Tema: {theme === 'light' ? 'Claro' : 'Escuro'}
+          </span>
+          <button
+            className="theme-toggle-btn"
+            onClick={toggleTheme}
+            aria-label="Alternar tema"
+            style={{ width: '44px', height: '44px' }}
+          >
+            {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+          </button>
+        </div>
+
         <a
           href="https://github.com/evandromqs"
           target="_blank"
           rel="noopener noreferrer"
           onClick={handleLinkClick}
-          style={{ color: 'var(--neon-cyan)', marginTop: '1rem' }}
+          style={{ color: 'var(--neon-cyan)', marginTop: '0.5rem' }}
         >
           <span>GitHub Profile</span>
           <ArrowUpRight size={20} />

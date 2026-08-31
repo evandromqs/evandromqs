@@ -1,4 +1,5 @@
 import React from 'react';
+import { ThemeProvider } from './context/ThemeContext';
 import { Background3D } from './components/Background3D';
 import { Navbar } from './components/Navbar';
 import { CustomCursor } from './components/CustomCursor';
@@ -9,17 +10,19 @@ import { Footer } from './components/Footer';
 
 export const App: React.FC = () => {
   return (
-    <div className="app-root">
-      <Background3D />
-      <CustomCursor />
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Projects />
-      </main>
-      <Footer />
-    </div>
+    <ThemeProvider>
+      <div className="app-root">
+        <Background3D />
+        <CustomCursor />
+        <Navbar />
+        <main>
+          <Hero />
+          <About />
+          <Projects />
+        </main>
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 };
 
