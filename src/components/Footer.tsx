@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Globe, Check, Copy, Mail } from 'lucide-react';
+import { Globe, Check, Copy, Mail, MessageCircle } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
 import {
   InstagramIcon,
@@ -17,6 +17,16 @@ export const Footer: React.FC = () => {
     navigator.clipboard.writeText(emailContact);
     setCopied(true);
     setTimeout(() => setCopied(false), 3000);
+  };
+
+  const handleWhatsAppFooterClick = () => {
+    if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+      (window as any).gtag('event', 'click_whatsapp', {
+        event_category: 'lead',
+        event_label: 'footer_cta',
+        value: 1,
+      });
+    }
   };
 
   const socialLinks = [
@@ -75,10 +85,25 @@ export const Footer: React.FC = () => {
           />
         </div>
 
-        <h2 className="footer-title">Vamos construir algo incrível juntos?</h2>
+        <h2 className="footer-title">Pronto para tirar o seu projeto do papel?</h2>
         <p className="footer-subtitle">
-          Tem uma ideia de aplicativo, sistema ou precisa de uma solução técnica personalizada? Sinta-se à vontade para me contatar.
+          Vamos conversar sem compromisso. Explique o que você precisa e receba uma orientação clara com orçamento para o seu site ou aplicativo.
         </p>
+
+        {/* Big WhatsApp Action Button */}
+        <div style={{ marginBottom: '2rem' }}>
+          <a
+            href="https://wa.me/5511976920649?text=Ol%C3%A1%20vi%20seu%20an%C3%BAncio%20no%20Google%20gostaria%20de%20um%20or%C3%A7amento."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary btn-whatsapp"
+            style={{ fontSize: '1rem', padding: '1rem 2.2rem', display: 'inline-flex' }}
+            onClick={handleWhatsAppFooterClick}
+          >
+            <MessageCircle size={20} />
+            <span>Iniciar Conversa no WhatsApp</span>
+          </a>
+        </div>
 
         {/* E-mail CTA Direct Box */}
         <div
@@ -103,9 +128,9 @@ export const Footer: React.FC = () => {
               alignItems: 'center',
               gap: '0.5rem',
               color: 'var(--neon-cyan)',
-              fontFamily: "'JetBrains Mono', monospace",
+              fontFamily: "'Montserrat', sans-serif",
               fontSize: '0.9rem',
-              fontWeight: 500,
+              fontWeight: 600,
             }}
           >
             <Mail size={16} />
@@ -124,7 +149,8 @@ export const Footer: React.FC = () => {
               padding: '0.35rem 0.75rem',
               borderRadius: 'var(--r-full)',
               fontSize: '0.75rem',
-              fontFamily: "'JetBrains Mono', monospace",
+              fontFamily: "'Montserrat', sans-serif",
+              fontWeight: 600,
               cursor: 'pointer',
               transition: 'all 0.2s',
             }}
@@ -152,9 +178,18 @@ export const Footer: React.FC = () => {
           ))}
         </div>
 
+        <div className="footer-location-trust">
+          <p className="footer-location">
+            São Paulo - SP &bull; Atendimento para empresas de todo o Brasil
+          </p>
+          <p className="footer-security">
+            Suas ideias e informações de projeto são tratadas com total sigilo profissional.
+          </p>
+        </div>
+
         <div className="footer-copy">
           <p>
-            Desenvolvido com React & TypeScript por Evandro Mqs &bull; &copy; {new Date().getFullYear()}
+            EvandroMqs &bull; Soluções Digitais sob Medida &bull; &copy; {new Date().getFullYear()}
           </p>
         </div>
       </div>

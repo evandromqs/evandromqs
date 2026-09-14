@@ -17,9 +17,9 @@ export const Projects: React.FC = () => {
     <section id="projetos">
       <div className="section-container">
         <span className="section-label">// projetos & criações</span>
-        <h2 className="section-headline">Produtos e Soluções Digitais</h2>
+        <h2 className="section-headline">Projetos Entregues e Casos Reais</h2>
         <p className="section-description">
-          Cada projeto abaixo representa um desafio prático solucionado com foco em arquitetura limpa, alta performance e usabilidade.
+          Veja exemplos de sites, lojas virtuais e aplicativos desenvolvidos sob medida para resolver necessidades reais e acelerar negócios.
         </p>
 
         {/* Categories Filter */}
@@ -31,22 +31,22 @@ export const Projects: React.FC = () => {
             Todos ({projectsData.length})
           </button>
           <button
-            className={`filter-btn ${activeCategory === 'mobile' ? 'active' : ''}`}
-            onClick={() => setActiveCategory('mobile')}
-          >
-            Mobile (Flutter / Android)
-          </button>
-          <button
             className={`filter-btn ${activeCategory === 'web' ? 'active' : ''}`}
             onClick={() => setActiveCategory('web')}
           >
-            Web & Full-Stack
+            Sites & Lojas Virtuais
+          </button>
+          <button
+            className={`filter-btn ${activeCategory === 'mobile' ? 'active' : ''}`}
+            onClick={() => setActiveCategory('mobile')}
+          >
+            Aplicativos para Celular
           </button>
           <button
             className={`filter-btn ${activeCategory === 'tools-ai' ? 'active' : ''}`}
             onClick={() => setActiveCategory('tools-ai')}
           >
-            Ferramentas & IA
+            Sistemas & Automações
           </button>
         </div>
 

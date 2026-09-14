@@ -39,12 +39,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
       <h3 className="card-name">{project.name}</h3>
       <p className="card-description">{project.description}</p>
 
-      <div className="card-tech">
-        {project.technologies.slice(0, 4).map((tech) => (
-          <span key={tech} className="tech-badge">
-            {tech}
-          </span>
-        ))}
+      <div className="card-tech-clean">
+        <span>{project.technologies.slice(0, 3).join(' • ')}</span>
       </div>
 
       <div className="card-footer-info">

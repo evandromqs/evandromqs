@@ -1,75 +1,83 @@
-﻿@echo off
-chcp 65001 >nul
+@echo off
 title EvandroMqs Portfolio - Launcher
 cd /d "%~dp0"
 cls
 
-:: Verificar se o Node.js está instalado
+:: 1. Verificar se o Node.js esta instalado
 where node >nul 2>&1
-if %errorlevel% neq 0 (
-    echo ================================================================
-    echo           EVANDROMQS - PORTFÓLIO PESSOAL (REACT + VITE)
-    echo ================================================================
-    echo.
-    echo [ERRO] Node.js não foi encontrado no sistema!
-    echo Por favor, instale o Node.js em: https://nodejs.org
-    echo.
-    pause
-    exit /b 1
-)
+if %errorlevel% neq 0 goto erro_node
 
-:: Verificar se o npm está instalado
+:: 2. Verificar se o npm esta instalado
 where npm >nul 2>&1
+if %errorlevel% neq 0 goto erro_npm
+
+:: 3. Verificar dependencias (node_modules)
+if not exist "node_modules\" goto instalar_deps
+goto menu
+
+:instalar_deps
+cls
+echo ================================================================
+echo           EVANDROMQS - PORTFOLIO PESSOAL [REACT + VITE]
+echo ================================================================
+echo.
+echo [INFO] Primeira execucao detectada! Instalando dependencias...
+echo.
+call npm install
 if %errorlevel% neq 0 (
-    echo ================================================================
-    echo           EVANDROMQS - PORTFÓLIO PESSOAL (REACT + VITE)
-    echo ================================================================
     echo.
-    echo [ERRO] npm não foi encontrado no sistema!
+    echo [ERRO] Falha ao instalar as dependencias. Verifique sua conexao.
     echo.
     pause
     exit /b 1
 )
+echo.
+echo [SUCESSO] Dependencias instaladas com sucesso!
+echo.
+timeout /t 2 >nul
+goto menu
 
-:: Verificar e instalar dependencias automaticamente na primeira execucao
-if not exist "node_modules\" (
-    echo ================================================================
-    echo           EVANDROMQS - PORTFÓLIO PESSOAL (REACT + VITE)
-    echo ================================================================
-    echo.
-    echo [INFO] Primeira execução detectada! Instalando dependências (npm install)...
-    echo.
-    call npm install
-    if %errorlevel% neq 0 (
-        echo.
-        echo [ERRO] Falha ao instalar as dependências. Verifique sua conexão.
-        echo.
-        pause
-        exit /b 1
-    )
-    echo.
-    echo [SUCESSO] Dependências instaladas com sucesso!
-    echo.
-    timeout /t 2 >nul
-)
+:erro_node
+cls
+echo ================================================================
+echo           EVANDROMQS - PORTFOLIO PESSOAL [REACT + VITE]
+echo ================================================================
+echo.
+echo [ERRO] Node.js nao foi encontrado no sistema!
+echo Por favor, instale o Node.js em: https://nodejs.org
+echo Certifique-se de que o Node.js esta no PATH do sistema.
+echo.
+pause
+exit /b 1
+
+:erro_npm
+cls
+echo ================================================================
+echo           EVANDROMQS - PORTFOLIO PESSOAL [REACT + VITE]
+echo ================================================================
+echo.
+echo [ERRO] npm nao foi encontrado no sistema!
+echo.
+pause
+exit /b 1
 
 :menu
 cls
 echo ================================================================
-echo           EVANDROMQS - PORTFÓLIO PESSOAL (REACT + VITE)
+echo           EVANDROMQS - PORTFOLIO PESSOAL [REACT + VITE]
 echo ================================================================
 echo.
-echo  [1] Iniciar Servidor de Desenvolvimento + Abrir Navegador (Padrão)
-echo  [2] Apenas Iniciar Servidor de Desenvolvimento (Dev)
-echo  [3] Gerar Build de Produção (npm run build)
-echo  [4] Visualizar Build de Produção (npm run preview)
-echo  [5] Reinstalar / Atualizar Dependências (npm install)
+echo  [1] Iniciar Servidor de Desenvolvimento + Abrir Navegador [Padrao]
+echo  [2] Apenas Iniciar Servidor de Desenvolvimento [Dev]
+echo  [3] Gerar Build de Producao [npm run build]
+echo  [4] Visualizar Build de Producao [npm run preview]
+echo  [5] Reinstalar / Atualizar Dependencias [npm install]
 echo  [6] Abrir Projeto no VS Code
 echo  [0] Sair
 echo.
 echo ================================================================
 set "opcao="
-set /p opcao="Escolha uma opção [1-6, 0] (Enter para 1): "
+set /p opcao="Escolha uma opcao [1-6, 0] (Enter para 1): "
 
 if "%opcao%"=="" set opcao=1
 if "%opcao%"=="1" goto dev_browser
@@ -81,7 +89,7 @@ if "%opcao%"=="6" goto vscode
 if "%opcao%"=="0" goto sair
 
 echo.
-echo Opção inválida! Tente novamente.
+echo Opcao invalida! Tente novamente.
 timeout /t 2 >nul
 goto menu
 
@@ -107,19 +115,19 @@ goto fim
 :build
 cls
 echo ================================================================
-echo  Gerando Build de Produção...
+echo  Gerando Build de Producao...
 echo ================================================================
 echo.
 call npm run build
 echo.
-echo Build concluído! Pressione qualquer tecla para voltar ao menu...
+echo Build concluido! Pressione qualquer tecla para voltar ao menu...
 pause >nul
 goto menu
 
 :preview
 cls
 echo ================================================================
-echo  Iniciando Preview da Build de Produção...
+echo  Iniciando Preview da Build de Producao...
 echo ================================================================
 echo.
 start "" "http://localhost:4173"
@@ -129,12 +137,12 @@ goto fim
 :install
 cls
 echo ================================================================
-echo  Instalando / Atualizando dependências...
+echo  Instalando / Atualizando dependencias...
 echo ================================================================
 echo.
 call npm install
 echo.
-echo Operação concluída! Pressione qualquer tecla para voltar ao menu...
+echo Operacao concluida! Pressione qualquer tecla para voltar ao menu...
 pause >nul
 goto menu
 
@@ -145,7 +153,7 @@ if %errorlevel% equ 0 (
     echo Abrindo projeto no VS Code...
     code .
 ) else (
-    echo VS Code não encontrado no PATH do sistema.
+    echo VS Code nao encontrado no PATH do sistema.
 )
 timeout /t 2 >nul
 goto menu

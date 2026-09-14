@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Project } from '../types';
-import { X, ExternalLink } from 'lucide-react';
+import { X, ExternalLink, MessageCircle } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
 
 interface ProjectModalProps {
@@ -27,6 +27,20 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
   if (!project) return null;
 
+  const handleWhatsAppModalClick = () => {
+    if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+      (window as any).gtag('event', 'click_whatsapp', {
+        event_category: 'lead',
+        event_label: `modal_project_${project.id}`,
+        value: 1,
+      });
+    }
+  };
+
+  const whatsappProjectUrl = `https://wa.me/5511976920649?text=${encodeURIComponent(
+    `Olá vi o projeto "${project.name}" no seu site e gostaria de um orçamento para algo parecido no meu negócio.`
+  )}`;
+
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -52,29 +66,34 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           {project.longDescription || project.description}
         </p>
 
-        <div style={{ marginBottom: '1.5rem' }}>
-          <span className="about-subtitle" style={{ margin: '0 0 0.75rem 0' }}>
-            Tecnologias Utilizadas
+        <div style={{ marginBottom: '1.5rem', color: 'var(--ink-soft)', fontSize: '0.9rem' }}>
+          <span style={{ fontWeight: 600, color: 'var(--ink-pure)', marginRight: '0.5rem' }}>
+            Tecnologias:
           </span>
-          <div className="card-tech">
-            {project.technologies.map((tech) => (
-              <span key={tech} className="tech-badge">
-                {tech}
-              </span>
-            ))}
-          </div>
+          <span>{project.technologies.join(' • ')}</span>
         </div>
 
         <div className="modal-actions">
+          <a
+            href={whatsappProjectUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary btn-whatsapp"
+            onClick={handleWhatsAppModalClick}
+          >
+            <MessageCircle size={16} />
+            <span>Quero um projeto parecido</span>
+          </a>
+
           {project.liveUrl && (
             <a
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary"
+              className="btn-secondary"
             >
               <ExternalLink size={16} />
-              <span>Acessar Website / Demo</span>
+              <span>Acessar Projeto</span>
             </a>
           )}
 
@@ -83,10 +102,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={project.liveUrl ? 'btn-secondary' : 'btn-primary'}
+              className="btn-secondary"
             >
               <GithubIcon size={16} />
-              <span>Ver no GitHub</span>
+              <span>Código no GitHub</span>
             </a>
           )}
         </div>

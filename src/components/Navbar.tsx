@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowUpRight, Sun, Moon } from 'lucide-react';
-import { GithubIcon } from './icons/GithubIcon';
 import { useTheme } from '../context/ThemeContext';
 
 export const Navbar: React.FC = () => {
@@ -39,12 +38,13 @@ export const Navbar: React.FC = () => {
       {/* Desktop Links */}
       <ul className="nav-links">
         <li><a href="#hero">Início</a></li>
-        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#sobre">Soluções</a></li>
         <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#faq">Dúvidas</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
 
-      {/* Desktop CTA & Theme Toggle */}
+      {/* Desktop Actions & Theme Toggle */}
       <div className="nav-actions">
         <button
           className="theme-toggle-btn"
@@ -54,17 +54,6 @@ export const Navbar: React.FC = () => {
         >
           {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
         </button>
-
-        <a
-          href="https://github.com/evandromqs"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="nav-cta"
-        >
-          <GithubIcon size={15} />
-          <span>GitHub</span>
-          <ArrowUpRight size={14} />
-        </a>
 
         {/* Mobile Toggle Button */}
         <button
@@ -86,11 +75,15 @@ export const Navbar: React.FC = () => {
           <ArrowUpRight size={18} />
         </a>
         <a href="#sobre" onClick={handleLinkClick}>
-          <span>Sobre & Trajetória</span>
+          <span>Soluções para Negócios</span>
           <ArrowUpRight size={18} />
         </a>
         <a href="#projetos" onClick={handleLinkClick}>
           <span>Projetos & Portfólio</span>
+          <ArrowUpRight size={18} />
+        </a>
+        <a href="#faq" onClick={handleLinkClick}>
+          <span>Perguntas Frequentes</span>
           <ArrowUpRight size={18} />
         </a>
         <a href="#contato" onClick={handleLinkClick}>
