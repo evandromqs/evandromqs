@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { reportWhatsAppConversion } from '../utils/analytics';
 
 interface WhatsAppButtonProps {
   phoneNumber?: string;
@@ -51,13 +52,7 @@ export const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
   const handleClick = () => {
-    if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
-      (window as any).gtag('event', 'click_whatsapp', {
-        event_category: 'lead',
-        event_label: 'floating_whatsapp_button',
-        value: 1,
-      });
-    }
+    reportWhatsAppConversion('floating_whatsapp_button');
   };
 
   return (

@@ -14,6 +14,22 @@
 
       gtag('config', 'AW-16799646775');
     </script>
+
+    <!-- Event snippet for Clique no Link conversion page -->
+    <script>
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined' && url) {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-16799646775/15WVCP-ujuEbELeI2co-',
+            'event_callback': callback
+        });
+        return false;
+      }
+    </script>
     <meta name="description" content="Desenvolvimento de sites profissionais, landing pages de alta conversão e aplicativos sob medida para Android e iOS. Atendimento direto e entrega rápida." />
     <meta name="author" content="EvandroMqs" />
     <meta name="keywords" content="EvandroMqs, criação de sites, desenvolvedor de aplicativos, landing page, Flutter, Android, React, TypeScript, loja virtual, delivery, orçamento site" />

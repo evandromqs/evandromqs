@@ -1,18 +1,13 @@
 import React from 'react';
 import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { reportWhatsAppConversion } from '../utils/analytics';
 
 const WHATSAPP_URL =
   'https://wa.me/5511976920649?text=Ol%C3%A1%20vi%20seu%20an%C3%BAncio%20no%20Google%20gostaria%20de%20um%20or%C3%A7amento.';
 
 export const Hero: React.FC = () => {
   const handleWhatsAppClick = () => {
-    if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
-      (window as any).gtag('event', 'click_whatsapp', {
-        event_category: 'lead',
-        event_label: 'hero_cta',
-        value: 1,
-      });
-    }
+    reportWhatsAppConversion('hero_cta');
   };
 
   return (
