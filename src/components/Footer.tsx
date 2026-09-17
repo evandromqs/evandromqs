@@ -4,9 +4,7 @@ import { reportWhatsAppConversion } from '../utils/analytics';
 import { GithubIcon } from './icons/GithubIcon';
 import {
   InstagramIcon,
-  XIcon,
   YoutubeIcon,
-  TiktokIcon,
   ThreadsIcon,
 } from './icons/SocialIcons';
 
@@ -15,7 +13,7 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({
-  emailContact = 'evandro.dev.mqs@gmail.com',
+  emailContact = 'contato@evandromqs.site',
 }) => {
   const [copied, setCopied] = useState(false);
 
@@ -46,19 +44,9 @@ export const Footer: React.FC<FooterProps> = ({
       icon: <InstagramIcon size={18} />,
     },
     {
-      name: 'X (Twitter)',
-      url: 'https://x.com/evandromqs',
-      icon: <XIcon size={16} />,
-    },
-    {
       name: 'YouTube',
       url: 'https://www.youtube.com/@evandromqs',
       icon: <YoutubeIcon size={18} />,
-    },
-    {
-      name: 'TikTok',
-      url: 'https://www.tiktok.com/@evandromqs',
-      icon: <TiktokIcon size={18} />,
     },
     {
       name: 'Blog',
