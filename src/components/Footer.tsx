@@ -81,7 +81,9 @@ export const Footer: React.FC<FooterProps> = ({
         {/* Big WhatsApp Action Button */}
         <div style={{ marginBottom: '2rem' }}>
           <a
-            href="https://wa.me/5511976920649?text=Ol%C3%A1%20vi%20seu%20an%C3%BAncio%20no%20Google%20gostaria%20de%20um%20or%C3%A7amento."
+            href={`https://wa.me/5511976920649?text=${encodeURIComponent(
+              'Olá, vim pelo seu site portfólio, gostaria de um orçamento.'
+            )}`}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary btn-whatsapp"

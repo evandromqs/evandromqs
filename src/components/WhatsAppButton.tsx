@@ -8,7 +8,7 @@ interface WhatsAppButtonProps {
 
 export const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
   phoneNumber = '5511976920649',
-  message = 'Olá vi seu anúncio no Google gostaria de um orçamento.',
+  message = 'Olá, vim pelo seu site portfólio, gostaria de um orçamento.',
 }) => {
   const [isVisible, setIsVisible] = useState(false);
 
