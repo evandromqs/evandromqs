@@ -87,7 +87,7 @@ export const Footer: React.FC<FooterProps> = ({
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary btn-whatsapp"
-            style={{ fontSize: '1rem', padding: '1rem 2.2rem', display: 'inline-flex' }}
+            style={{ display: 'inline-flex', maxWidth: '100%' }}
             onClick={handleWhatsAppFooterClick}
           >
             <svg
