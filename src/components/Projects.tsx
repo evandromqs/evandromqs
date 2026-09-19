@@ -17,9 +17,9 @@ export const Projects: React.FC = () => {
     <section id="projetos">
       <div className="section-container">
         <span className="section-label">// projetos & criações</span>
-        <h2 className="section-headline">Projetos Entregues e Casos Reais</h2>
+        <h2 className="section-headline">Projetos Reais Focados em Resultado</h2>
         <p className="section-description">
-          Veja exemplos de sites, lojas virtuais e aplicativos desenvolvidos sob medida para resolver necessidades reais e acelerar negócios.
+          De R$ 500 a R$ 2.000 - Veja como microempreendedores já estão vendendo sem pagar taxas abusivas.
         </p>
 
         {/* Categories Filter */}

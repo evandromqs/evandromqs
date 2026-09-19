@@ -7,47 +7,47 @@ export interface ServiceSolution {
 
 export const solutionsData: ServiceSolution[] = [
   {
-    title: 'Sites Profissionais & Landing Pages',
-    badge: 'Alta Conversão',
-    description: 'Páginas modernas, ultrarrápidas e adaptadas para qualquer celular. Criadas para transformar visitantes de anúncios no Google em clientes prontos para comprar.',
+    title: 'Sites & Landing Pages',
+    badge: 'A partir de R$ 500',
+    description: 'Ideal para microempreendedores que anunciam no Google. Página que abre em 1s e transforma clique pago em cliente no Zap.',
     highlights: [
-      'Carregamento instantâneo',
-      'Design moderno e profissional',
-      'Botões diretos para o WhatsApp',
-      'Otimizado para o Google (SEO)'
+      'Criação a partir de R$ 500',
+      'Manutenção R$ 50/mês',
+      'Abre em 1s no Celular',
+      'Botão direto pro WhatsApp',
     ],
   },
   {
-    title: 'Aplicativos Mobile (Android & iOS)',
-    badge: 'Sob Medida',
-    description: 'Aplicativos exclusivos para o seu negócio fidelizar clientes, receber pedidos, agendamentos ou controlar operações da sua empresa com facilidade.',
+    title: 'Aplicativos Mobile Android e iOS',
+    badge: 'A partir de R$ 1.000',
+    description: 'Seu negócio na palma do cliente. Venda, agende e fidelize sem intermediários e sem taxas.',
     highlights: [
-      'Disponível para celulares Android e iPhone',
-      'Interface simples e intuitiva',
-      'Notificações e sincronização em tempo real',
-      'Alta estabilidade e segurança'
+      'Criação a partir de R$ 1.000',
+      'Publicado na Play Store',
+      'Notificações Push',
+      'Painel simples',
     ],
   },
   {
-    title: 'Lojas Virtuais, Catálogos & Delivery',
-    badge: 'Venda Direta',
-    description: 'Venda seus produtos ou alimentos pela internet sem pagar taxas ou comissões abusivas por pedido para terceiros. Receba pedidos direto no WhatsApp ou Pix.',
+    title: 'Lojas Virtuais, Catálogo & Delivery',
+    badge: 'Zero Comissão',
+    description: 'Pare de pagar até 27% para iFood. Sistema completo a partir de R$ 2.000 com pedidos direto no seu WhatsApp.',
     highlights: [
-      'Cardápio ou catálogo interativo',
-      'Carrinho inteligente com frete',
-      'Pedidos formatados no WhatsApp',
-      'Sem mensalidades de terceiros'
+      'Sistema a partir de R$ 2.000',
+      'Zero taxa por venda',
+      'Manutenção R$ 50/mês',
+      'Pix e Cartão',
     ],
   },
   {
-    title: 'Automações & Sistemas Personalizados',
-    badge: 'Produtividade',
-    description: 'Soluções inteligentes para automatizar tarefas repetitivas, atendimento ao cliente, geração de QR Codes e integração de dados com Inteligência Artificial.',
+    title: 'Automações e Sistemas com IA',
+    badge: 'A partir de R$ 2.000',
+    description: 'Elimine tarefas repetitivas. Atenda no automático com QR Codes e IA.',
     highlights: [
-      'Economize horas de trabalho manual',
-      'Conexão com WhatsApp e ferramentas',
-      'Painéis fáceis de gerenciar',
-      'Segurança total das suas informações'
+      'Projetos a partir de R$ 2.000',
+      'Atendimento no Zap automático',
+      'QR Code inteligente',
+      'Economia de horas',
     ],
   },
 ];
@@ -55,57 +55,47 @@ export const solutionsData: ServiceSolution[] = [
 export const processSteps = [
   {
     step: '01',
-    title: 'Conversa Inicial',
-    description: 'Você me explica o que precisa pelo WhatsApp. Entendo o momento do seu negócio e sugiro a melhor solução.',
+    title: 'Conversa no WhatsApp',
+    description: 'Você me conta sua meta. Eu indico a solução mais barata que resolve.',
   },
   {
     step: '02',
-    title: 'Orçamento & Prazo Fechado',
-    description: 'Definimos o escopo, cronograma claro e valor fechado. Sem custos surpresa ou letras miúdas.',
+    title: 'Orçamento e Prazo Fechado',
+    description: 'A partir de R$ 500. Valor fixo e data definida. Sem surpresa.',
   },
   {
     step: '03',
-    title: 'Criação & Acompanhamento',
-    description: 'Desenvolvo seu site ou aplicativo e você acompanha cada etapa para validar o visual e o funcionamento.',
+    title: 'Criação com Acompanhamento',
+    description: 'Você valida tudo pelo celular.',
   },
   {
     step: '04',
-    title: 'Lançamento & Suporte',
-    description: 'Publicação oficial na internet, treinamento simples para você operar e suporte garantido pós-entrega.',
+    title: 'Lançamento e Suporte',
+    description: 'Site no ar, treinamento de 5min e suporte incluso nos R$ 50/mês.',
   },
 ];
 
-export const trustPillars = [
-  {
-    title: 'Atendimento Direto',
-    desc: 'Sem intermediários ou burocracia de agência. Você fala direto com o especialista que desenvolve o seu projeto.',
-  },
-  {
-    title: 'Entrega Rápida e Transparente',
-    desc: 'Metodologia ágil com prazos reais e acompanhamento do progresso em tempo real.',
-  },
-  {
-    title: 'Suporte e Garantia Pós-Entrega',
-    desc: 'Orientação completa e garantia de funcionamento após a entrega para sua total tranquilidade.',
-  },
+export const sectionCheckpoints = [
+  'Atendimento Direto: Você fala direto comigo no WhatsApp, sem intermediários ou estagiário.',
+  'Entrega Rápida e Garantida: Cronograma real com acompanhamento diário.',
+  'Preço Fechado e Suporte: Sem cobranças extras. Manutenção e suporte inclusos nos R$ 50/mês.',
 ];
 
 export const coreHighlights = [
-  { label: 'Sites & Lojas', count: 'Foco em Vendas' },
-  { label: 'Aplicativos Mobile', count: 'Android & iOS' },
-  { label: 'Atendimento', count: '100% Direto com Dev' },
-  { label: 'Entrega', count: 'Rápida & Garantida' },
+  { label: 'Sites & Landing Pages', count: 'A partir de R$ 500' },
+  { label: 'Aplicativos Mobile', count: 'A partir de R$ 1.000' },
+  { label: 'Sistemas & Lojas', count: 'A partir de R$ 2.000' },
+  { label: 'Manutenção & Suporte', count: 'R$ 50/mês' },
 ];
 
 export const skillsData = [
-  'React.js',
+  'React',
   'TypeScript',
   'Flutter',
   'Android Nativo',
   'Node.js',
-  'Firebase & Nuvem',
-  'Otimização Google (SEO)',
-  'Automação & IA',
-  'Design Mobile-First',
-  'Integração WhatsApp & Pagamentos'
+  'Firebase',
+  'Three.js',
+  'Next.js',
+  'Tailwind',
 ];

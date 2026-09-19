@@ -257,6 +257,32 @@ button {
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
+  opacity: 0.05;
+}
+
+@keyframes pulse-green {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+  }
+  50% {
+    transform: scale(1.025);
+    box-shadow: 0 12px 32px rgba(37, 211, 102, 0.6);
+  }
+}
+
+.btn-whatsapp-pulse {
+  background-color: #25D366 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  animation: pulse-green 2.5s infinite ease-in-out;
+  transition: all 0.25s ease;
+}
+
+.btn-whatsapp-pulse:hover {
+  background-color: #20ba59 !important;
+  transform: translateY(-2px) scale(1.03) !important;
+  box-shadow: 0 14px 36px rgba(37, 211, 102, 0.7) !important;
 }
 
 .background-3d-canvas canvas {

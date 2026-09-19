@@ -49,7 +49,7 @@ export const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
   }, []);
 
   const encodedMessage = encodeURIComponent(message);
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}&utm_source=floating_button`;
 
   const handleClick = () => {
     reportWhatsAppConversion('floating_whatsapp_button');

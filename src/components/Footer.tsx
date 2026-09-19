@@ -12,6 +12,10 @@ interface FooterProps {
   emailContact?: string;
 }
 
+const FOOTER_WHATSAPP_URL = `https://wa.me/5511976920649?text=${encodeURIComponent(
+  'Olá Evandro, quero meu orçamento de R$ 500 no WhatsApp.'
+)}&utm_source=footer`;
+
 export const Footer: React.FC<FooterProps> = ({
   emailContact = 'contato@evandromqs.site',
 }) => {
@@ -68,41 +72,67 @@ export const Footer: React.FC<FooterProps> = ({
               border: 'none',
               background: 'transparent',
               padding: 0,
-              filter: 'drop-shadow(0 0 14px rgba(0, 212, 255, 0.45))',
+              filter: 'drop-shadow(0 0 14px rgba(37, 211, 102, 0.45))',
             }}
           />
         </div>
 
-        <h2 className="footer-title">Pronto para tirar o seu projeto do papel?</h2>
+        <h2 className="footer-title">
+          Pronto para colocar seu projeto no ar essa semana por a partir de R$ 500?
+        </h2>
         <p className="footer-subtitle">
-          Vamos conversar sem compromisso. Explique o que você precisa e receba uma orientação clara com orçamento para o seu site ou aplicativo.
+          Me chama no WhatsApp agora. Em até 30min te mando plano de ação com valor fechado.
         </p>
 
-        {/* Big WhatsApp Action Button */}
-        <div style={{ marginBottom: '2rem' }}>
+        {/* Big WhatsApp Pulsing Button */}
+        <div style={{ marginBottom: '0.85rem' }}>
           <a
-            href={`https://wa.me/5511976920649?text=${encodeURIComponent(
-              'Olá, vim pelo seu site portfólio, gostaria de um orçamento.'
-            )}`}
+            href={FOOTER_WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary btn-whatsapp"
-            style={{ display: 'inline-flex', maxWidth: '100%' }}
+            className="btn-primary btn-whatsapp btn-whatsapp-pulse"
+            style={{
+              backgroundColor: '#25D366',
+              color: '#ffffff',
+              fontWeight: 800,
+              fontSize: '1.1rem',
+              padding: '1.25rem 2.5rem',
+              borderRadius: '9999px',
+              boxShadow: '0 10px 30px rgba(37, 211, 102, 0.5)',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.85rem',
+              maxWidth: '100%',
+              textDecoration: 'none',
+            }}
             onClick={handleWhatsAppFooterClick}
           >
             <svg
               viewBox="0 0 32 32"
-              width="20"
-              height="20"
+              width="24"
+              height="24"
               fill="currentColor"
               aria-hidden="true"
               style={{ flexShrink: 0 }}
             >
               <path d="M16.002 2C8.28 2 2.004 8.274 2.004 15.996c0 2.593.707 5.127 2.05 7.348L2 30l6.83-1.996a13.92 13.92 0 007.172 1.992h.006c7.72 0 13.996-6.275 13.998-13.998C30 8.274 23.722 2 16.002 2zm0 25.626h-.005a11.58 11.58 0 01-5.908-1.616l-.424-.252-4.394 1.284 1.306-4.28-.277-.442a11.587 11.587 0 01-1.782-6.324c0-6.398 5.207-11.605 11.608-11.605 6.399 0 11.604 5.207 11.604 11.607 0 6.399-5.205 11.608-11.604 11.608zm6.368-8.694c-.349-.175-2.064-1.018-2.384-1.135-.32-.116-.553-.175-.786.175-.233.35-.902 1.135-1.106 1.368-.204.234-.407.262-.756.088-.349-.175-1.474-.544-2.808-1.733-1.038-.926-1.74-2.069-1.944-2.419-.203-.35-.022-.538.153-.712.157-.156.349-.408.524-.612.175-.204.233-.35.349-.583.117-.233.059-.437-.029-.612-.087-.175-.786-1.895-1.077-2.596-.283-.68-.57-.588-.786-.6l-.67-.012c-.233 0-.612.088-.932.437-.32.35-1.222 1.195-1.222 2.914 0 1.72 1.252 3.382 1.427 3.615.175.234 2.464 3.762 5.969 5.275.834.361 1.485.576 1.993.737.838.266 1.601.228 2.204.138.673-.1 2.064-.844 2.355-1.66.291-.815.291-1.514.204-1.66-.088-.146-.32-.233-.67-.408z" />
             </svg>
-            <span>Iniciar Conversa no WhatsApp</span>
+            <span>Quero Meu Orçamento de R$ 500 no WhatsApp</span>
           </a>
         </div>
+
+        {/* Texto pequeno abaixo do botão */}
+        <p
+          style={{
+            fontFamily: "'Montserrat', sans-serif",
+            fontSize: '0.88rem',
+            fontWeight: 600,
+            color: 'var(--ink-soft)',
+            marginBottom: '2.5rem',
+          }}
+        >
+          Resposta em até 30min &bull; Sem compromisso &bull; Manutenção R$ 50/mês
+        </p>
 
         {/* E-mail CTA Direct Box */}
         <div
@@ -115,7 +145,7 @@ export const Footer: React.FC<FooterProps> = ({
             padding: '0.75rem 1.25rem',
             borderRadius: 'var(--r-full)',
             marginBottom: '2.5rem',
-            boxShadow: '0 0 25px rgba(0, 212, 255, 0.12)',
+            boxShadow: '0 0 25px rgba(37, 211, 102, 0.12)',
             flexWrap: 'wrap',
             justifyContent: 'center',
           }}
@@ -126,10 +156,10 @@ export const Footer: React.FC<FooterProps> = ({
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.5rem',
-              color: 'var(--neon-cyan)',
+              color: '#25D366',
               fontFamily: "'Montserrat', sans-serif",
               fontSize: '0.9rem',
-              fontWeight: 600,
+              fontWeight: 700,
             }}
           >
             <Mail size={16} />
@@ -155,7 +185,7 @@ export const Footer: React.FC<FooterProps> = ({
             }}
             title="Copiar endereço de e-mail"
           >
-            {copied ? <Check size={14} color="var(--neon-cyan)" /> : <Copy size={14} />}
+            {copied ? <Check size={14} color="#25D366" /> : <Copy size={14} />}
             <span>{copied ? 'Copiado!' : 'Copiar'}</span>
           </button>
         </div>
@@ -179,7 +209,7 @@ export const Footer: React.FC<FooterProps> = ({
 
         <div className="footer-location-trust">
           <p className="footer-location">
-            São Paulo - SP &bull; Atendimento para empresas de todo o Brasil
+            São Paulo - SP &bull; Atendimento para microempreendedores de todo o Brasil
           </p>
           <p className="footer-security">
             Suas ideias e informações de projeto são tratadas com total sigilo profissional.

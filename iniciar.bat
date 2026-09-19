@@ -99,8 +99,7 @@ echo ================================================================
 echo  Iniciando servidor de desenvolvimento e abrindo navegador...
 echo ================================================================
 echo.
-start "" "http://localhost:5173"
-call npm run dev
+call npm run dev -- --open
 goto fim
 
 :dev

@@ -3,18 +3,13 @@ import {
   coreHighlights,
   solutionsData,
   processSteps,
-  trustPillars,
+  sectionCheckpoints,
+  skillsData,
 } from '../data/skills';
-import { timelineData } from '../data/timeline';
-import { CheckCircle2, ShieldCheck, Zap, UserCheck } from 'lucide-react';
+import { comparisonData } from '../data/timeline';
+import { CheckCircle2, XCircle, Award } from 'lucide-react';
 
 export const About: React.FC = () => {
-  const getPillarIcon = (idx: number) => {
-    if (idx === 0) return <UserCheck size={24} color="var(--neon-cyan)" />;
-    if (idx === 1) return <Zap size={24} color="var(--neon-cyan)" />;
-    return <ShieldCheck size={24} color="var(--neon-cyan)" />;
-  };
-
   return (
     <section id="sobre">
       <div className="section-container">
@@ -45,7 +40,7 @@ export const About: React.FC = () => {
                   fontFamily: "'Poppins', sans-serif",
                   fontWeight: 600,
                   fontSize: '0.75rem',
-                  color: 'var(--neon-cyan)',
+                  color: '#25D366',
                   letterSpacing: '0.1em',
                   textTransform: 'uppercase',
                   marginBottom: '0.5rem',
@@ -67,7 +62,7 @@ export const About: React.FC = () => {
           ))}
         </div>
 
-        {/* Section: Soluções Comerciais */}
+        {/* Section: O que desenvolvo para o seu negócio */}
         <div style={{ marginBottom: '4.5rem' }}>
           <h2
             style={{
@@ -75,51 +70,66 @@ export const About: React.FC = () => {
               fontSize: 'clamp(1.6rem, 3vw, 2.3rem)',
               fontWeight: 800,
               color: 'var(--ink-pure)',
-              marginBottom: '0.85rem',
+              marginBottom: '1rem',
+              lineHeight: 1.2,
             }}
           >
-            O que desenvolvo para o seu negócio
+            O que desenvolvo para o seu negócio - Focado em vender mais gastando menos
           </h2>
-          <p
+
+          {/* 3 Bullets com check embaixo do título da seção */}
+          <div
             style={{
-              color: 'var(--ink-soft)',
-              maxWidth: '680px',
-              fontSize: '1.05rem',
-              lineHeight: 1.6,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.65rem',
               marginBottom: '2.5rem',
             }}
           >
-            Soluções completas e práticas, projetadas sob medida para gerar resultados, simplificar sua rotina e posicionar sua empresa com autoridade.
-          </p>
+            {sectionCheckpoints.map((point, idx) => (
+              <div
+                key={idx}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.6rem',
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontSize: '0.98rem',
+                  fontWeight: 600,
+                  color: 'var(--ink-soft)',
+                }}
+              >
+                <CheckCircle2 size={18} color="#25D366" style={{ flexShrink: 0 }} />
+                <span>{point}</span>
+              </div>
+            ))}
+          </div>
 
           <div className="solutions-grid">
             {solutionsData.map((sol, idx) => (
               <div key={idx} className="solution-card">
-                <span className="solution-category">{sol.badge}</span>
+                <span
+                  className="solution-category"
+                  style={{
+                    backgroundColor: 'rgba(37, 211, 102, 0.12)',
+                    borderColor: 'rgba(37, 211, 102, 0.35)',
+                    color: '#25D366',
+                    fontWeight: 700,
+                  }}
+                >
+                  {sol.badge}
+                </span>
                 <h3 className="solution-title">{sol.title}</h3>
                 <p className="solution-desc">{sol.description}</p>
 
                 <ul className="solution-bullets" style={{ marginBottom: 0 }}>
                   {sol.highlights.map((bullet, bIdx) => (
                     <li key={bIdx}>
-                      <CheckCircle2 size={16} color="var(--neon-cyan)" />
+                      <CheckCircle2 size={16} color="#25D366" />
                       <span>{bullet}</span>
                     </li>
                   ))}
                 </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Section: Pilares de Confiança */}
-        <div style={{ marginBottom: '4.5rem' }}>
-          <div className="trust-grid">
-            {trustPillars.map((pillar, idx) => (
-              <div key={idx} className="trust-card">
-                <div className="trust-icon-box">{getPillarIcon(idx)}</div>
-                <h3 className="trust-title">{pillar.title}</h3>
-                <p className="trust-desc">{pillar.desc}</p>
               </div>
             ))}
           </div>
@@ -136,7 +146,7 @@ export const About: React.FC = () => {
               marginBottom: '0.85rem',
             }}
           >
-            Como funciona o projeto
+            Como funciona - Simples e sem burocracia para microempreendedores
           </h2>
           <p
             style={{
@@ -147,7 +157,7 @@ export const About: React.FC = () => {
               marginBottom: '2.5rem',
             }}
           >
-            Um processo claro e sem burocracia, do primeiro contato até o lançamento oficial.
+            Um processo claro e sem enrolação, do primeiro contato até o lançamento oficial com suporte garantido.
           </p>
 
           <div className="process-grid">
@@ -161,50 +171,227 @@ export const About: React.FC = () => {
           </div>
         </div>
 
-        {/* Bio & Timeline Grid */}
-        <div className="about-grid">
-          {/* Bio & Skills */}
+        {/* Two Columns Comparison & Tech Stack */}
+        <div className="about-grid" style={{ marginBottom: '3.5rem' }}>
+          {/* COLUNA 1: Por que microempreendedor foge de agência? */}
+          <div>
+            <h3
+              style={{
+                fontFamily: "'Montserrat', sans-serif",
+                fontSize: '1.35rem',
+                fontWeight: 700,
+                color: 'var(--ink-pure)',
+                marginBottom: '1.25rem',
+                lineHeight: 1.3,
+              }}
+            >
+              Por que microempreendedor foge de agência?
+            </h3>
+
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1rem',
+              }}
+            >
+              {comparisonData.map((row, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    background: 'var(--void-card)',
+                    border: '1px solid var(--void-line)',
+                    borderRadius: 'var(--r-md)',
+                    padding: '1.15rem',
+                  }}
+                >
+                  <div
+                    style={{
+                      fontFamily: "'Poppins', sans-serif",
+                      fontWeight: 700,
+                      fontSize: '0.82rem',
+                      color: '#25D366',
+                      letterSpacing: '0.05em',
+                      textTransform: 'uppercase',
+                      marginBottom: '0.65rem',
+                    }}
+                  >
+                    {row.criterion}
+                  </div>
+
+                  <div
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
+                      gap: '0.85rem',
+                    }}
+                  >
+                    {/* Agência */}
+                    <div
+                      style={{
+                        background: 'rgba(255, 60, 60, 0.05)',
+                        border: '1px solid rgba(255, 80, 80, 0.15)',
+                        borderRadius: 'var(--r-sm)',
+                        padding: '0.75rem',
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.4rem',
+                          fontFamily: "'Poppins', sans-serif",
+                          fontWeight: 700,
+                          fontSize: '0.72rem',
+                          color: '#ff6b6b',
+                          marginBottom: '0.35rem',
+                          textTransform: 'uppercase',
+                        }}
+                      >
+                        <XCircle size={14} />
+                        <span>Agência</span>
+                      </div>
+                      <p
+                        style={{
+                          fontSize: '0.85rem',
+                          color: 'var(--ink-soft)',
+                          margin: 0,
+                          lineHeight: 1.4,
+                        }}
+                      >
+                        {row.agency}
+                      </p>
+                    </div>
+
+                    {/* Direto com Dev */}
+                    <div
+                      style={{
+                        background: 'rgba(37, 211, 102, 0.07)',
+                        border: '1px solid rgba(37, 211, 102, 0.35)',
+                        borderRadius: 'var(--r-sm)',
+                        padding: '0.75rem',
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.4rem',
+                          fontFamily: "'Poppins', sans-serif",
+                          fontWeight: 700,
+                          fontSize: '0.72rem',
+                          color: '#25D366',
+                          marginBottom: '0.35rem',
+                          textTransform: 'uppercase',
+                        }}
+                      >
+                        <CheckCircle2 size={14} />
+                        <span>Direto com Dev</span>
+                      </div>
+                      <p
+                        style={{
+                          fontSize: '0.85rem',
+                          color: 'var(--ink-pure)',
+                          fontWeight: 700,
+                          margin: 0,
+                          lineHeight: 1.4,
+                        }}
+                      >
+                        {row.direct}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* COLUNA 2: Tecnologia que não te deixa na mão */}
           <div className="about-text">
             <h3
               style={{
                 fontFamily: "'Montserrat', sans-serif",
-                fontSize: '1.4rem',
+                fontSize: '1.35rem',
                 fontWeight: 700,
                 color: 'var(--ink-pure)',
-                marginBottom: '1rem',
+                marginBottom: '1.25rem',
+                lineHeight: 1.3,
               }}
             >
-              Compromisso com Qualidade Técnica
+              Tecnologia que não te deixa na mão
             </h3>
             <p>
-              Sou desenvolvedor full-stack e mobile focado em criar ferramentas funcionais, rápidas e seguras.
-            </p>
-            <p>
-              Em vez de templates pesados e genéricos que deixam os sites lentos, construo aplicações utilizando tecnologias modernas adotadas pelas maiores empresas de tecnologia do mundo.
-            </p>
-            <p>
-              O resultado para o seu negócio é um site ou aplicativo que carrega em fração de segundos, não trava e oferece uma experiência de compra ou navegação impecável para o seu cliente.
+              Em vez de templates pesados e genéricos que deixam seu site lento e te fazem perder o cliente que você pagou no Google, eu construo do zero usando o que as maiores empresas do mundo usam: React, Next.js, Flutter e Firebase. O resultado é um site que carrega em fração de segundos, não trava e passa segurança para quem compra.
             </p>
 
-            <p style={{ marginTop: '1rem', color: 'var(--ink-mute)', fontSize: '0.9rem' }}>
-              Base tecnológica moderna: <strong>React, TypeScript, Flutter, Android Nativo, Node.js, Firebase</strong> e infraestrutura em nuvem de alta disponibilidade.
-            </p>
-          </div>
-
-          {/* Timeline & Milestones */}
-          <div>
-            <span className="about-subtitle" style={{ marginTop: 0 }}>
-              Jornada & Experiência
+            <span className="about-subtitle" style={{ marginTop: '1.75rem' }}>
+              Tecnologias Utilizadas
             </span>
-            <div className="timeline">
-              {timelineData.map((item, idx) => (
-                <div key={idx} className="timeline-item">
-                  <div className="timeline-phase">{item.period} — {item.phase}</div>
-                  <h3 className="timeline-title">{item.title}</h3>
-                  <p className="timeline-desc">{item.description}</p>
+            <div className="about-tech-grid">
+              {skillsData.map((tech, idx) => (
+                <div key={idx} className="tech-pill">
+                  {tech}
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+
+        {/* BLOCO DE GARANTIA (destaque com fundo escuro #111 e borda verde) */}
+        <div
+          style={{
+            backgroundColor: '#111111',
+            border: '2px solid #25D366',
+            borderRadius: 'var(--r-lg)',
+            padding: '2rem 2.5rem',
+            boxShadow: '0 0 35px rgba(37, 211, 102, 0.25)',
+            display: 'flex',
+            alignItems: 'flex-start',
+            gap: '1.5rem',
+            position: 'relative',
+            overflow: 'hidden',
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: 'rgba(37, 211, 102, 0.15)',
+              border: '1px solid #25D366',
+              borderRadius: '50%',
+              padding: '0.85rem',
+              color: '#25D366',
+              flexShrink: 0,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <Award size={32} />
+          </div>
+
+          <div>
+            <h4
+              style={{
+                fontFamily: "'Montserrat', sans-serif",
+                fontWeight: 800,
+                fontSize: '1.35rem',
+                color: '#ffffff',
+                marginBottom: '0.5rem',
+                letterSpacing: '-0.01em',
+              }}
+            >
+              Garantia de Performance e Funcionamento
+            </h4>
+            <p
+              style={{
+                fontFamily: "'Montserrat', sans-serif",
+                fontSize: '1.02rem',
+                color: '#e2e8f0',
+                lineHeight: 1.65,
+                margin: 0,
+              }}
+            >
+              Se seu site não abrir em até 1 segundo no celular após a entrega, eu otimizo de graça até abrir. Suporte e manutenção já inclusos nos R$ 50/mês.
+            </p>
           </div>
         </div>
       </div>

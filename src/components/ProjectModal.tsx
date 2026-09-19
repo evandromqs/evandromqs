@@ -34,7 +34,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
   const whatsappProjectUrl = `https://wa.me/5511976920649?text=${encodeURIComponent(
     `Olá vi o projeto "${project.name}" no seu site e gostaria de um orçamento para algo parecido no meu negócio.`
-  )}`;
+  )}&utm_source=project_modal_${project.id}`;
 
   return (
     <div className="modal-overlay" onClick={onClose}>
