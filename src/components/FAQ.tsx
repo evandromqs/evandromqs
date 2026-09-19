@@ -129,13 +129,13 @@ export const FAQ: React.FC = () => {
             return (
               <div
                 key={index}
-                className="faq-item transition-all"
+                className={`faq-item transition-all ${isOpen ? 'open' : ''}`}
                 style={{
-                  backgroundColor: 'var(--void-card)',
-                  border: '1px solid var(--void-line)',
+                  backgroundColor: isOpen ? 'var(--void-card-hover)' : 'var(--void-card)',
+                  border: isOpen ? '1px solid var(--neon-cyan)' : '1px solid var(--void-line)',
                   borderRadius: '0.875rem',
                   overflow: 'hidden',
-                  boxShadow: 'var(--card-shadow)',
+                  boxShadow: isOpen ? '0 4px 20px -2px rgba(37, 99, 235, 0.15)' : 'var(--card-shadow)',
                 }}
                 onClick={() => toggleFAQ(index)}
               >

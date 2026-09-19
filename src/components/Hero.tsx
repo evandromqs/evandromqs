@@ -95,7 +95,9 @@ export const Hero: React.FC = () => {
             style={{
               backgroundColor: 'var(--btn-sec-bg)',
               color: 'var(--ink-pure)',
-              borderColor: 'var(--void-line)',
+              borderColor: 'var(--void-line-hover)',
+              borderWidth: '1.5px',
+              borderStyle: 'solid',
               fontSize: 'clamp(0.85rem, 1.6vw, 0.95rem)',
               padding: 'clamp(0.85rem, 2vw, 1rem) clamp(1.25rem, 2.5vw, 1.75rem)',
             }}
@@ -120,7 +122,7 @@ export const Hero: React.FC = () => {
           </div>
           <div className="hero-trust-item flex items-center gap-2">
             <CheckCircle2 size={16} color="var(--neon-cyan)" />
-            <span>A partir de R$ 500 + R$ 50/mês sem surpresa</span>
+            <span>A partir de R$ 500 + R$ 50/mês sem&nbsp;surpresa</span>
           </div>
         </div>
       </div>

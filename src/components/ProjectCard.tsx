@@ -37,7 +37,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
           overflow: 'hidden',
           marginBottom: '1rem',
           backgroundColor: 'var(--void-dark)',
-          border: '1px solid var(--void-line)',
+          border: '1px solid var(--card-media-border, var(--void-line))',
         }}
       >
         {isVideo ? (
@@ -162,22 +162,22 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
           style={{
             display: 'inline-flex',
             alignItems: 'center',
-            gap: '0.25rem',
-            background: 'none',
-            border: 'none',
+            gap: '0.3rem',
+            backgroundColor: 'var(--btn-sec-bg)',
+            border: '1px solid var(--void-line)',
             color: 'var(--ink-pure)',
             fontFamily: "'Montserrat', sans-serif",
-            fontWeight: 800,
-            fontSize: '0.75rem',
+            fontWeight: 700,
+            fontSize: '0.76rem',
             cursor: 'pointer',
-            letterSpacing: '0.05em',
-            padding: '0.35rem 0.6rem',
-            borderRadius: '0.375rem',
+            letterSpacing: '0.04em',
+            padding: '0.35rem 0.75rem',
+            borderRadius: '9999px',
             transition: 'all 0.2s',
           }}
         >
           <span>DETALHES</span>
-          <ArrowUpRight size={14} />
+          <ArrowUpRight size={13} />
         </button>
       </div>
     </div>

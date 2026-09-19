@@ -86,14 +86,14 @@
   --navbar-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
   --card-bg: rgba(255, 255, 255, 0.88);
   --card-bg-hover: #ffffff;
-  --card-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
-  --card-shadow-hover: 0 20px 40px rgba(2, 132, 199, 0.15), 0 4px 12px rgba(15, 23, 42, 0.06);
+  --card-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+  --card-shadow-hover: 0 20px 40px rgba(37, 99, 235, 0.15), 0 4px 12px rgba(15, 23, 42, 0.06);
   --card-media-bg: #e2e8f0;
-  --card-media-border: rgba(15, 23, 42, 0.08);
+  --card-media-border: rgba(15, 23, 42, 0.14);
   --card-media-overlay: linear-gradient(180deg, transparent 50%, rgba(255, 255, 255, 0.8) 100%);
   --modal-overlay-bg: rgba(15, 23, 42, 0.6);
   --modal-bg: #ffffff;
-  --modal-shadow: 0 25px 60px rgba(15, 23, 42, 0.22), 0 0 30px rgba(2, 132, 199, 0.15);
+  --modal-shadow: 0 25px 60px rgba(15, 23, 42, 0.22), 0 0 30px rgba(37, 99, 235, 0.15);
   --btn-sec-bg: rgba(15, 23, 42, 0.04);
   --btn-sec-hover-bg: rgba(37, 99, 235, 0.08);
   --btn-pri-bg: #1d4ed8;
@@ -105,7 +105,7 @@
   --tag-color: #1d4ed8;
   --mobile-menu-bg: rgba(248, 250, 252, 0.98);
 
-  --void-line:  rgba(15, 23, 42, 0.09);
+  --void-line:  rgba(15, 23, 42, 0.12);
   --void-line-hover: rgba(37, 99, 235, 0.45);
   --void-grid:  rgba(15, 23, 42, 0.04);
 
@@ -715,6 +715,10 @@ button {
 /* ==========================================================================
    COMMON SECTION STYLES
    ========================================================================== */
+section, #hero, #sobre, #projetos, #faq, #contato {
+  scroll-margin-top: 5rem;
+}
+
 section {
   padding: 8rem 2.5rem;
   position: relative;
@@ -931,7 +935,25 @@ section {
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 640px) {
+  .category-filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-bottom: 1.75rem;
+  }
+  .category-filters::-webkit-scrollbar {
+    display: none;
+  }
+  .category-filters .filter-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
 }
 
 .filter-btn {
@@ -1578,8 +1600,93 @@ footer {
    ========================================================================== */
 .solutions-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .solutions-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.checkpoints-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 960px) {
+  .checkpoints-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+
+.checkpoint-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--void-card);
+  border: 1px solid var(--void-line);
+  padding: 0.85rem 1.15rem;
+  border-radius: var(--r-md);
+  box-shadow: var(--card-shadow);
+  transition: border-color 0.2s ease;
+}
+
+.checkpoint-chip:hover {
+  border-color: var(--neon-cyan);
+}
+
+.comparison-row-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .comparison-row-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
+
+.guarantee-card {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  background: var(--void-card);
+  border: 2px solid var(--neon-cyan);
+  border-radius: var(--r-xl);
+  padding: 2.25rem 2rem;
+  box-shadow: 0 0 35px var(--neon-glow);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .guarantee-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem 1.25rem;
+    gap: 1.25rem;
+  }
+}
+
+.guarantee-icon-wrapper {
+  width: 58px;
+  height: 58px;
+  min-width: 58px;
+  min-height: 58px;
+  border-radius: 50%;
+  background: var(--tag-bg);
+  border: 1.5px solid var(--neon-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 20px var(--neon-glow);
 }
 
 .solution-card {

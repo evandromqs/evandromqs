@@ -146,19 +146,17 @@ export const About: React.FC = () => {
           </h2>
 
           {/* 3 Bullets com check embaixo do título da seção */}
-          <div className="flex flex-col gap-2.5 sm:gap-3 mb-8 sm:mb-10">
+          <div className="checkpoints-grid mb-8 sm:mb-10">
             {sectionCheckpoints.map((point, idx) => (
-              <div
-                key={idx}
-                className="flex items-center gap-2.5 text-xs sm:text-sm md:text-base font-semibold"
-                style={{ color: 'var(--ink-soft)' }}
-              >
+              <div key={idx} className="checkpoint-chip">
                 <CheckCircle2
                   size={18}
                   className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0"
                   color="var(--neon-cyan)"
                 />
-                <span>{point}</span>
+                <span style={{ fontSize: '0.86rem', fontWeight: 600, color: 'var(--ink-soft)' }}>
+                  {point}
+                </span>
               </div>
             ))}
           </div>
@@ -286,7 +284,7 @@ export const About: React.FC = () => {
                     {row.criterion}
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+                  <div className="comparison-row-grid">
                     {/* Agência */}
                     <div
                       className="p-2.5 sm:p-3 rounded-lg"
@@ -431,28 +429,9 @@ export const About: React.FC = () => {
         {/* ==========================================================================
             4. BLOCO DE GARANTIA (destaque em Azul Royal)
            ========================================================================== */}
-        <div
-          className="mt-12 sm:mt-16 md:mt-20 p-5 sm:p-7 md:p-8 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 sm:gap-6 relative overflow-hidden"
-          style={{
-            backgroundColor: 'var(--void-card)',
-            border: '2px solid var(--neon-cyan)',
-            boxShadow: '0 0 30px var(--neon-glow)',
-          }}
-        >
-          <div
-            style={{
-              backgroundColor: 'var(--tag-bg)',
-              border: '1px solid var(--neon-cyan)',
-              borderRadius: '50%',
-              padding: 'clamp(0.7rem, 1.5vw, 0.9rem)',
-              color: 'var(--neon-cyan)',
-              flexShrink: 0,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <Award size={28} className="w-6 h-6 sm:w-8 sm:h-8" />
+        <div className="guarantee-card mt-12 sm:mt-16 md:mt-20">
+          <div className="guarantee-icon-wrapper">
+            <Award size={30} color="var(--neon-cyan)" />
           </div>
 
           <div>
