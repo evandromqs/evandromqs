@@ -7,8 +7,8 @@ interface FAQItem {
   answer: React.ReactNode;
 }
 
-const greenPrice = (text: string) => (
-  <strong style={{ color: '#25D366', fontWeight: 800 }}>{text}</strong>
+const priceHighlight = (text: string) => (
+  <strong style={{ color: 'var(--neon-cyan)', fontWeight: 800 }}>{text}</strong>
 );
 
 const faqData: FAQItem[] = [
@@ -16,7 +16,7 @@ const faqData: FAQItem[] = [
     question: 'Quanto custa para criar um site ou aplicativo?',
     answer: (
       <>
-        Preço fechado e acessível para microempreendedor. Sites e landing pages profissionais a partir de {greenPrice('R$ 500')} para criar + {greenPrice('R$ 50/mês')} de manutenção (já inclui hospedagem, domínio, suporte e otimização). Aplicativos a partir de {greenPrice('R$ 1.000')}. Lojas virtuais e sistemas completos a partir de {greenPrice('R$ 2.000 + R$ 50/mês')}. Me chama no WhatsApp que em 10 minutos te passo o valor fechado exato.
+        Preço fechado e acessível para microempreendedor. Sites e landing pages profissionais a partir de {priceHighlight('R$ 500')} para criar + {priceHighlight('R$ 50/mês')} de manutenção (já inclui hospedagem, domínio, suporte e otimização). Aplicativos a partir de {priceHighlight('R$ 1.000')}. Lojas virtuais e sistemas completos a partir de {priceHighlight('R$ 2.000 + R$ 50/mês')}. Me chama no WhatsApp que em 10 minutos te passo o valor fechado exato.
       </>
     ),
   },
@@ -40,7 +40,7 @@ const faqData: FAQItem[] = [
     question: 'Por que contratar direto com você e não com uma agência?',
     answer: (
       <>
-        Agência te cobra R$ 3 mil + R$ 300/mês, te atende um estagiário e usa WordPress lento. Comigo você investe a partir de {greenPrice('R$ 500 + R$ 50/mês')}, fala direto comigo, tem entrega em dias e código que abre em 1s.
+        Agência te cobra R$ 3 mil + R$ 300/mês, te atende um estagiário e usa WordPress lento. Comigo você investe a partir de {priceHighlight('R$ 500 + R$ 50/mês')}, fala direto comigo, tem entrega em dias e código que abre em 1s.
       </>
     ),
   },
@@ -48,7 +48,7 @@ const faqData: FAQItem[] = [
     question: 'Vou ter mensalidade ou comissão por venda?',
     answer: (
       <>
-        Zero comissão sobre vendas. Você só paga os {greenPrice('R$ 50/mês')} fixos de manutenção. Diferente do iFood que leva até 27% do seu pedido, aqui o cliente compra direto no seu WhatsApp e o lucro é 100% seu.
+        Zero comissão sobre vendas. Você só paga os {priceHighlight('R$ 50/mês')} fixos de manutenção. Diferente do iFood que leva até 27% do seu pedido, aqui o cliente compra direto no seu WhatsApp e o lucro é 100% seu.
       </>
     ),
   },
@@ -77,14 +77,17 @@ export const FAQ: React.FC = () => {
   return (
     <section
       id="faq"
-      className="faq-section py-20 md:py-28 bg-[#0a0a0a] text-white"
-      style={{ backgroundColor: '#0a0a0a' }}
+      className="faq-section py-20 md:py-28 transition-colors duration-300"
+      style={{
+        backgroundColor: 'var(--void-black)',
+        color: 'var(--ink-pure)',
+      }}
     >
       <div className="section-container max-w-4xl mx-auto px-4">
         <span
           className="section-label"
           style={{
-            color: '#25D366',
+            color: 'var(--neon-cyan)',
             fontWeight: 700,
             fontSize: '0.85rem',
             letterSpacing: '0.1em',
@@ -96,21 +99,21 @@ export const FAQ: React.FC = () => {
           // tire suas dúvidas
         </span>
         <h2
-          className="section-headline text-white"
+          className="section-headline"
           style={{
             fontFamily: "'Montserrat', sans-serif",
             fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)',
             fontWeight: 900,
-            color: '#ffffff',
+            color: 'var(--ink-pure)',
             marginBottom: '0.75rem',
           }}
         >
           Perguntas Frequentes
         </h2>
         <p
-          className="section-description text-zinc-400"
+          className="section-description"
           style={{
-            color: '#a1a1aa',
+            color: 'var(--ink-soft)',
             fontSize: '1.05rem',
             lineHeight: 1.6,
             marginBottom: '2.5rem',
@@ -125,13 +128,13 @@ export const FAQ: React.FC = () => {
             return (
               <div
                 key={index}
-                className="faq-item bg-[#141414] border border-zinc-800"
+                className="faq-item transition-all"
                 style={{
-                  backgroundColor: '#141414',
-                  border: '1px solid #27272a',
+                  backgroundColor: 'var(--void-card)',
+                  border: '1px solid var(--void-line)',
                   borderRadius: '0.875rem',
                   overflow: 'hidden',
-                  transition: 'border-color 0.2s',
+                  boxShadow: 'var(--card-shadow)',
                 }}
                 onClick={() => toggleFAQ(index)}
               >
@@ -141,17 +144,18 @@ export const FAQ: React.FC = () => {
                   style={{
                     backgroundColor: 'transparent',
                     border: 'none',
-                    color: '#ffffff',
+                    color: 'var(--ink-pure)',
                     fontFamily: "'Montserrat', sans-serif",
                     fontWeight: 700,
                     fontSize: '1.05rem',
+                    cursor: 'pointer',
                   }}
                   aria-expanded={isOpen}
                 >
                   <span className="faq-question">{item.question}</span>
                   <ChevronDown
                     size={20}
-                    color="#25D366"
+                    color="var(--neon-cyan)"
                     className={`faq-icon ${isOpen ? 'rotate' : ''}`}
                     style={{
                       transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
@@ -163,13 +167,13 @@ export const FAQ: React.FC = () => {
                 </button>
                 {isOpen && (
                   <div
-                    className="faq-answer px-5 pb-5 text-zinc-300"
+                    className="faq-answer px-5 pb-5"
                     style={{
-                      borderTop: '1px solid #222226',
+                      borderTop: '1px solid var(--void-line)',
                       paddingTop: '1rem',
                       fontSize: '0.98rem',
                       lineHeight: 1.65,
-                      color: '#d4d4d8',
+                      color: 'var(--ink-soft)',
                     }}
                   >
                     <p style={{ margin: 0 }}>{item.answer}</p>
@@ -182,13 +186,14 @@ export const FAQ: React.FC = () => {
 
         {/* Support CTA Callout */}
         <div
-          className="faq-footer-cta mt-12 p-6 rounded-2xl bg-[#141414] border border-zinc-800 text-center flex flex-col items-center justify-center gap-3"
+          className="faq-footer-cta mt-12 p-6 rounded-2xl text-center flex flex-col items-center justify-center gap-3"
           style={{
-            backgroundColor: '#141414',
-            border: '1px solid #27272a',
+            backgroundColor: 'var(--void-card)',
+            border: '1px solid var(--void-line)',
+            boxShadow: 'var(--card-shadow)',
           }}
         >
-          <p style={{ color: '#a1a1aa', fontWeight: 600, fontSize: '1rem', margin: 0 }}>
+          <p style={{ color: 'var(--ink-soft)', fontWeight: 600, fontSize: '1rem', margin: 0 }}>
             Ainda tem dúvida?
           </p>
           <a
@@ -197,13 +202,14 @@ export const FAQ: React.FC = () => {
             rel="noopener noreferrer"
             className="faq-cta-btn btn-whatsapp-pulse inline-flex items-center gap-2"
             style={{
-              backgroundColor: '#25D366',
+              backgroundColor: '#128C7E',
               color: '#ffffff',
               fontWeight: 800,
               fontSize: '0.95rem',
               padding: '0.85rem 1.75rem',
               borderRadius: '9999px',
               textDecoration: 'none',
+              cursor: 'pointer',
             }}
             onClick={() => reportWhatsAppConversion('faq_cta')}
           >

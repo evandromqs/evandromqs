@@ -15,21 +15,21 @@ export const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative bg-[#0a0a0a] text-white py-20 md:py-28 overflow-hidden flex flex-col justify-center items-center"
+      className="relative py-20 md:py-28 overflow-hidden flex flex-col justify-center items-center transition-colors duration-300"
       style={{
-        backgroundColor: '#0a0a0a',
-        color: '#ffffff',
+        backgroundColor: 'var(--void-black)',
+        color: 'var(--ink-pure)',
       }}
     >
       <div className="hero-content relative z-20 text-center max-w-4xl mx-auto px-4">
         <h1
           id="hero-title"
-          className="text-white font-black"
+          className="font-black"
           style={{
             fontSize: 'clamp(32px, 5vw, 48px)',
             fontWeight: 900,
-            color: '#ffffff',
-            WebkitTextFillColor: '#ffffff',
+            color: 'var(--ink-pure)',
+            WebkitTextFillColor: 'var(--ink-pure)',
             background: 'none',
             opacity: 1,
             lineHeight: 1.15,
@@ -41,9 +41,9 @@ export const Hero: React.FC = () => {
         </h1>
 
         <p
-          className="hero-description text-zinc-400"
+          className="hero-description"
           style={{
-            color: '#a1a1aa',
+            color: 'var(--ink-soft)',
             fontWeight: 500,
             maxWidth: '680px',
             margin: '0 auto 2rem auto',
@@ -61,13 +61,13 @@ export const Hero: React.FC = () => {
             rel="noopener noreferrer"
             className="btn-primary btn-whatsapp btn-whatsapp-pulse"
             style={{
-              backgroundColor: '#25D366',
+              backgroundColor: '#128C7E',
               color: '#ffffff',
               fontWeight: 800,
               fontSize: '1.05rem',
               padding: '1.15rem 2.25rem',
               borderRadius: '9999px',
-              boxShadow: '0 10px 28px rgba(37, 211, 102, 0.45)',
+              boxShadow: '0 10px 28px rgba(18, 140, 126, 0.45)',
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.75rem',
@@ -93,9 +93,9 @@ export const Hero: React.FC = () => {
             href="#projetos"
             className="btn-secondary"
             style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.05)',
-              color: '#ffffff',
-              borderColor: '#27272a',
+              backgroundColor: 'var(--btn-sec-bg)',
+              color: 'var(--ink-pure)',
+              borderColor: 'var(--void-line)',
             }}
           >
             <span>Ver Projetos Reais Que Estão Vendendo</span>
@@ -104,17 +104,20 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Micro-Trust Badges */}
-        <div className="hero-trust-row relative z-20 flex flex-wrap justify-center gap-6 text-sm text-zinc-300">
+        <div
+          className="hero-trust-row relative z-20 flex flex-wrap justify-center gap-6 text-sm"
+          style={{ color: 'var(--ink-soft)' }}
+        >
           <div className="hero-trust-item flex items-center gap-2">
-            <CheckCircle2 size={16} color="#25D366" />
+            <CheckCircle2 size={16} color="var(--neon-cyan)" />
             <span>Resposta em até 30min no WhatsApp</span>
           </div>
           <div className="hero-trust-item flex items-center gap-2">
-            <CheckCircle2 size={16} color="#25D366" />
+            <CheckCircle2 size={16} color="var(--neon-cyan)" />
             <span>8 Projetos Ativos e Vendendo</span>
           </div>
           <div className="hero-trust-item flex items-center gap-2">
-            <CheckCircle2 size={16} color="#25D366" />
+            <CheckCircle2 size={16} color="var(--neon-cyan)" />
             <span>A partir de R$ 500 + R$ 50/mês sem surpresa</span>
           </div>
         </div>
@@ -124,7 +127,7 @@ export const Hero: React.FC = () => {
       <div
         className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none z-10"
         style={{
-          background: 'linear-gradient(to top, #0a0a0a 0%, rgba(10, 10, 10, 0.6) 60%, transparent 100%)',
+          background: 'linear-gradient(to top, var(--void-black) 0%, transparent 100%)',
         }}
       />
     </section>

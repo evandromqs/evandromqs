@@ -62,10 +62,14 @@ export const Footer: React.FC<FooterProps> = ({
   return (
     <footer
       id="contato"
-      className="py-20 md:py-28 bg-[#0a0a0a] text-white border-t border-zinc-900"
-      style={{ backgroundColor: '#0a0a0a', color: '#ffffff' }}
+      className="py-20 md:py-28 transition-colors duration-300"
+      style={{
+        backgroundColor: 'var(--void-black)',
+        color: 'var(--ink-pure)',
+        borderTop: '1px solid var(--void-line)',
+      }}
     >
-      <div className="footer-content max-w-4xl mx-auto px-4">
+      <div className="footer-content max-w-4xl mx-auto px-4 text-center">
         <div style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}>
           <img
             src="/favicon.svg"
@@ -76,15 +80,33 @@ export const Footer: React.FC<FooterProps> = ({
               border: 'none',
               background: 'transparent',
               padding: 0,
-              filter: 'drop-shadow(0 0 14px rgba(37, 211, 102, 0.45))',
+              filter: 'drop-shadow(0 0 14px var(--neon-glow))',
             }}
           />
         </div>
 
-        <h2 className="footer-title">
+        <h2
+          className="footer-title"
+          style={{
+            color: 'var(--ink-pure)',
+            fontFamily: "'Montserrat', sans-serif",
+            fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+            fontWeight: 800,
+            marginBottom: '1rem',
+            lineHeight: 1.3,
+          }}
+        >
           Pronto para colocar seu projeto no ar essa semana por a partir de R$ 500?
         </h2>
-        <p className="footer-subtitle">
+        <p
+          className="footer-subtitle"
+          style={{
+            color: 'var(--ink-soft)',
+            fontFamily: "'Montserrat', sans-serif",
+            fontSize: '1.05rem',
+            marginBottom: '2.5rem',
+          }}
+        >
           Me chama no WhatsApp agora. Em até 30min te mando plano de ação com valor fechado.
         </p>
 
@@ -96,13 +118,13 @@ export const Footer: React.FC<FooterProps> = ({
             rel="noopener noreferrer"
             className="btn-primary btn-whatsapp btn-whatsapp-pulse"
             style={{
-              backgroundColor: '#25D366',
+              backgroundColor: '#128C7E',
               color: '#ffffff',
               fontWeight: 800,
               fontSize: '1.1rem',
               padding: '1.25rem 2.5rem',
               borderRadius: '9999px',
-              boxShadow: '0 10px 30px rgba(37, 211, 102, 0.5)',
+              boxShadow: '0 10px 30px rgba(18, 140, 126, 0.45)',
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.85rem',
@@ -131,7 +153,7 @@ export const Footer: React.FC<FooterProps> = ({
             fontFamily: "'Montserrat', sans-serif",
             fontSize: '0.88rem',
             fontWeight: 600,
-            color: '#a1a1aa',
+            color: 'var(--ink-soft)',
             marginBottom: '2.5rem',
           }}
         >
@@ -144,12 +166,12 @@ export const Footer: React.FC<FooterProps> = ({
             display: 'inline-flex',
             alignItems: 'center',
             gap: '0.75rem',
-            background: '#141414',
-            border: '1px solid #27272a',
+            background: 'var(--void-card)',
+            border: '1px solid var(--void-line)',
             padding: '0.75rem 1.25rem',
             borderRadius: '9999px',
             marginBottom: '2.5rem',
-            boxShadow: '0 0 25px rgba(37, 211, 102, 0.12)',
+            boxShadow: '0 0 25px var(--neon-glow)',
             flexWrap: 'wrap',
             justifyContent: 'center',
           }}
@@ -160,7 +182,7 @@ export const Footer: React.FC<FooterProps> = ({
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.5rem',
-              color: '#25D366',
+              color: 'var(--neon-cyan)',
               fontFamily: "'Montserrat', sans-serif",
               fontSize: '0.9rem',
               fontWeight: 700,
@@ -177,9 +199,9 @@ export const Footer: React.FC<FooterProps> = ({
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.35rem',
-              background: 'rgba(255, 255, 255, 0.08)',
-              border: '1px solid #3f3f46',
-              color: '#d4d4d8',
+              background: 'var(--btn-sec-bg)',
+              border: '1px solid var(--void-line)',
+              color: 'var(--ink-soft)',
               padding: '0.35rem 0.75rem',
               borderRadius: '9999px',
               fontSize: '0.75rem',
@@ -190,13 +212,13 @@ export const Footer: React.FC<FooterProps> = ({
             }}
             title="Copiar endereço de e-mail"
           >
-            {copied ? <Check size={14} color="#25D366" /> : <Copy size={14} />}
+            {copied ? <Check size={14} color="var(--neon-cyan)" /> : <Copy size={14} />}
             <span>{copied ? 'Copiado!' : 'Copiar'}</span>
           </button>
         </div>
 
         {/* Social Links Bar */}
-        <div className="footer-social-links">
+        <div className="footer-social-links flex justify-center gap-4 flex-wrap mb-10">
           {socialLinks.map((social) => (
             <a
               key={social.name}
@@ -205,9 +227,9 @@ export const Footer: React.FC<FooterProps> = ({
               rel="noopener noreferrer"
               className="social-btn"
               style={{
-                backgroundColor: '#141414',
-                borderColor: '#27272a',
-                color: '#e4e4e7',
+                backgroundColor: 'var(--void-card)',
+                borderColor: 'var(--void-line)',
+                color: 'var(--ink-pure)',
               }}
               title={social.name}
             >
@@ -218,15 +240,15 @@ export const Footer: React.FC<FooterProps> = ({
         </div>
 
         <div className="footer-location-trust">
-          <p className="footer-location" style={{ color: '#a1a1aa' }}>
+          <p className="footer-location" style={{ color: 'var(--ink-soft)' }}>
             São Paulo - SP &bull; Atendimento para microempreendedores de todo o Brasil
           </p>
-          <p className="footer-security" style={{ color: '#71717a' }}>
+          <p className="footer-security" style={{ color: 'var(--ink-mute)' }}>
             Suas ideias e informações de projeto são tratadas com total sigilo profissional.
           </p>
         </div>
 
-        <div className="footer-copy" style={{ borderColor: '#27272a', color: '#71717a' }}>
+        <div className="footer-copy" style={{ borderColor: 'var(--void-line)', color: 'var(--ink-mute)' }}>
           <p>
             EvandroMqs &bull; Soluções Digitais sob Medida &bull; &copy; {new Date().getFullYear()}
           </p>

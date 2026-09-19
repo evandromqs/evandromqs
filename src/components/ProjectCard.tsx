@@ -15,13 +15,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
       className="project-card group"
       onClick={() => onSelect(project)}
       style={{
-        backgroundColor: '#ffffff',
-        border: '1px solid #e5e7eb',
+        backgroundColor: 'var(--void-card)',
+        border: '1px solid var(--void-line)',
         borderRadius: '1rem',
         padding: '1.25rem',
         display: 'flex',
         flexDirection: 'column',
-        boxShadow: '0 4px 18px rgba(0, 0, 0, 0.04)',
+        boxShadow: 'var(--card-shadow)',
         transition: 'all 0.3s ease',
         cursor: 'pointer',
       }}
@@ -36,8 +36,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
           borderRadius: '0.75rem',
           overflow: 'hidden',
           marginBottom: '1rem',
-          backgroundColor: '#f8fafc',
-          border: '1px solid #e5e7eb',
+          backgroundColor: 'var(--void-dark)',
+          border: '1px solid var(--void-line)',
         }}
       >
         {isVideo ? (
@@ -62,13 +62,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
 
         <div className="card-media-overlay" />
 
-        {/* Tag verde superior */}
+        {/* Tag superior em Azul Turquesa */}
         <span
           style={{
             position: 'absolute',
             top: '10px',
             left: '10px',
-            backgroundColor: '#25D366',
+            backgroundColor: 'var(--neon-cyan)',
             color: '#ffffff',
             fontWeight: 800,
             fontSize: '0.72rem',
@@ -91,7 +91,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
           fontFamily: "'Montserrat', sans-serif",
           fontSize: '1.15rem',
           fontWeight: 800,
-          color: '#0a0a0a',
+          color: 'var(--ink-pure)',
           marginBottom: '0.5rem',
           lineHeight: 1.25,
         }}
@@ -104,7 +104,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
         style={{
           fontFamily: "'Montserrat', sans-serif",
           fontSize: '0.88rem',
-          color: '#475569',
+          color: 'var(--ink-soft)',
           lineHeight: 1.5,
           marginBottom: '1.25rem',
           fontWeight: 500,
@@ -126,7 +126,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
           alignItems: 'center',
           justifyContent: 'space-between',
           paddingTop: '0.75rem',
-          borderTop: '1px solid #f1f5f9',
+          borderTop: '1px solid var(--void-line)',
         }}
       >
         {project.liveUrl ? (
@@ -140,7 +140,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.35rem',
-              color: '#25D366',
+              color: 'var(--neon-cyan)',
               fontFamily: "'Montserrat', sans-serif",
               fontWeight: 700,
               fontSize: '0.85rem',
@@ -165,13 +165,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
             gap: '0.25rem',
             background: 'none',
             border: 'none',
-            color: '#0a0a0a',
+            color: 'var(--ink-pure)',
             fontFamily: "'Montserrat', sans-serif",
             fontWeight: 800,
-            fontSize: '0.82rem',
+            fontSize: '0.75rem',
             cursor: 'pointer',
-            padding: 0,
-            letterSpacing: '0.04em',
+            letterSpacing: '0.05em',
+            padding: '0.35rem 0.6rem',
+            borderRadius: '0.375rem',
+            transition: 'all 0.2s',
           }}
         >
           <span>DETALHES</span>

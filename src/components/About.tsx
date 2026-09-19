@@ -12,18 +12,21 @@ export const About: React.FC = () => {
   return (
     <section
       id="sobre"
-      className="py-20 md:py-28 bg-[#0a0a0a] text-white"
-      style={{ backgroundColor: '#0a0a0a' }}
+      className="py-20 md:py-28 transition-colors duration-300"
+      style={{
+        backgroundColor: 'var(--void-black)',
+        color: 'var(--ink-pure)',
+      }}
     >
       <div className="section-container max-w-6xl mx-auto px-4">
         {/* ==========================================================================
-            1. COMO FUNCIONA (Respiro mt-24 md:mt-32 pt-16 border-t border-zinc-900)
+            1. COMO FUNCIONA (Respiro generoso pt-4)
            ========================================================================== */}
         <div id="como-funciona" className="pt-4">
           <span
             className="section-label"
             style={{
-              color: '#25D366',
+              color: 'var(--neon-cyan)',
               fontWeight: 700,
               fontSize: '0.85rem',
               letterSpacing: '0.1em',
@@ -40,7 +43,7 @@ export const About: React.FC = () => {
               fontFamily: "'Montserrat', sans-serif",
               fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)',
               fontWeight: 900,
-              color: '#ffffff',
+              color: 'var(--ink-pure)',
               marginBottom: '0.85rem',
               lineHeight: 1.25,
             }}
@@ -49,8 +52,8 @@ export const About: React.FC = () => {
           </h2>
 
           <p
-            className="text-zinc-400 text-sm md:text-base leading-relaxed mb-10 max-w-2xl"
-            style={{ color: '#a1a1aa' }}
+            className="text-sm md:text-base leading-relaxed mb-10 max-w-2xl"
+            style={{ color: 'var(--ink-soft)' }}
           >
             Um processo claro e sem enrolação, do primeiro contato até o lançamento oficial com suporte garantido.
           </p>
@@ -59,18 +62,18 @@ export const About: React.FC = () => {
             {processSteps.map((step, idx) => (
               <div
                 key={idx}
-                className="process-card bg-[#141414] border border-zinc-800 rounded-2xl p-6 hover:border-zinc-700 transition-all flex flex-col justify-between"
+                className="process-card rounded-2xl p-6 transition-all flex flex-col justify-between"
                 style={{
-                  backgroundColor: '#141414',
-                  border: '1px solid #27272a',
-                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.35)',
+                  backgroundColor: 'var(--void-card)',
+                  border: '1px solid var(--void-line)',
+                  boxShadow: 'var(--card-shadow)',
                 }}
               >
                 <div>
                   <div
                     className="process-number"
                     style={{
-                      color: '#25D366',
+                      color: 'var(--neon-cyan)',
                       fontFamily: "'Poppins', sans-serif",
                       fontWeight: 900,
                       fontSize: '1.75rem',
@@ -80,19 +83,20 @@ export const About: React.FC = () => {
                     {step.step}
                   </div>
                   <h4
-                    className="process-title text-base font-bold text-white mb-2"
+                    className="process-title text-base font-bold mb-2"
                     style={{
                       fontFamily: "'Montserrat', sans-serif",
+                      color: 'var(--ink-pure)',
                       lineHeight: 1.35,
                     }}
                   >
                     {step.title}
                   </h4>
                   <p
-                    className="process-desc text-sm text-zinc-400 leading-relaxed"
+                    className="process-desc text-sm leading-relaxed"
                     style={{
                       fontFamily: "'Montserrat', sans-serif",
-                      color: '#a1a1aa',
+                      color: 'var(--ink-soft)',
                     }}
                   >
                     {step.description}
@@ -104,19 +108,19 @@ export const About: React.FC = () => {
         </div>
 
         {/* ==========================================================================
-            2. O QUE DESENVOLVO (Respiro mt-24 md:mt-32 pt-16 border-t border-zinc-900)
+            2. O QUE DESENVOLVO (Respiro mt-24 md:mt-32 pt-16 border-t)
            ========================================================================== */}
         <div
           id="solucoes"
-          className="mt-24 md:mt-32 pt-16 border-t border-zinc-900"
+          className="mt-24 md:mt-32 pt-16"
           style={{
-            borderTop: '1px solid #18181b',
+            borderTop: '1px solid var(--void-line)',
           }}
         >
           <span
             className="section-label"
             style={{
-              color: '#25D366',
+              color: 'var(--neon-cyan)',
               fontWeight: 700,
               fontSize: '0.85rem',
               letterSpacing: '0.1em',
@@ -133,7 +137,7 @@ export const About: React.FC = () => {
               fontFamily: "'Montserrat', sans-serif",
               fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)',
               fontWeight: 900,
-              color: '#ffffff',
+              color: 'var(--ink-pure)',
               marginBottom: '1rem',
               lineHeight: 1.2,
             }}
@@ -146,12 +150,13 @@ export const About: React.FC = () => {
             {sectionCheckpoints.map((point, idx) => (
               <div
                 key={idx}
-                className="flex items-center gap-2.5 text-sm md:text-base font-semibold text-zinc-300"
+                className="flex items-center gap-2.5 text-sm md:text-base font-semibold"
+                style={{ color: 'var(--ink-soft)' }}
               >
                 <CheckCircle2
                   size={20}
-                  className="w-5 h-5 flex-shrink-0 text-emerald-400"
-                  color="#25D366"
+                  className="w-5 h-5 flex-shrink-0"
+                  color="var(--neon-cyan)"
                 />
                 <span>{point}</span>
               </div>
@@ -162,22 +167,23 @@ export const About: React.FC = () => {
             {solutionsData.map((sol, idx) => (
               <div
                 key={idx}
-                className="solution-card bg-[#141414] border border-zinc-800 hover:border-emerald-500/40 transition-all rounded-2xl p-6 flex flex-col justify-between"
+                className="solution-card rounded-2xl p-6 flex flex-col justify-between transition-all"
                 style={{
-                  backgroundColor: '#141414',
-                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.4)',
+                  backgroundColor: 'var(--void-card)',
+                  border: '1px solid var(--void-line)',
+                  boxShadow: 'var(--card-shadow)',
                 }}
               >
                 <div>
                   <span
                     className="solution-category"
                     style={{
-                      backgroundColor: 'rgba(37, 211, 102, 0.15)',
-                      border: '1px solid rgba(37, 211, 102, 0.4)',
-                      color: '#25D366',
+                      backgroundColor: 'rgba(2, 132, 199, 0.08)',
+                      border: '1px solid var(--neon-cyan)',
+                      color: 'var(--neon-cyan)',
                       fontWeight: 800,
                       fontSize: '0.82rem',
-                      padding: '4px 10px',
+                      padding: '4px 11px',
                       borderRadius: '9999px',
                       display: 'inline-block',
                       marginBottom: '1rem',
@@ -189,9 +195,10 @@ export const About: React.FC = () => {
                   </span>
 
                   <h3
-                    className="solution-title text-base font-bold text-white mb-2"
+                    className="solution-title text-base font-bold mb-2"
                     style={{
                       fontFamily: "'Montserrat', sans-serif",
+                      color: 'var(--ink-pure)',
                       lineHeight: 1.35,
                     }}
                   >
@@ -199,10 +206,10 @@ export const About: React.FC = () => {
                   </h3>
 
                   <p
-                    className="solution-desc text-sm text-zinc-400 leading-relaxed mb-6"
+                    className="solution-desc text-sm leading-relaxed mb-6"
                     style={{
                       fontFamily: "'Montserrat', sans-serif",
-                      color: '#a1a1aa',
+                      color: 'var(--ink-soft)',
                     }}
                   >
                     {sol.description}
@@ -213,12 +220,13 @@ export const About: React.FC = () => {
                   {sol.highlights.map((bullet, bIdx) => (
                     <li
                       key={bIdx}
-                      className="flex items-center gap-2.5 text-sm font-semibold text-zinc-200"
+                      className="flex items-center gap-2.5 text-sm font-semibold"
+                      style={{ color: 'var(--ink-pure)' }}
                     >
                       <CheckCircle2
                         size={20}
-                        className="w-5 h-5 flex-shrink-0 text-emerald-400"
-                        color="#25D366"
+                        className="w-5 h-5 flex-shrink-0"
+                        color="var(--neon-cyan)"
                       />
                       <span>{bullet}</span>
                     </li>
@@ -230,12 +238,12 @@ export const About: React.FC = () => {
         </div>
 
         {/* ==========================================================================
-            3. COMPARATIVO & TECH STACK (Respiro mt-24 md:mt-32 pt-16 border-t border-zinc-900)
+            3. COMPARATIVO & TECH STACK (Respiro mt-24 md:mt-32 pt-16 border-t)
            ========================================================================== */}
         <div
-          className="about-grid mt-24 md:mt-32 pt-16 border-t border-zinc-900 grid grid-cols-1 lg:grid-cols-2 gap-12"
+          className="about-grid mt-24 md:mt-32 pt-16 grid grid-cols-1 lg:grid-cols-2 gap-12"
           style={{
-            borderTop: '1px solid #18181b',
+            borderTop: '1px solid var(--void-line)',
           }}
         >
           {/* COLUNA 1: Por que microempreendedor foge de agência? */}
@@ -245,7 +253,7 @@ export const About: React.FC = () => {
                 fontFamily: "'Montserrat', sans-serif",
                 fontSize: '1.45rem',
                 fontWeight: 900,
-                color: '#ffffff',
+                color: 'var(--ink-pure)',
                 marginBottom: '1.5rem',
                 lineHeight: 1.3,
               }}
@@ -257,10 +265,11 @@ export const About: React.FC = () => {
               {comparisonData.map((row, idx) => (
                 <div
                   key={idx}
-                  className="bg-[#141414] border border-zinc-800 rounded-xl p-4"
+                  className="rounded-xl p-4 transition-all"
                   style={{
-                    backgroundColor: '#141414',
-                    border: '1px solid #27272a',
+                    backgroundColor: 'var(--void-card)',
+                    border: '1px solid var(--void-line)',
+                    boxShadow: 'var(--card-shadow)',
                   }}
                 >
                   <div
@@ -268,7 +277,7 @@ export const About: React.FC = () => {
                       fontFamily: "'Poppins', sans-serif",
                       fontWeight: 700,
                       fontSize: '0.85rem',
-                      color: '#25D366',
+                      color: 'var(--neon-cyan)',
                       letterSpacing: '0.05em',
                       textTransform: 'uppercase',
                       marginBottom: '0.65rem',
@@ -281,8 +290,8 @@ export const About: React.FC = () => {
                     {/* Agência */}
                     <div
                       style={{
-                        backgroundColor: 'rgba(255, 60, 60, 0.06)',
-                        border: '1px solid rgba(255, 80, 80, 0.25)',
+                        backgroundColor: 'rgba(239, 68, 68, 0.06)',
+                        border: '1px solid rgba(239, 68, 68, 0.25)',
                         borderRadius: '0.5rem',
                         padding: '0.75rem',
                       }}
@@ -295,7 +304,7 @@ export const About: React.FC = () => {
                           fontFamily: "'Poppins', sans-serif",
                           fontWeight: 700,
                           fontSize: '0.72rem',
-                          color: '#ff6b6b',
+                          color: '#ef4444',
                           marginBottom: '0.35rem',
                           textTransform: 'uppercase',
                         }}
@@ -306,7 +315,7 @@ export const About: React.FC = () => {
                       <p
                         style={{
                           fontSize: '0.88rem',
-                          color: '#a1a1aa',
+                          color: 'var(--ink-soft)',
                           margin: 0,
                           lineHeight: 1.4,
                         }}
@@ -318,8 +327,8 @@ export const About: React.FC = () => {
                     {/* Direto com Dev */}
                     <div
                       style={{
-                        backgroundColor: 'rgba(37, 211, 102, 0.08)',
-                        border: '1px solid rgba(37, 211, 102, 0.45)',
+                        backgroundColor: 'rgba(2, 132, 199, 0.08)',
+                        border: '1px solid var(--neon-cyan)',
                         borderRadius: '0.5rem',
                         padding: '0.75rem',
                       }}
@@ -332,18 +341,18 @@ export const About: React.FC = () => {
                           fontFamily: "'Poppins', sans-serif",
                           fontWeight: 700,
                           fontSize: '0.72rem',
-                          color: '#25D366',
+                          color: 'var(--neon-cyan)',
                           marginBottom: '0.35rem',
                           textTransform: 'uppercase',
                         }}
                       >
-                        <CheckCircle2 size={14} />
+                        <CheckCircle2 size={14} color="var(--neon-cyan)" />
                         <span>Direto com Dev</span>
                       </div>
                       <p
                         style={{
                           fontSize: '0.88rem',
-                          color: '#ffffff',
+                          color: 'var(--ink-pure)',
                           fontWeight: 700,
                           margin: 0,
                           lineHeight: 1.4,
@@ -365,7 +374,7 @@ export const About: React.FC = () => {
                 fontFamily: "'Montserrat', sans-serif",
                 fontSize: '1.45rem',
                 fontWeight: 900,
-                color: '#ffffff',
+                color: 'var(--ink-pure)',
                 marginBottom: '1.5rem',
                 lineHeight: 1.3,
               }}
@@ -374,7 +383,7 @@ export const About: React.FC = () => {
             </h3>
             <p
               style={{
-                color: '#a1a1aa',
+                color: 'var(--ink-soft)',
                 fontSize: '1rem',
                 lineHeight: 1.7,
                 marginBottom: '1.5rem',
@@ -386,7 +395,7 @@ export const About: React.FC = () => {
             <span
               className="about-subtitle"
               style={{
-                color: '#25D366',
+                color: 'var(--neon-blue)',
                 fontFamily: "'Poppins', sans-serif",
                 fontSize: '0.82rem',
                 fontWeight: 700,
@@ -403,11 +412,11 @@ export const About: React.FC = () => {
               {skillsData.map((tech, idx) => (
                 <div
                   key={idx}
-                  className="tech-pill bg-[#141414] border border-zinc-800"
+                  className="tech-pill transition-all"
                   style={{
-                    backgroundColor: '#141414',
-                    border: '1px solid #27272a',
-                    color: '#e4e4e7',
+                    backgroundColor: 'var(--void-card)',
+                    border: '1px solid var(--void-line)',
+                    color: 'var(--ink-pure)',
                     fontWeight: 600,
                     padding: '0.5rem 0.85rem',
                     borderRadius: '0.5rem',
@@ -422,16 +431,16 @@ export const About: React.FC = () => {
         </div>
 
         {/* ==========================================================================
-            4. BLOCO DE GARANTIA (destaque com fundo escuro #111 e borda verde)
+            4. BLOCO DE GARANTIA (destaque em Azul Turquesa)
            ========================================================================== */}
         <div
           className="mt-16 md:mt-24"
           style={{
-            backgroundColor: '#111111',
-            border: '2px solid #25D366',
+            backgroundColor: 'var(--void-card)',
+            border: '2px solid var(--neon-cyan)',
             borderRadius: '1rem',
             padding: '2.25rem',
-            boxShadow: '0 0 35px rgba(37, 211, 102, 0.25)',
+            boxShadow: '0 0 35px var(--neon-glow)',
             display: 'flex',
             alignItems: 'flex-start',
             gap: '1.5rem',
@@ -441,11 +450,11 @@ export const About: React.FC = () => {
         >
           <div
             style={{
-              backgroundColor: 'rgba(37, 211, 102, 0.15)',
-              border: '1px solid #25D366',
+              backgroundColor: 'rgba(2, 132, 199, 0.12)',
+              border: '1px solid var(--neon-cyan)',
               borderRadius: '50%',
               padding: '0.85rem',
-              color: '#25D366',
+              color: 'var(--neon-cyan)',
               flexShrink: 0,
               display: 'flex',
               alignItems: 'center',
@@ -461,7 +470,7 @@ export const About: React.FC = () => {
                 fontFamily: "'Montserrat', sans-serif",
                 fontWeight: 900,
                 fontSize: '1.4rem',
-                color: '#ffffff',
+                color: 'var(--ink-pure)',
                 marginBottom: '0.5rem',
                 letterSpacing: '-0.01em',
               }}
@@ -472,7 +481,7 @@ export const About: React.FC = () => {
               style={{
                 fontFamily: "'Montserrat', sans-serif",
                 fontSize: '1.05rem',
-                color: '#e4e4e7',
+                color: 'var(--ink-soft)',
                 lineHeight: 1.65,
                 margin: 0,
               }}

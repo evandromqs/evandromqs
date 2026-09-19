@@ -160,8 +160,8 @@ export const Background3D: React.FC = () => {
     // --- ZONE 2: Sobre & Trajetória (Middle Descent, Y ~ -9 to -16) ---
     createCyberShape(
       new THREE.DodecahedronGeometry(1.5, 0),
-      0x00ff88,
-      0x059669,
+      0x00d4ff,
+      0x0284c7,
       [-12, -9, -6],
       { x: 0.007, y: -0.006, z: 0.005 },
       0.9,
@@ -211,8 +211,8 @@ export const Background3D: React.FC = () => {
 
     createCyberShape(
       new THREE.DodecahedronGeometry(1.7, 0),
-      0x00ff88,
-      0x059669,
+      0x2563eb,
+      0x1d4ed8,
       [-11, -25, -6],
       { x: 0.006, y: -0.007, z: 0.005 },
       0.85,
@@ -242,8 +242,8 @@ export const Background3D: React.FC = () => {
 
     createCyberShape(
       new THREE.DodecahedronGeometry(2.0, 0),
-      0x00ff88,
-      0x059669,
+      0x00d4ff,
+      0x0284c7,
       [11, -28, -6],
       { x: -0.006, y: 0.008, z: 0.004 },
       0.8,

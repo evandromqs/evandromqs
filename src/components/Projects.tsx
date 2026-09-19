@@ -16,17 +16,17 @@ export const Projects: React.FC = () => {
   return (
     <section
       id="projetos"
-      className="py-20 md:py-28 bg-white text-black"
+      className="py-20 md:py-28 transition-colors duration-300"
       style={{
-        backgroundColor: '#ffffff',
-        color: '#0a0a0a',
+        backgroundColor: 'var(--void-black)',
+        color: 'var(--ink-pure)',
       }}
     >
       <div className="section-container max-w-7xl mx-auto px-4">
         <span
           className="section-label"
           style={{
-            color: '#16a34a',
+            color: 'var(--neon-cyan)',
             fontWeight: 700,
             fontSize: '0.85rem',
             letterSpacing: '0.1em',
@@ -38,12 +38,12 @@ export const Projects: React.FC = () => {
           // projetos & criações
         </span>
         <h2
-          className="section-headline text-black"
+          className="section-headline"
           style={{
             fontFamily: "'Montserrat', sans-serif",
             fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)',
             fontWeight: 900,
-            color: '#0a0a0a',
+            color: 'var(--ink-pure)',
             marginBottom: '0.75rem',
           }}
         >
@@ -52,7 +52,7 @@ export const Projects: React.FC = () => {
         <p
           className="section-description"
           style={{
-            color: '#52525b',
+            color: 'var(--ink-soft)',
             fontSize: '1.05rem',
             lineHeight: 1.6,
             maxWidth: '680px',
@@ -69,15 +69,16 @@ export const Projects: React.FC = () => {
             className={`filter-btn ${activeCategory === 'all' ? 'active' : ''}`}
             onClick={() => setActiveCategory('all')}
             style={{
-              backgroundColor: activeCategory === 'all' ? '#0a0a0a' : '#f4f4f5',
-              color: activeCategory === 'all' ? '#ffffff' : '#3f3f46',
+              backgroundColor: activeCategory === 'all' ? 'var(--neon-cyan)' : 'var(--void-card)',
+              color: activeCategory === 'all' ? '#ffffff' : 'var(--ink-soft)',
               border: '1px solid',
-              borderColor: activeCategory === 'all' ? '#0a0a0a' : '#e4e4e7',
+              borderColor: activeCategory === 'all' ? 'var(--neon-cyan)' : 'var(--void-line)',
               borderRadius: '9999px',
               padding: '0.5rem 1.15rem',
               fontWeight: 700,
               fontSize: '0.85rem',
               transition: 'all 0.2s',
+              cursor: 'pointer',
             }}
           >
             Todos ({projectsData.length})
@@ -86,15 +87,16 @@ export const Projects: React.FC = () => {
             className={`filter-btn ${activeCategory === 'web' ? 'active' : ''}`}
             onClick={() => setActiveCategory('web')}
             style={{
-              backgroundColor: activeCategory === 'web' ? '#0a0a0a' : '#f4f4f5',
-              color: activeCategory === 'web' ? '#ffffff' : '#3f3f46',
+              backgroundColor: activeCategory === 'web' ? 'var(--neon-cyan)' : 'var(--void-card)',
+              color: activeCategory === 'web' ? '#ffffff' : 'var(--ink-soft)',
               border: '1px solid',
-              borderColor: activeCategory === 'web' ? '#0a0a0a' : '#e4e4e7',
+              borderColor: activeCategory === 'web' ? 'var(--neon-cyan)' : 'var(--void-line)',
               borderRadius: '9999px',
               padding: '0.5rem 1.15rem',
               fontWeight: 700,
               fontSize: '0.85rem',
               transition: 'all 0.2s',
+              cursor: 'pointer',
             }}
           >
             Sites & Lojas Virtuais
@@ -103,15 +105,16 @@ export const Projects: React.FC = () => {
             className={`filter-btn ${activeCategory === 'mobile' ? 'active' : ''}`}
             onClick={() => setActiveCategory('mobile')}
             style={{
-              backgroundColor: activeCategory === 'mobile' ? '#0a0a0a' : '#f4f4f5',
-              color: activeCategory === 'mobile' ? '#ffffff' : '#3f3f46',
+              backgroundColor: activeCategory === 'mobile' ? 'var(--neon-cyan)' : 'var(--void-card)',
+              color: activeCategory === 'mobile' ? '#ffffff' : 'var(--ink-soft)',
               border: '1px solid',
-              borderColor: activeCategory === 'mobile' ? '#0a0a0a' : '#e4e4e7',
+              borderColor: activeCategory === 'mobile' ? 'var(--neon-cyan)' : 'var(--void-line)',
               borderRadius: '9999px',
               padding: '0.5rem 1.15rem',
               fontWeight: 700,
               fontSize: '0.85rem',
               transition: 'all 0.2s',
+              cursor: 'pointer',
             }}
           >
             Aplicativos para Celular
@@ -120,15 +123,16 @@ export const Projects: React.FC = () => {
             className={`filter-btn ${activeCategory === 'tools-ai' ? 'active' : ''}`}
             onClick={() => setActiveCategory('tools-ai')}
             style={{
-              backgroundColor: activeCategory === 'tools-ai' ? '#0a0a0a' : '#f4f4f5',
-              color: activeCategory === 'tools-ai' ? '#ffffff' : '#3f3f46',
+              backgroundColor: activeCategory === 'tools-ai' ? 'var(--neon-cyan)' : 'var(--void-card)',
+              color: activeCategory === 'tools-ai' ? '#ffffff' : 'var(--ink-soft)',
               border: '1px solid',
-              borderColor: activeCategory === 'tools-ai' ? '#0a0a0a' : '#e4e4e7',
+              borderColor: activeCategory === 'tools-ai' ? 'var(--neon-cyan)' : 'var(--void-line)',
               borderRadius: '9999px',
               padding: '0.5rem 1.15rem',
               fontWeight: 700,
               fontSize: '0.85rem',
               transition: 'all 0.2s',
+              cursor: 'pointer',
             }}
           >
             Sistemas & Automações
@@ -141,17 +145,19 @@ export const Projects: React.FC = () => {
             <ProjectCard
               key={project.id}
               project={project}
-              onSelect={(p) => setSelectedProject(p)}
+              onSelect={setSelectedProject}
             />
           ))}
         </div>
       </div>
 
-      {/* Project Details Modal */}
-      <ProjectModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
+      {/* Project Modal */}
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
     </section>
   );
 };
