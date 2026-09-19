@@ -45,11 +45,23 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
         {project.image && (
           <div className="modal-image-wrapper">
-            <img
-              src={project.image}
-              alt={`Screenshot de ${project.name}`}
-              className="modal-image-img"
-            />
+            {project.image.endsWith('.mp4') ? (
+              <video
+                src={project.image}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="modal-image-img"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            ) : (
+              <img
+                src={project.image}
+                alt={`Screenshot de ${project.name}`}
+                className="modal-image-img"
+              />
+            )}
             <div className="modal-image-overlay" />
           </div>
         )}

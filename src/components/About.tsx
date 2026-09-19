@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  coreHighlights,
   solutionsData,
   processSteps,
   sectionCheckpoints,
@@ -14,53 +13,6 @@ export const About: React.FC = () => {
     <section id="sobre">
       <div className="section-container">
         <span className="section-label">// soluções & diferenciais</span>
-
-        {/* Highlights Bar */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '1.25rem',
-            marginBottom: '3.5rem',
-          }}
-        >
-          {coreHighlights.map((item, idx) => (
-            <div
-              key={idx}
-              style={{
-                background: 'var(--void-card)',
-                border: '1px solid var(--void-line)',
-                padding: '1.5rem',
-                borderRadius: 'var(--r-md)',
-                textAlign: 'left',
-              }}
-            >
-              <div
-                style={{
-                  fontFamily: "'Poppins', sans-serif",
-                  fontWeight: 600,
-                  fontSize: '0.75rem',
-                  color: '#25D366',
-                  letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
-                  marginBottom: '0.5rem',
-                }}
-              >
-                {item.label}
-              </div>
-              <div
-                style={{
-                  fontFamily: "'Montserrat', sans-serif",
-                  fontWeight: 700,
-                  fontSize: '1.15rem',
-                  color: 'var(--ink-pure)',
-                }}
-              >
-                {item.count}
-              </div>
-            </div>
-          ))}
-        </div>
 
         {/* Section: O que desenvolvo para o seu negócio */}
         <div style={{ marginBottom: '4.5rem' }}>
