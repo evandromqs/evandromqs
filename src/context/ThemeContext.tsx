@@ -16,8 +16,8 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     if (savedTheme === 'light' || savedTheme === 'dark') {
       return savedTheme;
     }
-    // Default to light theme as requested
-    return 'light';
+    // Default to dark theme as requested
+    return 'dark';
   });
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     // Update meta theme-color tag
     const metaThemeColor = document.querySelector('meta[name="theme-color"]');
     if (metaThemeColor) {
-      metaThemeColor.setAttribute('content', theme === 'light' ? '#f8fafc' : '#050508');
+      metaThemeColor.setAttribute('content', '#0a0a0a');
     }
   }, [theme]);
 

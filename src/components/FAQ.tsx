@@ -75,37 +75,104 @@ export const FAQ: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="faq-section">
-      <div className="section-container">
-        <span className="section-label">// tire suas dúvidas</span>
-        <h2 className="section-headline">Perguntas Frequentes</h2>
-        <p className="section-description">
+    <section
+      id="faq"
+      className="faq-section py-20 md:py-28 bg-[#0a0a0a] text-white"
+      style={{ backgroundColor: '#0a0a0a' }}
+    >
+      <div className="section-container max-w-4xl mx-auto px-4">
+        <span
+          className="section-label"
+          style={{
+            color: '#25D366',
+            fontWeight: 700,
+            fontSize: '0.85rem',
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            display: 'block',
+            marginBottom: '0.5rem',
+          }}
+        >
+          // tire suas dúvidas
+        </span>
+        <h2
+          className="section-headline text-white"
+          style={{
+            fontFamily: "'Montserrat', sans-serif",
+            fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)',
+            fontWeight: 900,
+            color: '#ffffff',
+            marginBottom: '0.75rem',
+          }}
+        >
+          Perguntas Frequentes
+        </h2>
+        <p
+          className="section-description text-zinc-400"
+          style={{
+            color: '#a1a1aa',
+            fontSize: '1.05rem',
+            lineHeight: 1.6,
+            marginBottom: '2.5rem',
+          }}
+        >
           Respostas rápidas para as principais dúvidas de quem deseja criar um site ou aplicativo.
         </p>
 
-        <div className="faq-list">
+        <div className="faq-list flex flex-col gap-4">
           {faqData.map((item, index) => {
             const isOpen = openIndex === index;
             return (
               <div
                 key={index}
-                className={`faq-item ${isOpen ? 'open' : ''}`}
+                className="faq-item bg-[#141414] border border-zinc-800"
+                style={{
+                  backgroundColor: '#141414',
+                  border: '1px solid #27272a',
+                  borderRadius: '0.875rem',
+                  overflow: 'hidden',
+                  transition: 'border-color 0.2s',
+                }}
                 onClick={() => toggleFAQ(index)}
               >
                 <button
                   type="button"
-                  className="faq-question-btn"
+                  className="faq-question-btn w-full flex items-center justify-between p-5 text-left"
+                  style={{
+                    backgroundColor: 'transparent',
+                    border: 'none',
+                    color: '#ffffff',
+                    fontFamily: "'Montserrat', sans-serif",
+                    fontWeight: 700,
+                    fontSize: '1.05rem',
+                  }}
                   aria-expanded={isOpen}
                 >
                   <span className="faq-question">{item.question}</span>
                   <ChevronDown
                     size={20}
+                    color="#25D366"
                     className={`faq-icon ${isOpen ? 'rotate' : ''}`}
+                    style={{
+                      transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                      transition: 'transform 0.25s ease',
+                      flexShrink: 0,
+                      marginLeft: '1rem',
+                    }}
                   />
                 </button>
                 {isOpen && (
-                  <div className="faq-answer">
-                    <p>{item.answer}</p>
+                  <div
+                    className="faq-answer px-5 pb-5 text-zinc-300"
+                    style={{
+                      borderTop: '1px solid #222226',
+                      paddingTop: '1rem',
+                      fontSize: '0.98rem',
+                      lineHeight: 1.65,
+                      color: '#d4d4d8',
+                    }}
+                  >
+                    <p style={{ margin: 0 }}>{item.answer}</p>
                   </div>
                 )}
               </div>
@@ -114,19 +181,36 @@ export const FAQ: React.FC = () => {
         </div>
 
         {/* Support CTA Callout */}
-        <div className="faq-footer-cta">
-          <p>Ainda tem dúvida?</p>
+        <div
+          className="faq-footer-cta mt-12 p-6 rounded-2xl bg-[#141414] border border-zinc-800 text-center flex flex-col items-center justify-center gap-3"
+          style={{
+            backgroundColor: '#141414',
+            border: '1px solid #27272a',
+          }}
+        >
+          <p style={{ color: '#a1a1aa', fontWeight: 600, fontSize: '1rem', margin: 0 }}>
+            Ainda tem dúvida?
+          </p>
           <a
             href={FAQ_WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="faq-cta-btn"
+            className="faq-cta-btn btn-whatsapp-pulse inline-flex items-center gap-2"
+            style={{
+              backgroundColor: '#25D366',
+              color: '#ffffff',
+              fontWeight: 800,
+              fontSize: '0.95rem',
+              padding: '0.85rem 1.75rem',
+              borderRadius: '9999px',
+              textDecoration: 'none',
+            }}
             onClick={() => reportWhatsAppConversion('faq_cta')}
           >
             <svg
               viewBox="0 0 32 32"
-              width="16"
-              height="16"
+              width="18"
+              height="18"
               fill="currentColor"
               aria-hidden="true"
               style={{ flexShrink: 0 }}

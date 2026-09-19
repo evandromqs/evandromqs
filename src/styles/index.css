@@ -9,13 +9,13 @@
 
 :root {
   /* Color Palette - Dark Theme (Default) */
-  --void-black: #050508;
-  --void-dark:  #0a0a0f;
-  --void-card:  #0f0f16;
-  --void-elev:  #14141c;
-  --void-glass: rgba(15, 15, 22, 0.75);
+  --void-black: #0a0a0a;
+  --void-dark:  #111111;
+  --void-card:  #141414;
+  --void-elev:  #18181b;
+  --void-glass: rgba(20, 20, 20, 0.85);
 
-  --navbar-scrolled-bg: rgba(5, 5, 8, 0.85);
+  --navbar-scrolled-bg: rgba(10, 10, 10, 0.92);
   --navbar-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   --card-bg: rgba(12, 12, 18, 0.72);
   --card-bg-hover: rgba(18, 18, 28, 0.88);
@@ -36,7 +36,7 @@
   --tag-bg: rgba(0, 212, 255, 0.08);
   --tag-border: rgba(0, 212, 255, 0.15);
   --tag-color: #00d4ff;
-  --mobile-menu-bg: rgba(5, 5, 8, 0.98);
+  --mobile-menu-bg: rgba(10, 10, 10, 0.98);
   
   --void-line:  rgba(255, 255, 255, 0.08);
   --void-line-hover: rgba(0, 212, 255, 0.35);

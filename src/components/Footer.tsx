@@ -60,8 +60,12 @@ export const Footer: React.FC<FooterProps> = ({
   ];
 
   return (
-    <footer id="contato">
-      <div className="footer-content">
+    <footer
+      id="contato"
+      className="py-20 md:py-28 bg-[#0a0a0a] text-white border-t border-zinc-900"
+      style={{ backgroundColor: '#0a0a0a', color: '#ffffff' }}
+    >
+      <div className="footer-content max-w-4xl mx-auto px-4">
         <div style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}>
           <img
             src="/favicon.svg"
@@ -127,7 +131,7 @@ export const Footer: React.FC<FooterProps> = ({
             fontFamily: "'Montserrat', sans-serif",
             fontSize: '0.88rem',
             fontWeight: 600,
-            color: 'var(--ink-soft)',
+            color: '#a1a1aa',
             marginBottom: '2.5rem',
           }}
         >
@@ -140,10 +144,10 @@ export const Footer: React.FC<FooterProps> = ({
             display: 'inline-flex',
             alignItems: 'center',
             gap: '0.75rem',
-            background: 'var(--void-card)',
-            border: '1px solid var(--void-line-hover)',
+            background: '#141414',
+            border: '1px solid #27272a',
             padding: '0.75rem 1.25rem',
-            borderRadius: 'var(--r-full)',
+            borderRadius: '9999px',
             marginBottom: '2.5rem',
             boxShadow: '0 0 25px rgba(37, 211, 102, 0.12)',
             flexWrap: 'wrap',
@@ -160,6 +164,7 @@ export const Footer: React.FC<FooterProps> = ({
               fontFamily: "'Montserrat', sans-serif",
               fontSize: '0.9rem',
               fontWeight: 700,
+              textDecoration: 'none',
             }}
           >
             <Mail size={16} />
@@ -172,11 +177,11 @@ export const Footer: React.FC<FooterProps> = ({
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.35rem',
-              background: 'rgba(255, 255, 255, 0.06)',
-              border: '1px solid var(--void-line)',
-              color: 'var(--ink-soft)',
+              background: 'rgba(255, 255, 255, 0.08)',
+              border: '1px solid #3f3f46',
+              color: '#d4d4d8',
               padding: '0.35rem 0.75rem',
-              borderRadius: 'var(--r-full)',
+              borderRadius: '9999px',
               fontSize: '0.75rem',
               fontFamily: "'Montserrat', sans-serif",
               fontWeight: 600,
@@ -199,6 +204,11 @@ export const Footer: React.FC<FooterProps> = ({
               target="_blank"
               rel="noopener noreferrer"
               className="social-btn"
+              style={{
+                backgroundColor: '#141414',
+                borderColor: '#27272a',
+                color: '#e4e4e7',
+              }}
               title={social.name}
             >
               {social.icon}
@@ -208,15 +218,15 @@ export const Footer: React.FC<FooterProps> = ({
         </div>
 
         <div className="footer-location-trust">
-          <p className="footer-location">
+          <p className="footer-location" style={{ color: '#a1a1aa' }}>
             São Paulo - SP &bull; Atendimento para microempreendedores de todo o Brasil
           </p>
-          <p className="footer-security">
+          <p className="footer-security" style={{ color: '#71717a' }}>
             Suas ideias e informações de projeto são tratadas com total sigilo profissional.
           </p>
         </div>
 
-        <div className="footer-copy">
+        <div className="footer-copy" style={{ borderColor: '#27272a', color: '#71717a' }}>
           <p>
             EvandroMqs &bull; Soluções Digitais sob Medida &bull; &copy; {new Date().getFullYear()}
           </p>
