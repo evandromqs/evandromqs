@@ -18,7 +18,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
         backgroundColor: 'var(--void-card)',
         border: '1px solid var(--void-line)',
         borderRadius: '1rem',
-        padding: '1.25rem',
+        padding: 'clamp(1rem, 2vw, 1.25rem)',
         display: 'flex',
         flexDirection: 'column',
         boxShadow: 'var(--card-shadow)',
@@ -32,7 +32,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
         style={{
           position: 'relative',
           width: '100%',
-          height: '12rem',
+          height: 'clamp(10.5rem, 16vw, 12rem)',
           borderRadius: '0.75rem',
           overflow: 'hidden',
           marginBottom: '1rem',
@@ -62,7 +62,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
 
         <div className="card-media-overlay" />
 
-        {/* Tag superior em Azul Turquesa */}
+        {/* Tag superior em Azul Royal */}
         <span
           style={{
             position: 'absolute',
@@ -89,7 +89,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
         className="card-name"
         style={{
           fontFamily: "'Montserrat', sans-serif",
-          fontSize: '1.15rem',
+          fontSize: 'clamp(1.05rem, 2vw, 1.15rem)',
           fontWeight: 800,
           color: 'var(--ink-pure)',
           marginBottom: '0.5rem',
@@ -103,7 +103,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
         className="card-description"
         style={{
           fontFamily: "'Montserrat', sans-serif",
-          fontSize: '0.88rem',
+          fontSize: 'clamp(0.82rem, 1.5vw, 0.88rem)',
           color: 'var(--ink-soft)',
           lineHeight: 1.5,
           marginBottom: '1.25rem',

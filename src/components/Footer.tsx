@@ -62,21 +62,21 @@ export const Footer: React.FC<FooterProps> = ({
   return (
     <footer
       id="contato"
-      className="py-20 md:py-28 transition-colors duration-300"
+      className="py-16 sm:py-20 md:py-24 lg:py-28 transition-colors duration-300"
       style={{
         backgroundColor: 'var(--void-black)',
         color: 'var(--ink-pure)',
         borderTop: '1px solid var(--void-line)',
       }}
     >
-      <div className="footer-content max-w-4xl mx-auto px-4 text-center">
-        <div style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}>
+      <div className="footer-content max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div style={{ marginBottom: 'clamp(1rem, 2vw, 1.5rem)', display: 'flex', justifyContent: 'center' }}>
           <img
             src="/favicon.svg"
             alt="EvandroMqs"
             style={{
-              width: '52px',
-              height: '52px',
+              width: 'clamp(44px, 8vw, 52px)',
+              height: 'clamp(44px, 8vw, 52px)',
               border: 'none',
               background: 'transparent',
               padding: 0,
@@ -90,9 +90,9 @@ export const Footer: React.FC<FooterProps> = ({
           style={{
             color: 'var(--ink-pure)',
             fontFamily: "'Montserrat', sans-serif",
-            fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+            fontSize: 'clamp(1.35rem, 3vw, 2rem)',
             fontWeight: 800,
-            marginBottom: '1rem',
+            marginBottom: 'clamp(0.75rem, 1.5vw, 1rem)',
             lineHeight: 1.3,
           }}
         >
@@ -103,8 +103,8 @@ export const Footer: React.FC<FooterProps> = ({
           style={{
             color: 'var(--ink-soft)',
             fontFamily: "'Montserrat', sans-serif",
-            fontSize: '1.05rem',
-            marginBottom: '2.5rem',
+            fontSize: 'clamp(0.92rem, 1.8vw, 1.05rem)',
+            marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)',
           }}
         >
           Me chama no WhatsApp agora. Em até 30min te mando plano de ação com valor fechado.
@@ -116,13 +116,13 @@ export const Footer: React.FC<FooterProps> = ({
             href={FOOTER_WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary btn-whatsapp btn-whatsapp-pulse"
+            className="btn-primary btn-whatsapp btn-whatsapp-pulse w-full sm:w-auto justify-center"
             style={{
               backgroundColor: '#128C7E',
               color: '#ffffff',
               fontWeight: 800,
-              fontSize: '1.1rem',
-              padding: '1.25rem 2.5rem',
+              fontSize: 'clamp(0.92rem, 1.8vw, 1.1rem)',
+              padding: 'clamp(1rem, 2.2vw, 1.25rem) clamp(1.5rem, 3.5vw, 2.5rem)',
               borderRadius: '9999px',
               boxShadow: '0 10px 30px rgba(18, 140, 126, 0.45)',
               display: 'inline-flex',
@@ -151,10 +151,10 @@ export const Footer: React.FC<FooterProps> = ({
         <p
           style={{
             fontFamily: "'Montserrat', sans-serif",
-            fontSize: '0.88rem',
+            fontSize: 'clamp(0.8rem, 1.5vw, 0.88rem)',
             fontWeight: 600,
             color: 'var(--ink-soft)',
-            marginBottom: '2.5rem',
+            marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)',
           }}
         >
           Resposta em até 30min &bull; Sem compromisso &bull; Manutenção R$ 50/mês
@@ -168,9 +168,9 @@ export const Footer: React.FC<FooterProps> = ({
             gap: '0.75rem',
             background: 'var(--void-card)',
             border: '1px solid var(--void-line)',
-            padding: '0.75rem 1.25rem',
+            padding: 'clamp(0.6rem, 1.5vw, 0.75rem) clamp(0.9rem, 2vw, 1.25rem)',
             borderRadius: '9999px',
-            marginBottom: '2.5rem',
+            marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)',
             boxShadow: '0 0 25px var(--neon-glow)',
             flexWrap: 'wrap',
             justifyContent: 'center',
@@ -184,7 +184,7 @@ export const Footer: React.FC<FooterProps> = ({
               gap: '0.5rem',
               color: 'var(--neon-cyan)',
               fontFamily: "'Montserrat', sans-serif",
-              fontSize: '0.9rem',
+              fontSize: 'clamp(0.82rem, 1.6vw, 0.9rem)',
               fontWeight: 700,
               textDecoration: 'none',
             }}
@@ -218,7 +218,7 @@ export const Footer: React.FC<FooterProps> = ({
         </div>
 
         {/* Social Links Bar */}
-        <div className="footer-social-links flex justify-center gap-4 flex-wrap mb-10">
+        <div className="footer-social-links flex justify-center gap-2.5 sm:gap-4 flex-wrap mb-8 sm:mb-10">
           {socialLinks.map((social) => (
             <a
               key={social.name}
@@ -239,16 +239,16 @@ export const Footer: React.FC<FooterProps> = ({
           ))}
         </div>
 
-        <div className="footer-location-trust">
-          <p className="footer-location" style={{ color: 'var(--ink-soft)' }}>
+        <div className="footer-location-trust mb-4">
+          <p className="footer-location text-xs sm:text-sm" style={{ color: 'var(--ink-soft)' }}>
             São Paulo - SP &bull; Atendimento para microempreendedores de todo o Brasil
           </p>
-          <p className="footer-security" style={{ color: 'var(--ink-mute)' }}>
+          <p className="footer-security text-xs sm:text-sm" style={{ color: 'var(--ink-mute)' }}>
             Suas ideias e informações de projeto são tratadas com total sigilo profissional.
           </p>
         </div>
 
-        <div className="footer-copy" style={{ borderColor: 'var(--void-line)', color: 'var(--ink-mute)' }}>
+        <div className="footer-copy text-xs sm:text-sm" style={{ borderColor: 'var(--void-line)', color: 'var(--ink-mute)' }}>
           <p>
             EvandroMqs &bull; Soluções Digitais sob Medida &bull; &copy; {new Date().getFullYear()}
           </p>

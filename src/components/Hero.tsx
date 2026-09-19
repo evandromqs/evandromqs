@@ -15,18 +15,18 @@ export const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative py-20 md:py-28 overflow-hidden flex flex-col justify-center items-center transition-colors duration-300"
+      className="relative pt-24 pb-14 sm:pt-28 sm:pb-16 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24 overflow-hidden flex flex-col justify-center items-center transition-colors duration-300"
       style={{
         backgroundColor: 'var(--void-black)',
         color: 'var(--ink-pure)',
       }}
     >
-      <div className="hero-content relative z-20 text-center max-w-4xl mx-auto px-4">
+      <div className="hero-content relative z-20 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1
           id="hero-title"
           className="font-black"
           style={{
-            fontSize: 'clamp(32px, 5vw, 48px)',
+            fontSize: 'clamp(28px, 5.2vw, 50px)',
             fontWeight: 900,
             color: 'var(--ink-pure)',
             WebkitTextFillColor: 'var(--ink-pure)',
@@ -34,7 +34,7 @@ export const Hero: React.FC = () => {
             opacity: 1,
             lineHeight: 1.15,
             letterSpacing: '-0.02em',
-            marginBottom: '1.25rem',
+            marginBottom: 'clamp(1rem, 2vw, 1.5rem)',
           }}
         >
           Seu Site Lento Está Perdendo Cliente do Google?
@@ -46,31 +46,31 @@ export const Hero: React.FC = () => {
             color: 'var(--ink-soft)',
             fontWeight: 500,
             maxWidth: '680px',
-            margin: '0 auto 2rem auto',
-            fontSize: '1.1rem',
+            margin: '0 auto clamp(1.5rem, 3vw, 2.25rem) auto',
+            fontSize: 'clamp(0.95rem, 2vw, 1.125rem)',
             lineHeight: 1.6,
           }}
         >
           Crio sites que abrem em 1s e levam direto pro seu WhatsApp. Sem WordPress pesado, sem enrolação de agência. A partir de R$ 500 + R$ 50/mês.
         </p>
 
-        <div className="hero-cta-group relative z-30 mb-8 flex flex-wrap justify-center gap-4">
+        <div className="hero-cta-group relative z-30 mb-6 sm:mb-8 flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 w-full sm:w-auto px-2 sm:px-0">
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary btn-whatsapp btn-whatsapp-pulse"
+            className="btn-primary btn-whatsapp btn-whatsapp-pulse w-full sm:w-auto justify-center"
             style={{
               backgroundColor: '#128C7E',
               color: '#ffffff',
               fontWeight: 800,
-              fontSize: '1.05rem',
-              padding: '1.15rem 2.25rem',
+              fontSize: 'clamp(0.92rem, 1.8vw, 1.05rem)',
+              padding: 'clamp(0.9rem, 2vw, 1.15rem) clamp(1.5rem, 3vw, 2.25rem)',
               borderRadius: '9999px',
               boxShadow: '0 10px 28px rgba(18, 140, 126, 0.45)',
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.75rem',
+              gap: '0.65rem',
               textDecoration: 'none',
               cursor: 'pointer',
             }}
@@ -79,8 +79,8 @@ export const Hero: React.FC = () => {
           >
             <svg
               viewBox="0 0 32 32"
-              width="22"
-              height="22"
+              width="20"
+              height="20"
               fill="currentColor"
               aria-hidden="true"
               style={{ flexShrink: 0 }}
@@ -91,11 +91,13 @@ export const Hero: React.FC = () => {
           </a>
           <a
             href="#projetos"
-            className="btn-secondary"
+            className="btn-secondary w-full sm:w-auto justify-center"
             style={{
               backgroundColor: 'var(--btn-sec-bg)',
               color: 'var(--ink-pure)',
               borderColor: 'var(--void-line)',
+              fontSize: 'clamp(0.85rem, 1.6vw, 0.95rem)',
+              padding: 'clamp(0.85rem, 2vw, 1rem) clamp(1.25rem, 2.5vw, 1.75rem)',
             }}
           >
             <span>Ver Projetos Reais Que Estão Vendendo</span>
@@ -105,7 +107,7 @@ export const Hero: React.FC = () => {
 
         {/* Micro-Trust Badges */}
         <div
-          className="hero-trust-row relative z-20 flex flex-wrap justify-center gap-6 text-sm"
+          className="hero-trust-row relative z-20 flex flex-col sm:flex-row flex-wrap justify-center items-center gap-2.5 sm:gap-6 text-xs sm:text-sm"
           style={{ color: 'var(--ink-soft)' }}
         >
           <div className="hero-trust-item flex items-center gap-2">
@@ -125,7 +127,7 @@ export const Hero: React.FC = () => {
 
       {/* Fade suave sem apagar o botao */}
       <div
-        className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none z-10"
+        className="absolute bottom-0 left-0 right-0 h-16 sm:h-20 pointer-events-none z-10"
         style={{
           background: 'linear-gradient(to top, var(--void-black) 0%, transparent 100%)',
         }}

@@ -12,27 +12,27 @@ export const About: React.FC = () => {
   return (
     <section
       id="sobre"
-      className="py-20 md:py-28 transition-colors duration-300"
+      className="py-16 sm:py-20 md:py-24 lg:py-28 transition-colors duration-300"
       style={{
         backgroundColor: 'var(--void-black)',
         color: 'var(--ink-pure)',
       }}
     >
-      <div className="section-container max-w-6xl mx-auto px-4">
+      <div className="section-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ==========================================================================
-            1. COMO FUNCIONA (Respiro generoso pt-4)
+            1. COMO FUNCIONA (Respiro generoso e responsivo)
            ========================================================================== */}
-        <div id="como-funciona" className="pt-4">
+        <div id="como-funciona" className="pt-2 sm:pt-4">
           <span
             className="section-label"
             style={{
               color: 'var(--neon-cyan)',
               fontWeight: 700,
-              fontSize: '0.85rem',
+              fontSize: 'clamp(0.75rem, 1.5vw, 0.85rem)',
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
               display: 'block',
-              marginBottom: '0.75rem',
+              marginBottom: '0.5rem',
             }}
           >
             // como funciona o processo
@@ -41,10 +41,10 @@ export const About: React.FC = () => {
           <h2
             style={{
               fontFamily: "'Montserrat', sans-serif",
-              fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)',
+              fontSize: 'clamp(1.5rem, 3.2vw, 2.35rem)',
               fontWeight: 900,
               color: 'var(--ink-pure)',
-              marginBottom: '0.85rem',
+              marginBottom: '0.75rem',
               lineHeight: 1.25,
             }}
           >
@@ -52,17 +52,17 @@ export const About: React.FC = () => {
           </h2>
 
           <p
-            className="text-sm md:text-base leading-relaxed mb-10 max-w-2xl"
+            className="text-xs sm:text-sm md:text-base leading-relaxed mb-8 sm:mb-10 max-w-2xl"
             style={{ color: 'var(--ink-soft)' }}
           >
             Um processo claro e sem enrolação, do primeiro contato até o lançamento oficial com suporte garantido.
           </p>
 
-          <div className="process-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="process-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {processSteps.map((step, idx) => (
               <div
                 key={idx}
-                className="process-card rounded-2xl p-6 transition-all flex flex-col justify-between"
+                className="process-card rounded-2xl p-5 sm:p-6 transition-all flex flex-col justify-between"
                 style={{
                   backgroundColor: 'var(--void-card)',
                   border: '1px solid var(--void-line)',
@@ -76,14 +76,14 @@ export const About: React.FC = () => {
                       color: 'var(--neon-cyan)',
                       fontFamily: "'Poppins', sans-serif",
                       fontWeight: 900,
-                      fontSize: '1.75rem',
-                      marginBottom: '0.75rem',
+                      fontSize: 'clamp(1.5rem, 2.5vw, 1.85rem)',
+                      marginBottom: '0.5rem',
                     }}
                   >
                     {step.step}
                   </div>
                   <h4
-                    className="process-title text-base font-bold mb-2"
+                    className="process-title text-sm sm:text-base font-bold mb-1.5 sm:mb-2"
                     style={{
                       fontFamily: "'Montserrat', sans-serif",
                       color: 'var(--ink-pure)',
@@ -93,7 +93,7 @@ export const About: React.FC = () => {
                     {step.title}
                   </h4>
                   <p
-                    className="process-desc text-sm leading-relaxed"
+                    className="process-desc text-xs sm:text-sm leading-relaxed"
                     style={{
                       fontFamily: "'Montserrat', sans-serif",
                       color: 'var(--ink-soft)',
@@ -108,11 +108,11 @@ export const About: React.FC = () => {
         </div>
 
         {/* ==========================================================================
-            2. O QUE DESENVOLVO (Respiro mt-24 md:mt-32 pt-16 border-t)
+            2. O QUE DESENVOLVO (Respiro mt-16 sm:mt-20 md:mt-24 pt-12 sm:pt-16)
            ========================================================================== */}
         <div
           id="solucoes"
-          className="mt-24 md:mt-32 pt-16"
+          className="mt-16 sm:mt-20 md:mt-24 pt-12 sm:pt-16"
           style={{
             borderTop: '1px solid var(--void-line)',
           }}
@@ -122,11 +122,11 @@ export const About: React.FC = () => {
             style={{
               color: 'var(--neon-cyan)',
               fontWeight: 700,
-              fontSize: '0.85rem',
+              fontSize: 'clamp(0.75rem, 1.5vw, 0.85rem)',
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
               display: 'block',
-              marginBottom: '0.75rem',
+              marginBottom: '0.5rem',
             }}
           >
             // soluções & diferenciais
@@ -135,10 +135,10 @@ export const About: React.FC = () => {
           <h2
             style={{
               fontFamily: "'Montserrat', sans-serif",
-              fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)',
+              fontSize: 'clamp(1.5rem, 3.2vw, 2.35rem)',
               fontWeight: 900,
               color: 'var(--ink-pure)',
-              marginBottom: '1rem',
+              marginBottom: '0.85rem',
               lineHeight: 1.2,
             }}
           >
@@ -146,16 +146,16 @@ export const About: React.FC = () => {
           </h2>
 
           {/* 3 Bullets com check embaixo do título da seção */}
-          <div className="flex flex-col gap-3 mb-10">
+          <div className="flex flex-col gap-2.5 sm:gap-3 mb-8 sm:mb-10">
             {sectionCheckpoints.map((point, idx) => (
               <div
                 key={idx}
-                className="flex items-center gap-2.5 text-sm md:text-base font-semibold"
+                className="flex items-center gap-2.5 text-xs sm:text-sm md:text-base font-semibold"
                 style={{ color: 'var(--ink-soft)' }}
               >
                 <CheckCircle2
-                  size={20}
-                  className="w-5 h-5 flex-shrink-0"
+                  size={18}
+                  className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0"
                   color="var(--neon-cyan)"
                 />
                 <span>{point}</span>
@@ -163,11 +163,11 @@ export const About: React.FC = () => {
             ))}
           </div>
 
-          <div className="solutions-grid grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="solutions-grid grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {solutionsData.map((sol, idx) => (
               <div
                 key={idx}
-                className="solution-card rounded-2xl p-6 flex flex-col justify-between transition-all"
+                className="solution-card rounded-2xl p-5 sm:p-7 flex flex-col justify-between transition-all"
                 style={{
                   backgroundColor: 'var(--void-card)',
                   border: '1px solid var(--void-line)',
@@ -178,15 +178,15 @@ export const About: React.FC = () => {
                   <span
                     className="solution-category"
                     style={{
-                      backgroundColor: 'rgba(2, 132, 199, 0.08)',
-                      border: '1px solid var(--neon-cyan)',
+                      backgroundColor: 'var(--tag-bg)',
+                      border: '1px solid var(--tag-border)',
                       color: 'var(--neon-cyan)',
                       fontWeight: 800,
-                      fontSize: '0.82rem',
+                      fontSize: 'clamp(0.72rem, 1.3vw, 0.8rem)',
                       padding: '4px 11px',
                       borderRadius: '9999px',
                       display: 'inline-block',
-                      marginBottom: '1rem',
+                      marginBottom: '0.75rem',
                       textTransform: 'uppercase',
                       letterSpacing: '0.04em',
                     }}
@@ -195,7 +195,7 @@ export const About: React.FC = () => {
                   </span>
 
                   <h3
-                    className="solution-title text-base font-bold mb-2"
+                    className="solution-title text-base sm:text-lg font-bold mb-2"
                     style={{
                       fontFamily: "'Montserrat', sans-serif",
                       color: 'var(--ink-pure)',
@@ -206,7 +206,7 @@ export const About: React.FC = () => {
                   </h3>
 
                   <p
-                    className="solution-desc text-sm leading-relaxed mb-6"
+                    className="solution-desc text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6"
                     style={{
                       fontFamily: "'Montserrat', sans-serif",
                       color: 'var(--ink-soft)',
@@ -216,16 +216,16 @@ export const About: React.FC = () => {
                   </p>
                 </div>
 
-                <ul className="solution-bullets flex flex-col gap-3 pt-2">
+                <ul className="solution-bullets flex flex-col gap-2.5 sm:gap-3 pt-2">
                   {sol.highlights.map((bullet, bIdx) => (
                     <li
                       key={bIdx}
-                      className="flex items-center gap-2.5 text-sm font-semibold"
+                      className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold"
                       style={{ color: 'var(--ink-pure)' }}
                     >
                       <CheckCircle2
-                        size={20}
-                        className="w-5 h-5 flex-shrink-0"
+                        size={18}
+                        className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0"
                         color="var(--neon-cyan)"
                       />
                       <span>{bullet}</span>
@@ -238,10 +238,10 @@ export const About: React.FC = () => {
         </div>
 
         {/* ==========================================================================
-            3. COMPARATIVO & TECH STACK (Respiro mt-24 md:mt-32 pt-16 border-t)
+            3. COMPARATIVO & TECH STACK (Respiro mt-16 sm:mt-20 md:mt-24 pt-12 sm:pt-16)
            ========================================================================== */}
         <div
-          className="about-grid mt-24 md:mt-32 pt-16 grid grid-cols-1 lg:grid-cols-2 gap-12"
+          className="about-grid mt-16 sm:mt-20 md:mt-24 pt-12 sm:pt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12"
           style={{
             borderTop: '1px solid var(--void-line)',
           }}
@@ -249,23 +249,23 @@ export const About: React.FC = () => {
           {/* COLUNA 1: Por que microempreendedor foge de agência? */}
           <div>
             <h3
+              className="text-lg sm:text-xl font-black mb-3 sm:mb-4"
               style={{
                 fontFamily: "'Montserrat', sans-serif",
-                fontSize: '1.45rem',
+                fontSize: 'clamp(1.25rem, 2.5vw, 1.45rem)',
                 fontWeight: 900,
                 color: 'var(--ink-pure)',
-                marginBottom: '1.5rem',
                 lineHeight: 1.3,
               }}
             >
               Por que microempreendedor foge de agência?
             </h3>
 
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3 sm:gap-4">
               {comparisonData.map((row, idx) => (
                 <div
                   key={idx}
-                  className="rounded-xl p-4 transition-all"
+                  className="rounded-xl p-3.5 sm:p-4 transition-all"
                   style={{
                     backgroundColor: 'var(--void-card)',
                     border: '1px solid var(--void-line)',
@@ -276,36 +276,35 @@ export const About: React.FC = () => {
                     style={{
                       fontFamily: "'Poppins', sans-serif",
                       fontWeight: 700,
-                      fontSize: '0.85rem',
+                      fontSize: 'clamp(0.75rem, 1.4vw, 0.85rem)',
                       color: 'var(--neon-cyan)',
                       letterSpacing: '0.05em',
                       textTransform: 'uppercase',
-                      marginBottom: '0.65rem',
+                      marginBottom: '0.5rem',
                     }}
                   >
                     {row.criterion}
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
                     {/* Agência */}
                     <div
+                      className="p-2.5 sm:p-3 rounded-lg"
                       style={{
                         backgroundColor: 'rgba(239, 68, 68, 0.06)',
                         border: '1px solid rgba(239, 68, 68, 0.25)',
-                        borderRadius: '0.5rem',
-                        padding: '0.75rem',
                       }}
                     >
                       <div
                         style={{
                           display: 'flex',
                           alignItems: 'center',
-                          gap: '0.4rem',
+                          gap: '0.35rem',
                           fontFamily: "'Poppins', sans-serif",
                           fontWeight: 700,
                           fontSize: '0.72rem',
                           color: '#ef4444',
-                          marginBottom: '0.35rem',
+                          marginBottom: '0.25rem',
                           textTransform: 'uppercase',
                         }}
                       >
@@ -314,7 +313,7 @@ export const About: React.FC = () => {
                       </div>
                       <p
                         style={{
-                          fontSize: '0.88rem',
+                          fontSize: 'clamp(0.8rem, 1.4vw, 0.88rem)',
                           color: 'var(--ink-soft)',
                           margin: 0,
                           lineHeight: 1.4,
@@ -326,23 +325,22 @@ export const About: React.FC = () => {
 
                     {/* Direto com Dev */}
                     <div
+                      className="p-2.5 sm:p-3 rounded-lg"
                       style={{
-                        backgroundColor: 'rgba(2, 132, 199, 0.08)',
+                        backgroundColor: 'var(--tag-bg)',
                         border: '1px solid var(--neon-cyan)',
-                        borderRadius: '0.5rem',
-                        padding: '0.75rem',
                       }}
                     >
                       <div
                         style={{
                           display: 'flex',
                           alignItems: 'center',
-                          gap: '0.4rem',
+                          gap: '0.35rem',
                           fontFamily: "'Poppins', sans-serif",
                           fontWeight: 700,
                           fontSize: '0.72rem',
                           color: 'var(--neon-cyan)',
-                          marginBottom: '0.35rem',
+                          marginBottom: '0.25rem',
                           textTransform: 'uppercase',
                         }}
                       >
@@ -351,7 +349,7 @@ export const About: React.FC = () => {
                       </div>
                       <p
                         style={{
-                          fontSize: '0.88rem',
+                          fontSize: 'clamp(0.8rem, 1.4vw, 0.88rem)',
                           color: 'var(--ink-pure)',
                           fontWeight: 700,
                           margin: 0,
@@ -370,12 +368,12 @@ export const About: React.FC = () => {
           {/* COLUNA 2: Tecnologia que não te deixa na mão */}
           <div className="about-text">
             <h3
+              className="text-lg sm:text-xl font-black mb-3 sm:mb-4"
               style={{
                 fontFamily: "'Montserrat', sans-serif",
-                fontSize: '1.45rem',
+                fontSize: 'clamp(1.25rem, 2.5vw, 1.45rem)',
                 fontWeight: 900,
                 color: 'var(--ink-pure)',
-                marginBottom: '1.5rem',
                 lineHeight: 1.3,
               }}
             >
@@ -384,9 +382,9 @@ export const About: React.FC = () => {
             <p
               style={{
                 color: 'var(--ink-soft)',
-                fontSize: '1rem',
-                lineHeight: 1.7,
-                marginBottom: '1.5rem',
+                fontSize: 'clamp(0.88rem, 1.6vw, 1rem)',
+                lineHeight: 1.65,
+                marginBottom: '1.25rem',
               }}
             >
               Em vez de templates pesados e genéricos que deixam seu site lento e te fazem perder o cliente que você pagou no Google, eu construo do zero usando o que as maiores empresas do mundo usam: React, Next.js, Flutter e Firebase. O resultado é um site que carrega em fração de segundos, não trava e passa segurança para quem compra.
@@ -402,8 +400,8 @@ export const About: React.FC = () => {
                 letterSpacing: '0.12em',
                 textTransform: 'uppercase',
                 display: 'block',
-                marginTop: '2rem',
-                marginBottom: '1rem',
+                marginTop: '1.5rem',
+                marginBottom: '0.75rem',
               }}
             >
               Tecnologias Utilizadas
@@ -418,9 +416,9 @@ export const About: React.FC = () => {
                     border: '1px solid var(--void-line)',
                     color: 'var(--ink-pure)',
                     fontWeight: 600,
-                    padding: '0.5rem 0.85rem',
+                    padding: '0.45rem 0.75rem',
                     borderRadius: '0.5rem',
-                    fontSize: '0.82rem',
+                    fontSize: 'clamp(0.75rem, 1.3vw, 0.82rem)',
                   }}
                 >
                   {tech}
@@ -431,29 +429,22 @@ export const About: React.FC = () => {
         </div>
 
         {/* ==========================================================================
-            4. BLOCO DE GARANTIA (destaque em Azul Turquesa)
+            4. BLOCO DE GARANTIA (destaque em Azul Royal)
            ========================================================================== */}
         <div
-          className="mt-16 md:mt-24"
+          className="mt-12 sm:mt-16 md:mt-20 p-5 sm:p-7 md:p-8 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 sm:gap-6 relative overflow-hidden"
           style={{
             backgroundColor: 'var(--void-card)',
             border: '2px solid var(--neon-cyan)',
-            borderRadius: '1rem',
-            padding: '2.25rem',
-            boxShadow: '0 0 35px var(--neon-glow)',
-            display: 'flex',
-            alignItems: 'flex-start',
-            gap: '1.5rem',
-            position: 'relative',
-            overflow: 'hidden',
+            boxShadow: '0 0 30px var(--neon-glow)',
           }}
         >
           <div
             style={{
-              backgroundColor: 'rgba(2, 132, 199, 0.12)',
+              backgroundColor: 'var(--tag-bg)',
               border: '1px solid var(--neon-cyan)',
               borderRadius: '50%',
-              padding: '0.85rem',
+              padding: 'clamp(0.7rem, 1.5vw, 0.9rem)',
               color: 'var(--neon-cyan)',
               flexShrink: 0,
               display: 'flex',
@@ -461,7 +452,7 @@ export const About: React.FC = () => {
               justifyContent: 'center',
             }}
           >
-            <Award size={32} />
+            <Award size={28} className="w-6 h-6 sm:w-8 sm:h-8" />
           </div>
 
           <div>
@@ -469,9 +460,9 @@ export const About: React.FC = () => {
               style={{
                 fontFamily: "'Montserrat', sans-serif",
                 fontWeight: 900,
-                fontSize: '1.4rem',
+                fontSize: 'clamp(1.15rem, 2.2vw, 1.35rem)',
                 color: 'var(--ink-pure)',
-                marginBottom: '0.5rem',
+                marginBottom: '0.35rem',
                 letterSpacing: '-0.01em',
               }}
             >
@@ -480,9 +471,9 @@ export const About: React.FC = () => {
             <p
               style={{
                 fontFamily: "'Montserrat', sans-serif",
-                fontSize: '1.05rem',
+                fontSize: 'clamp(0.88rem, 1.6vw, 1.02rem)',
                 color: 'var(--ink-soft)',
-                lineHeight: 1.65,
+                lineHeight: 1.6,
                 margin: 0,
               }}
             >

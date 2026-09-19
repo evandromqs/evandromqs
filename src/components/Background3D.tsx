@@ -46,7 +46,7 @@ export const Background3D: React.FC = () => {
     );
     gridGeometry.rotateX(-Math.PI / 2);
 
-    const initialGridColor = isLightMode() ? 0x0284c7 : 0x00d4ff;
+    const initialGridColor = isLightMode() ? 0x1d4ed8 : 0x3b82f6;
     const gridMaterial = new THREE.MeshBasicMaterial({
       color: initialGridColor,
       wireframe: true,
@@ -129,8 +129,8 @@ export const Background3D: React.FC = () => {
     // --- ZONE 1: Hero Section (High Altitude, Y ~ 0 to 6) ---
     createCyberShape(
       new THREE.IcosahedronGeometry(1.6, 0),
-      0x00d4ff,
-      0x0284c7,
+      0x3b82f6,
+      0x1d4ed8,
       [-10, 4, -4],
       { x: 0.005, y: 0.008, z: 0.003 },
       0.8,
@@ -139,8 +139,8 @@ export const Background3D: React.FC = () => {
 
     createCyberShape(
       new THREE.OctahedronGeometry(2.0, 0),
-      0x4d9fff,
-      0x2563eb,
+      0x60a5fa,
+      0x3b82f6,
       [11, 3, -6],
       { x: -0.006, y: 0.007, z: 0.004 },
       0.7,
@@ -149,8 +149,8 @@ export const Background3D: React.FC = () => {
 
     createCyberShape(
       new THREE.TetrahedronGeometry(1.5, 0),
-      0x00d4ff,
-      0x0284c7,
+      0x3b82f6,
+      0x1d4ed8,
       [-4, 7, -10],
       { x: -0.004, y: 0.009, z: 0.005 },
       0.85,
@@ -160,8 +160,8 @@ export const Background3D: React.FC = () => {
     // --- ZONE 2: Sobre & Trajetória (Middle Descent, Y ~ -9 to -16) ---
     createCyberShape(
       new THREE.DodecahedronGeometry(1.5, 0),
-      0x00d4ff,
-      0x0284c7,
+      0x3b82f6,
+      0x1d4ed8,
       [-12, -9, -6],
       { x: 0.007, y: -0.006, z: 0.005 },
       0.9,
@@ -170,8 +170,8 @@ export const Background3D: React.FC = () => {
 
     createCyberShape(
       new THREE.TorusGeometry(1.8, 0.45, 16, 32),
-      0x00d4ff,
-      0x0284c7,
+      0x60a5fa,
+      0x3b82f6,
       [12, -11, -5],
       { x: 0.006, y: 0.008, z: -0.004 },
       0.65,
@@ -180,8 +180,8 @@ export const Background3D: React.FC = () => {
 
     createCyberShape(
       new THREE.IcosahedronGeometry(1.4, 0),
-      0x6be3ff,
-      0x0ea5e9,
+      0x60a5fa,
+      0x3b82f6,
       [-5, -14, -9],
       { x: 0.005, y: -0.007, z: 0.004 },
       0.8,
@@ -191,8 +191,8 @@ export const Background3D: React.FC = () => {
     // --- ZONE 3: Produtos & Soluções (Approaching Surface, Y ~ -19 to -25) ---
     createCyberShape(
       new THREE.OctahedronGeometry(2.1, 0),
-      0x00d4ff,
-      0x0284c7,
+      0x3b82f6,
+      0x1d4ed8,
       [-13, -19, -5],
       { x: 0.008, y: 0.006, z: 0.003 },
       0.75,
@@ -201,8 +201,8 @@ export const Background3D: React.FC = () => {
 
     createCyberShape(
       new THREE.TorusGeometry(2.1, 0.4, 16, 32),
-      0x4d9fff,
-      0x2563eb,
+      0x60a5fa,
+      0x3b82f6,
       [13, -21, -5],
       { x: -0.005, y: 0.009, z: 0.006 },
       0.7,
@@ -211,7 +211,7 @@ export const Background3D: React.FC = () => {
 
     createCyberShape(
       new THREE.DodecahedronGeometry(1.7, 0),
-      0x2563eb,
+      0x3b82f6,
       0x1d4ed8,
       [-11, -25, -6],
       { x: 0.006, y: -0.007, z: 0.005 },
@@ -221,8 +221,8 @@ export const Background3D: React.FC = () => {
 
     createCyberShape(
       new THREE.IcosahedronGeometry(1.8, 0),
-      0x6be3ff,
-      0x0ea5e9,
+      0x60a5fa,
+      0x3b82f6,
       [11, -26, -7],
       { x: -0.007, y: 0.006, z: -0.005 },
       0.8,
@@ -232,8 +232,8 @@ export const Background3D: React.FC = () => {
     // --- ZONE 4: Footer Base (Arriving at 3D Surface, Y ~ -28 to -31) ---
     createCyberShape(
       new THREE.OctahedronGeometry(2.2, 0),
-      0x4d9fff,
-      0x2563eb,
+      0x3b82f6,
+      0x1d4ed8,
       [-11, -28, -5],
       { x: 0.006, y: 0.007, z: -0.005 },
       0.75,
@@ -242,8 +242,8 @@ export const Background3D: React.FC = () => {
 
     createCyberShape(
       new THREE.DodecahedronGeometry(2.0, 0),
-      0x00d4ff,
-      0x0284c7,
+      0x60a5fa,
+      0x3b82f6,
       [11, -28, -6],
       { x: -0.006, y: 0.008, z: 0.004 },
       0.8,
@@ -252,8 +252,8 @@ export const Background3D: React.FC = () => {
 
     createCyberShape(
       new THREE.TorusGeometry(2.2, 0.35, 16, 32),
-      0x6be3ff,
-      0x0ea5e9,
+      0x60a5fa,
+      0x3b82f6,
       [12, -30, -7],
       { x: 0.008, y: -0.005, z: 0.007 },
       0.55,
@@ -262,8 +262,8 @@ export const Background3D: React.FC = () => {
 
     createCyberShape(
       new THREE.TetrahedronGeometry(1.8, 0),
-      0x00d4ff,
-      0x0284c7,
+      0x3b82f6,
+      0x1d4ed8,
       [-12, -30, -7],
       { x: 0.007, y: -0.005, z: 0.006 },
       0.7,
@@ -296,7 +296,7 @@ export const Background3D: React.FC = () => {
 
     const currentLight = isLightMode();
     const particleMaterial = new THREE.PointsMaterial({
-      color: currentLight ? 0x0284c7 : 0x00d4ff,
+      color: currentLight ? 0x1d4ed8 : 0x3b82f6,
       size: currentLight ? 0.16 : 0.14,
       transparent: true,
       opacity: currentLight ? 0.45 : 0.6,
@@ -333,9 +333,9 @@ export const Background3D: React.FC = () => {
         scene.fog.color.setHex(newFogColor);
       }
 
-      gridMaterial.color.setHex(light ? 0x0284c7 : 0x00d4ff);
+      gridMaterial.color.setHex(light ? 0x1d4ed8 : 0x3b82f6);
 
-      particleMaterial.color.setHex(light ? 0x0284c7 : 0x00d4ff);
+      particleMaterial.color.setHex(light ? 0x1d4ed8 : 0x3b82f6);
       particleMaterial.opacity = light ? 0.45 : 0.6;
       particleMaterial.blending = light
         ? THREE.NormalBlending

@@ -77,19 +77,19 @@ export const FAQ: React.FC = () => {
   return (
     <section
       id="faq"
-      className="faq-section py-20 md:py-28 transition-colors duration-300"
+      className="faq-section py-16 sm:py-20 md:py-24 lg:py-28 transition-colors duration-300"
       style={{
         backgroundColor: 'var(--void-black)',
         color: 'var(--ink-pure)',
       }}
     >
-      <div className="section-container max-w-4xl mx-auto px-4">
+      <div className="section-container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <span
           className="section-label"
           style={{
             color: 'var(--neon-cyan)',
             fontWeight: 700,
-            fontSize: '0.85rem',
+            fontSize: 'clamp(0.75rem, 1.5vw, 0.85rem)',
             letterSpacing: '0.1em',
             textTransform: 'uppercase',
             display: 'block',
@@ -102,10 +102,11 @@ export const FAQ: React.FC = () => {
           className="section-headline"
           style={{
             fontFamily: "'Montserrat', sans-serif",
-            fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)',
+            fontSize: 'clamp(1.5rem, 3.2vw, 2.35rem)',
             fontWeight: 900,
             color: 'var(--ink-pure)',
-            marginBottom: '0.75rem',
+            marginBottom: 'clamp(0.5rem, 1vw, 0.75rem)',
+            lineHeight: 1.25,
           }}
         >
           Perguntas Frequentes
@@ -114,15 +115,15 @@ export const FAQ: React.FC = () => {
           className="section-description"
           style={{
             color: 'var(--ink-soft)',
-            fontSize: '1.05rem',
+            fontSize: 'clamp(0.95rem, 1.8vw, 1.05rem)',
             lineHeight: 1.6,
-            marginBottom: '2.5rem',
+            marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)',
           }}
         >
           Respostas rápidas para as principais dúvidas de quem deseja criar um site ou aplicativo.
         </p>
 
-        <div className="faq-list flex flex-col gap-4">
+        <div className="faq-list flex flex-col gap-3.5 sm:gap-4">
           {faqData.map((item, index) => {
             const isOpen = openIndex === index;
             return (
@@ -140,14 +141,14 @@ export const FAQ: React.FC = () => {
               >
                 <button
                   type="button"
-                  className="faq-question-btn w-full flex items-center justify-between p-5 text-left"
+                  className="faq-question-btn w-full flex items-center justify-between p-4 sm:p-5 text-left"
                   style={{
                     backgroundColor: 'transparent',
                     border: 'none',
                     color: 'var(--ink-pure)',
                     fontFamily: "'Montserrat', sans-serif",
                     fontWeight: 700,
-                    fontSize: '1.05rem',
+                    fontSize: 'clamp(0.92rem, 1.8vw, 1.05rem)',
                     cursor: 'pointer',
                   }}
                   aria-expanded={isOpen}
@@ -161,17 +162,17 @@ export const FAQ: React.FC = () => {
                       transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
                       transition: 'transform 0.25s ease',
                       flexShrink: 0,
-                      marginLeft: '1rem',
+                      marginLeft: '0.75rem',
                     }}
                   />
                 </button>
                 {isOpen && (
                   <div
-                    className="faq-answer px-5 pb-5"
+                    className="faq-answer px-4 pb-4 sm:px-5 sm:pb-5"
                     style={{
                       borderTop: '1px solid var(--void-line)',
-                      paddingTop: '1rem',
-                      fontSize: '0.98rem',
+                      paddingTop: '0.85rem',
+                      fontSize: 'clamp(0.85rem, 1.6vw, 0.98rem)',
                       lineHeight: 1.65,
                       color: 'var(--ink-soft)',
                     }}
@@ -186,27 +187,27 @@ export const FAQ: React.FC = () => {
 
         {/* Support CTA Callout */}
         <div
-          className="faq-footer-cta mt-12 p-6 rounded-2xl text-center flex flex-col items-center justify-center gap-3"
+          className="faq-footer-cta mt-10 sm:mt-14 p-5 sm:p-7 md:p-8 rounded-2xl text-center flex flex-col items-center justify-center gap-3"
           style={{
             backgroundColor: 'var(--void-card)',
             border: '1px solid var(--void-line)',
             boxShadow: 'var(--card-shadow)',
           }}
         >
-          <p style={{ color: 'var(--ink-soft)', fontWeight: 600, fontSize: '1rem', margin: 0 }}>
+          <p style={{ color: 'var(--ink-soft)', fontWeight: 600, fontSize: 'clamp(0.9rem, 1.8vw, 1rem)', margin: 0 }}>
             Ainda tem dúvida?
           </p>
           <a
             href={FAQ_WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="faq-cta-btn btn-whatsapp-pulse inline-flex items-center gap-2"
+            className="faq-cta-btn btn-whatsapp-pulse inline-flex items-center justify-center gap-2 w-full sm:w-auto"
             style={{
               backgroundColor: '#128C7E',
               color: '#ffffff',
               fontWeight: 800,
-              fontSize: '0.95rem',
-              padding: '0.85rem 1.75rem',
+              fontSize: 'clamp(0.9rem, 1.8vw, 0.95rem)',
+              padding: 'clamp(0.8rem, 1.8vw, 0.95rem) clamp(1.5rem, 3vw, 2rem)',
               borderRadius: '9999px',
               textDecoration: 'none',
               cursor: 'pointer',

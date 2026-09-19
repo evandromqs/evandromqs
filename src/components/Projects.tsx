@@ -16,19 +16,19 @@ export const Projects: React.FC = () => {
   return (
     <section
       id="projetos"
-      className="py-20 md:py-28 transition-colors duration-300"
+      className="py-16 sm:py-20 md:py-24 lg:py-28 transition-colors duration-300"
       style={{
         backgroundColor: 'var(--void-black)',
         color: 'var(--ink-pure)',
       }}
     >
-      <div className="section-container max-w-7xl mx-auto px-4">
+      <div className="section-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <span
           className="section-label"
           style={{
             color: 'var(--neon-cyan)',
             fontWeight: 700,
-            fontSize: '0.85rem',
+            fontSize: 'clamp(0.75rem, 1.5vw, 0.85rem)',
             letterSpacing: '0.1em',
             textTransform: 'uppercase',
             display: 'block',
@@ -41,10 +41,11 @@ export const Projects: React.FC = () => {
           className="section-headline"
           style={{
             fontFamily: "'Montserrat', sans-serif",
-            fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)',
+            fontSize: 'clamp(1.5rem, 3.2vw, 2.35rem)',
             fontWeight: 900,
             color: 'var(--ink-pure)',
-            marginBottom: '0.75rem',
+            marginBottom: 'clamp(0.5rem, 1vw, 0.75rem)',
+            lineHeight: 1.25,
           }}
         >
           Projetos Reais Focados em Resultado
@@ -53,10 +54,10 @@ export const Projects: React.FC = () => {
           className="section-description"
           style={{
             color: 'var(--ink-soft)',
-            fontSize: '1.05rem',
+            fontSize: 'clamp(0.95rem, 1.8vw, 1.05rem)',
             lineHeight: 1.6,
             maxWidth: '680px',
-            marginBottom: '2.5rem',
+            marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)',
             fontWeight: 500,
           }}
         >
@@ -64,7 +65,7 @@ export const Projects: React.FC = () => {
         </p>
 
         {/* Categories Filter */}
-        <div className="category-filters flex flex-wrap gap-2 mb-10">
+        <div className="category-filters flex flex-wrap gap-2 mb-8 sm:mb-10">
           <button
             className={`filter-btn ${activeCategory === 'all' ? 'active' : ''}`}
             onClick={() => setActiveCategory('all')}
@@ -74,9 +75,9 @@ export const Projects: React.FC = () => {
               border: '1px solid',
               borderColor: activeCategory === 'all' ? 'var(--neon-cyan)' : 'var(--void-line)',
               borderRadius: '9999px',
-              padding: '0.5rem 1.15rem',
+              padding: 'clamp(0.4rem, 1vw, 0.5rem) clamp(0.85rem, 1.8vw, 1.15rem)',
               fontWeight: 700,
-              fontSize: '0.85rem',
+              fontSize: 'clamp(0.78rem, 1.5vw, 0.85rem)',
               transition: 'all 0.2s',
               cursor: 'pointer',
             }}
@@ -92,9 +93,9 @@ export const Projects: React.FC = () => {
               border: '1px solid',
               borderColor: activeCategory === 'web' ? 'var(--neon-cyan)' : 'var(--void-line)',
               borderRadius: '9999px',
-              padding: '0.5rem 1.15rem',
+              padding: 'clamp(0.4rem, 1vw, 0.5rem) clamp(0.85rem, 1.8vw, 1.15rem)',
               fontWeight: 700,
-              fontSize: '0.85rem',
+              fontSize: 'clamp(0.78rem, 1.5vw, 0.85rem)',
               transition: 'all 0.2s',
               cursor: 'pointer',
             }}
@@ -110,9 +111,9 @@ export const Projects: React.FC = () => {
               border: '1px solid',
               borderColor: activeCategory === 'mobile' ? 'var(--neon-cyan)' : 'var(--void-line)',
               borderRadius: '9999px',
-              padding: '0.5rem 1.15rem',
+              padding: 'clamp(0.4rem, 1vw, 0.5rem) clamp(0.85rem, 1.8vw, 1.15rem)',
               fontWeight: 700,
-              fontSize: '0.85rem',
+              fontSize: 'clamp(0.78rem, 1.5vw, 0.85rem)',
               transition: 'all 0.2s',
               cursor: 'pointer',
             }}
@@ -128,9 +129,9 @@ export const Projects: React.FC = () => {
               border: '1px solid',
               borderColor: activeCategory === 'tools-ai' ? 'var(--neon-cyan)' : 'var(--void-line)',
               borderRadius: '9999px',
-              padding: '0.5rem 1.15rem',
+              padding: 'clamp(0.4rem, 1vw, 0.5rem) clamp(0.85rem, 1.8vw, 1.15rem)',
               fontWeight: 700,
-              fontSize: '0.85rem',
+              fontSize: 'clamp(0.78rem, 1.5vw, 0.85rem)',
               transition: 'all 0.2s',
               cursor: 'pointer',
             }}
@@ -140,7 +141,7 @@ export const Projects: React.FC = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="projects-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {filteredProjects.map((project) => (
             <ProjectCard
               key={project.id}

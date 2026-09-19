@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 interface Particle {
   x: number;
@@ -224,9 +224,9 @@ export const CustomCursor: React.FC = () => {
             alpha: 0.95,
             color:
               Math.random() > 0.35
-                ? '#00d4ff'
+                ? '#3b82f6'
                 : Math.random() > 0.5
-                ? '#6be3ff'
+                ? '#60a5fa'
                 : '#ffffff',
           });
         };
@@ -267,11 +267,11 @@ export const CustomCursor: React.FC = () => {
           ctx.beginPath();
           ctx.moveTo(tailX, tailY);
           ctx.lineTo(bolt.x, bolt.y);
-          ctx.strokeStyle = `rgba(0, 212, 255, ${bolt.alpha})`;
+          ctx.strokeStyle = `rgba(59, 130, 246, ${bolt.alpha})`;
           ctx.lineWidth = 3;
           ctx.lineCap = 'round';
           ctx.shadowBlur = 10;
-          ctx.shadowColor = '#00d4ff';
+          ctx.shadowColor = '#3b82f6';
           ctx.stroke();
 
           // Laser Core
@@ -341,8 +341,8 @@ export const CustomCursor: React.FC = () => {
           <defs>
             <radialGradient id="plasmaGlow" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
-              <stop offset="35%" stopColor="#00d4ff" stopOpacity="0.9" />
-              <stop offset="70%" stopColor="#0066ff" stopOpacity="0.7" />
+              <stop offset="35%" stopColor="#3b82f6" stopOpacity="0.9" />
+              <stop offset="70%" stopColor="#1d4ed8" stopOpacity="0.7" />
               <stop offset="100%" stopColor="#000000" stopOpacity="0" />
             </radialGradient>
             <linearGradient id="hullMain" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -356,8 +356,8 @@ export const CustomCursor: React.FC = () => {
             </linearGradient>
             <linearGradient id="cockpitVisor" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#ffffff" />
-              <stop offset="30%" stopColor="#6be3ff" />
-              <stop offset="100%" stopColor="#0055ff" />
+              <stop offset="30%" stopColor="#60a5fa" />
+              <stop offset="100%" stopColor="#1d4ed8" />
             </linearGradient>
           </defs>
 
@@ -378,7 +378,7 @@ export const CustomCursor: React.FC = () => {
               cy="43"
               rx="2.5"
               ry="5"
-              fill="#00d4ff"
+              fill="#3b82f6"
               opacity="0.9"
             />
             <ellipse
@@ -386,7 +386,7 @@ export const CustomCursor: React.FC = () => {
               cy="43"
               rx="2.5"
               ry="5"
-              fill="#00d4ff"
+              fill="#3b82f6"
               opacity="0.9"
             />
           </g>
@@ -395,7 +395,7 @@ export const CustomCursor: React.FC = () => {
           <polygon
             points="24,2 4,36 12,40 18,35 24,28 30,35 36,40 44,36"
             fill="url(#hullMain)"
-            stroke="#00d4ff"
+            stroke="#3b82f6"
             strokeWidth="1.2"
             strokeLinejoin="round"
           />
@@ -404,14 +404,14 @@ export const CustomCursor: React.FC = () => {
           <polygon
             points="14,26 4,36 11,39 17,32"
             fill="url(#wingPlates)"
-            stroke="#00d4ff"
+            stroke="#3b82f6"
             strokeWidth="0.8"
             opacity="0.9"
           />
           <polygon
             points="34,26 44,36 37,39 31,32"
             fill="url(#wingPlates)"
-            stroke="#00d4ff"
+            stroke="#3b82f6"
             strokeWidth="0.8"
             opacity="0.9"
           />
@@ -420,7 +420,7 @@ export const CustomCursor: React.FC = () => {
           <polygon
             points="24,2 17,22 19,41 24,43 29,41 31,22"
             fill="#0b1120"
-            stroke="#6be3ff"
+            stroke="#60a5fa"
             strokeWidth="1.3"
             strokeLinejoin="round"
           />
@@ -432,8 +432,8 @@ export const CustomCursor: React.FC = () => {
             width="2"
             height="9"
             rx="1"
-            fill="#00d4ff"
-            stroke="#6be3ff"
+            fill="#3b82f6"
+            stroke="#60a5fa"
             strokeWidth="0.5"
           />
           <rect
@@ -442,8 +442,8 @@ export const CustomCursor: React.FC = () => {
             width="2"
             height="9"
             rx="1"
-            fill="#00d4ff"
-            stroke="#6be3ff"
+            fill="#3b82f6"
+            stroke="#60a5fa"
             strokeWidth="0.5"
           />
 
@@ -465,7 +465,7 @@ export const CustomCursor: React.FC = () => {
             y1="4"
             x2="24"
             y2="40"
-            stroke="#00d4ff"
+            stroke="#3b82f6"
             strokeWidth="1"
             strokeDasharray="3 1.5"
           />
