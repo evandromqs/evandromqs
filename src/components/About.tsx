@@ -112,10 +112,7 @@ export const About: React.FC = () => {
            ========================================================================== */}
         <div
           id="solucoes"
-          className="mt-16 sm:mt-20 md:mt-24 pt-12 sm:pt-16"
-          style={{
-            borderTop: '1px solid var(--void-line)',
-          }}
+          className="about-section-divider"
         >
           <span
             className="section-label"
@@ -239,10 +236,7 @@ export const About: React.FC = () => {
             3. COMPARATIVO & TECH STACK (Respiro mt-16 sm:mt-20 md:mt-24 pt-12 sm:pt-16)
            ========================================================================== */}
         <div
-          className="about-grid mt-16 sm:mt-20 md:mt-24 pt-12 sm:pt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12"
-          style={{
-            borderTop: '1px solid var(--void-line)',
-          }}
+          className="about-grid about-section-divider"
         >
           {/* COLUNA 1: Por que microempreendedor foge de agência? */}
           <div>
@@ -429,7 +423,7 @@ export const About: React.FC = () => {
         {/* ==========================================================================
             4. BLOCO DE GARANTIA (destaque em Azul Royal)
            ========================================================================== */}
-        <div className="guarantee-card mt-12 sm:mt-16 md:mt-20">
+        <div className="guarantee-card">
           <div className="guarantee-icon-wrapper">
             <Award size={30} color="var(--neon-cyan)" />
           </div>

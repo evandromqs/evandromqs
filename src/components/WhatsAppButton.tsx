@@ -18,7 +18,7 @@ export const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
 
     const checkVisibility = () => {
       const isHeroVisible = heroSection ? heroSection.getBoundingClientRect().bottom > 60 : false;
-      const isFooterVisible = footerSection ? footerSection.getBoundingClientRect().top < window.innerHeight - 80 : false;
+      const isFooterVisible = footerSection ? footerSection.getBoundingClientRect().top < window.innerHeight : false;
 
       // O botão flutuante só aparece entre o Hero e o Footer (onde já há botões de WhatsApp de destaque)
       setIsVisible(!isHeroVisible && !isFooterVisible);

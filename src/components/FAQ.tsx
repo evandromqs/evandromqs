@@ -83,7 +83,7 @@ export const FAQ: React.FC = () => {
         color: 'var(--ink-pure)',
       }}
     >
-      <div className="section-container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="faq-container px-4 sm:px-6">
         <span
           className="section-label"
           style={{
@@ -186,14 +186,7 @@ export const FAQ: React.FC = () => {
         </div>
 
         {/* Support CTA Callout */}
-        <div
-          className="faq-footer-cta mt-10 sm:mt-14 p-5 sm:p-7 md:p-8 rounded-2xl text-center flex flex-col items-center justify-center gap-3"
-          style={{
-            backgroundColor: 'var(--void-card)',
-            border: '1px solid var(--void-line)',
-            boxShadow: 'var(--card-shadow)',
-          }}
-        >
+        <div className="faq-footer-cta">
           <p style={{ color: 'var(--ink-soft)', fontWeight: 600, fontSize: 'clamp(0.9rem, 1.8vw, 1rem)', margin: 0 }}>
             Ainda tem dúvida?
           </p>

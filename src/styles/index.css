@@ -942,7 +942,7 @@ section {
   .category-filters {
     flex-wrap: nowrap;
     overflow-x: auto;
-    padding-bottom: 0.5rem;
+    padding: 0.25rem 0.75rem 0.6rem 0.75rem;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     margin-bottom: 1.75rem;
@@ -1331,21 +1331,22 @@ section {
 footer {
   background: transparent;
   border-top: 1px solid var(--void-line);
-  padding: 3.5rem 1rem 2.5rem;
+  padding: clamp(5.5rem, 10vw, 7rem) 1.25rem 2.5rem;
   text-align: center;
   position: relative;
   z-index: 1;
+  scroll-margin-top: 6rem;
 }
 
 @media (min-width: 640px) {
   footer {
-    padding: 4.5rem 1.5rem 3rem;
+    padding: 5.5rem 1.5rem 3rem;
   }
 }
 
 @media (min-width: 1024px) {
   footer {
-    padding: 6rem 2rem 4rem;
+    padding: 6.5rem 2rem 4rem;
   }
 }
 
@@ -1372,9 +1373,16 @@ footer {
 .footer-social-links {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1.25rem;
   flex-wrap: wrap;
-  margin-bottom: 3.5rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 640px) {
+  .footer-social-links {
+    gap: 0.65rem;
+    margin-bottom: 2rem;
+  }
 }
 
 .social-btn {
@@ -1639,6 +1647,12 @@ footer {
   border-color: var(--neon-cyan);
 }
 
+.about-section-divider {
+  margin-top: clamp(3rem, 6vw, 5rem);
+  padding-top: clamp(2.5rem, 5vw, 4rem);
+  border-top: 1px solid var(--void-line);
+}
+
 .comparison-row-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1648,7 +1662,7 @@ footer {
 @media (max-width: 640px) {
   .comparison-row-grid {
     grid-template-columns: 1fr;
-    gap: 0.5rem;
+    gap: 2rem;
   }
 }
 
@@ -1660,6 +1674,7 @@ footer {
   border: 2px solid var(--neon-cyan);
   border-radius: var(--r-xl);
   padding: 2.25rem 2rem;
+  margin-top: clamp(2.5rem, 5vw, 4.5rem);
   box-shadow: 0 0 35px var(--neon-glow);
   position: relative;
   overflow: hidden;
@@ -1671,6 +1686,7 @@ footer {
     text-align: center;
     padding: 1.5rem 1.25rem;
     gap: 1.25rem;
+    margin-top: 2.5rem;
   }
 }
 
@@ -1699,6 +1715,12 @@ footer {
   transition: all 0.3s var(--ease-quiet);
   position: relative;
   overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .solution-card {
+    padding: 1.5rem 1.25rem;
+  }
 }
 
 .solution-card::before {
@@ -1899,9 +1921,6 @@ footer {
   line-height: 1.5;
 }
 
-/* ==========================================================================
-   HERO MICRO-TRUST ROW
-   ========================================================================== */
 .hero-trust-row {
   display: flex;
   justify-content: center;
@@ -1920,10 +1939,38 @@ footer {
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--ink-soft);
+  text-align: left;
+}
+
+.hero-trust-item span {
+  text-align: left;
 }
 
 .hero-trust-item svg {
   flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .hero-trust-row {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+    margin-top: 1.25rem;
+    padding-top: 0.5rem;
+  }
+
+  .hero-trust-item {
+    width: auto;
+    max-width: 90%;
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .hero-trust-item svg {
+    margin-top: 2px;
+  }
 }
 
 /* ==========================================================================
@@ -1958,6 +2005,12 @@ footer {
   padding: 5rem 2rem;
   position: relative;
   z-index: 1;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .faq-list {
@@ -2031,12 +2084,19 @@ footer {
 }
 
 .faq-footer-cta {
-  margin-top: 3rem;
+  max-width: 800px;
+  margin: 3rem auto 0;
+  width: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.85rem;
+  gap: 1rem;
+  padding: clamp(1.75rem, 3.5vw, 2.5rem) clamp(1.25rem, 2.5vw, 2rem);
+  border-radius: var(--r-lg);
+  background: var(--void-card);
+  border: 1px solid var(--void-line);
+  box-shadow: var(--card-shadow);
 }
 
 .faq-footer-cta p {
