@@ -17,7 +17,7 @@ export const comparisonData: ComparisonRow[] = [
   },
   {
     criterion: 'Tecnologia',
-    agency: 'WordPress pesado 5s',
+    agency: 'Sistema pesado que trava',
     direct: 'Código leve 1s',
   },
   {

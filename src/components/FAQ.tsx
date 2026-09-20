@@ -40,7 +40,7 @@ const faqData: FAQItem[] = [
     question: 'Por que contratar direto com você e não com uma agência?',
     answer: (
       <>
-        Agência te cobra R$ 3 mil + R$ 300/mês, te atende um estagiário e usa WordPress lento. Comigo você investe a partir de {priceHighlight('R$ 500 + R$ 50/mês')}, fala direto comigo, tem entrega em dias e código que abre em 1s.
+        Agência te cobra R$ 3 mil + R$ 300/mês, te atende um estagiário e usa plataforma pesada que trava. Comigo você investe a partir de {priceHighlight('R$ 500 + R$ 50/mês')}, fala direto comigo, tem entrega em dias e código que abre em 1s.
       </>
     ),
   },

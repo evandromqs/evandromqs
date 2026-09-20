@@ -139,13 +139,13 @@ export const About: React.FC = () => {
               lineHeight: 1.2,
             }}
           >
-            O que desenvolvo para o seu negócio - Focado em vender mais gastando menos
+            O que desenvolvo para o seu negócio - Design profissional e foco no contato
           </h2>
 
           {/* 3 Bullets com check embaixo do título da seção */}
           <div className="checkpoints-grid mb-8 sm:mb-10">
             {sectionCheckpoints.map((point, idx) => (
-              <div key={idx} className="checkpoint-chip">
+              <div key={idx} className="checkpoint-chip" style={{ minHeight: '52px' }}>
                 <CheckCircle2
                   size={18}
                   className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0"
@@ -158,15 +158,16 @@ export const About: React.FC = () => {
             ))}
           </div>
 
-          <div className="solutions-grid grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          <div className="solutions-grid grid grid-cols-1 md:grid-cols-2 gap-6">
             {solutionsData.map((sol, idx) => (
               <div
                 key={idx}
-                className="solution-card rounded-2xl p-5 sm:p-7 flex flex-col justify-between transition-all"
+                className="solution-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all"
                 style={{
                   backgroundColor: 'var(--void-card)',
                   border: '1px solid var(--void-line)',
                   boxShadow: 'var(--card-shadow)',
+                  minHeight: '380px',
                 }}
               >
                 <div>
@@ -317,7 +318,7 @@ export const About: React.FC = () => {
                 marginBottom: '1rem',
               }}
             >
-              Em vez de templates pesados e genéricos que deixam seu site lento e te fazem perder o cliente que você pagou no Google, eu construo do zero usando o que as maiores empresas do mundo usam: React, Next.js, Flutter e Firebase. O resultado é um site que carrega em fração de segundos, não trava e passa segurança para quem compra.
+              Em vez de plataformas pesadas e sistemas que travam deixando seu site lento e fazendo você perder contatos, eu construo do zero usando o que as maiores empresas do mundo usam: React, Next.js, Flutter e Firebase. O resultado é um site que carrega em fração de segundos, não trava e passa segurança para quem navega.
             </p>
 
             {/* 3 Diferenciais de Engenharia */}
@@ -329,7 +330,7 @@ export const About: React.FC = () => {
                     Código Próprio e Rápido:
                   </strong>{' '}
                   <span style={{ color: 'var(--ink-soft)', fontSize: '0.82rem', lineHeight: 1.4 }}>
-                    Sem templates lentos. Carregamento em 1s que converte visitantes em clientes.
+                    Sem plataformas pesadas. Carregamento em 1s que converte visitantes em contatos.
                   </span>
                 </div>
               </div>

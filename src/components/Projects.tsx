@@ -48,7 +48,7 @@ export const Projects: React.FC = () => {
             lineHeight: 1.25,
           }}
         >
-          Projetos Reais Focados em Resultado
+          Projetos Entregues
         </h2>
         <p
           className="section-description"
@@ -61,7 +61,7 @@ export const Projects: React.FC = () => {
             fontWeight: 500,
           }}
         >
-          De R$ 500 a R$ 2.000 - Veja como microempreendedores já estão vendendo sem pagar taxas abusivas.
+          De R$ 500 a R$ 2.000 - Veja soluções reais no ar funcionando com carregamento rápido e sem plataformas pesadas.
         </p>
 
         {/* Categories Filter */}
