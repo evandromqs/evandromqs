@@ -90,12 +90,11 @@ export const coreHighlights = [
 
 export const skillsData = [
   'React',
+  'Next.js',
   'TypeScript',
+  'Node.js',
   'Flutter',
   'Android Nativo',
-  'Node.js',
   'Firebase',
   'Three.js',
-  'Next.js',
-  'Tailwind',
 ];

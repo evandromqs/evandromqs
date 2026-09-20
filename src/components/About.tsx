@@ -6,7 +6,7 @@ import {
   skillsData,
 } from '../data/skills';
 import { comparisonData } from '../data/timeline';
-import { CheckCircle2, XCircle, Award } from 'lucide-react';
+import { CheckCircle2, XCircle, Award, Zap, ShieldCheck, Sparkles } from 'lucide-react';
 
 export const About: React.FC = () => {
   return (
@@ -253,104 +253,42 @@ export const About: React.FC = () => {
               Por que microempreendedor foge de agência?
             </h3>
 
-            <div className="flex flex-col gap-3 sm:gap-4">
+            {/* Unified Comparison Table Card */}
+            <div className="comparison-table-card">
+              {/* Header */}
+              <div className="comparison-table-header">
+                <span className="comp-header-label">Critério</span>
+                <div className="comp-th-agency">
+                  <XCircle size={14} />
+                  <span>Agência Tradicional</span>
+                </div>
+                <div className="comp-th-dev">
+                  <CheckCircle2 size={14} />
+                  <span>Comigo (Dev Direto)</span>
+                </div>
+              </div>
+
+              {/* Rows */}
               {comparisonData.map((row, idx) => (
-                <div
-                  key={idx}
-                  className="rounded-xl p-3.5 sm:p-4 transition-all"
-                  style={{
-                    backgroundColor: 'var(--void-card)',
-                    border: '1px solid var(--void-line)',
-                    boxShadow: 'var(--card-shadow)',
-                  }}
-                >
-                  <div
-                    style={{
-                      fontFamily: "'Poppins', sans-serif",
-                      fontWeight: 700,
-                      fontSize: 'clamp(0.75rem, 1.4vw, 0.85rem)',
-                      color: 'var(--neon-cyan)',
-                      letterSpacing: '0.05em',
-                      textTransform: 'uppercase',
-                      marginBottom: '0.5rem',
-                    }}
-                  >
-                    {row.criterion}
+                <div key={idx} className="comparison-table-row">
+                  <div className="comp-col-criterion">
+                    <span className="comp-criterion-tag">{row.criterion}</span>
                   </div>
 
-                  <div className="comparison-row-grid">
-                    {/* Agência */}
-                    <div
-                      className="p-2.5 sm:p-3 rounded-lg"
-                      style={{
-                        backgroundColor: 'rgba(239, 68, 68, 0.06)',
-                        border: '1px solid rgba(239, 68, 68, 0.25)',
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '0.35rem',
-                          fontFamily: "'Poppins', sans-serif",
-                          fontWeight: 700,
-                          fontSize: '0.72rem',
-                          color: '#ef4444',
-                          marginBottom: '0.25rem',
-                          textTransform: 'uppercase',
-                        }}
-                      >
-                        <XCircle size={14} />
-                        <span>Agência</span>
-                      </div>
-                      <p
-                        style={{
-                          fontSize: 'clamp(0.8rem, 1.4vw, 0.88rem)',
-                          color: 'var(--ink-soft)',
-                          margin: 0,
-                          lineHeight: 1.4,
-                        }}
-                      >
-                        {row.agency}
-                      </p>
-                    </div>
+                  <div className="comp-col-agency">
+                    <XCircle size={15} className="flex-shrink-0" style={{ color: '#ef4444' }} />
+                    <span>
+                      <strong className="comp-mobile-label" style={{ color: '#ef4444' }}>Agência: </strong>
+                      {row.agency}
+                    </span>
+                  </div>
 
-                    {/* Direto com Dev */}
-                    <div
-                      className="p-2.5 sm:p-3 rounded-lg"
-                      style={{
-                        backgroundColor: 'var(--tag-bg)',
-                        border: '1px solid var(--neon-cyan)',
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '0.35rem',
-                          fontFamily: "'Poppins', sans-serif",
-                          fontWeight: 700,
-                          fontSize: '0.72rem',
-                          color: 'var(--neon-cyan)',
-                          marginBottom: '0.25rem',
-                          textTransform: 'uppercase',
-                        }}
-                      >
-                        <CheckCircle2 size={14} color="var(--neon-cyan)" />
-                        <span>Direto com Dev</span>
-                      </div>
-                      <p
-                        style={{
-                          fontSize: 'clamp(0.8rem, 1.4vw, 0.88rem)',
-                          color: 'var(--ink-pure)',
-                          fontWeight: 700,
-                          margin: 0,
-                          lineHeight: 1.4,
-                        }}
-                      >
-                        {row.direct}
-                      </p>
-                    </div>
+                  <div className="comp-col-dev">
+                    <CheckCircle2 size={15} className="flex-shrink-0" style={{ color: 'var(--neon-cyan)' }} />
+                    <span>
+                      <strong className="comp-mobile-label" style={{ color: 'var(--neon-cyan)' }}>Comigo: </strong>
+                      {row.direct}
+                    </span>
                   </div>
                 </div>
               ))}
@@ -374,45 +312,72 @@ export const About: React.FC = () => {
             <p
               style={{
                 color: 'var(--ink-soft)',
-                fontSize: 'clamp(0.88rem, 1.6vw, 1rem)',
+                fontSize: 'clamp(0.88rem, 1.6vw, 0.98rem)',
                 lineHeight: 1.65,
-                marginBottom: '1.25rem',
+                marginBottom: '1rem',
               }}
             >
               Em vez de templates pesados e genéricos que deixam seu site lento e te fazem perder o cliente que você pagou no Google, eu construo do zero usando o que as maiores empresas do mundo usam: React, Next.js, Flutter e Firebase. O resultado é um site que carrega em fração de segundos, não trava e passa segurança para quem compra.
             </p>
+
+            {/* 3 Diferenciais de Engenharia */}
+            <div className="flex flex-col gap-2.5 my-3">
+              <div className="tech-benefit-item">
+                <Zap size={18} className="flex-shrink-0" style={{ color: 'var(--neon-cyan)', marginTop: '2px' }} />
+                <div>
+                  <strong style={{ color: 'var(--ink-pure)', fontSize: '0.86rem', display: 'inline-block' }}>
+                    Código Próprio e Rápido:
+                  </strong>{' '}
+                  <span style={{ color: 'var(--ink-soft)', fontSize: '0.82rem', lineHeight: 1.4 }}>
+                    Sem templates lentos. Carregamento em 1s que converte visitantes em clientes.
+                  </span>
+                </div>
+              </div>
+
+              <div className="tech-benefit-item">
+                <ShieldCheck size={18} className="flex-shrink-0" style={{ color: 'var(--neon-cyan)', marginTop: '2px' }} />
+                <div>
+                  <strong style={{ color: 'var(--ink-pure)', fontSize: '0.86rem', display: 'inline-block' }}>
+                    Segurança & Alta Disponibilidade:
+                  </strong>{' '}
+                  <span style={{ color: 'var(--ink-soft)', fontSize: '0.82rem', lineHeight: 1.4 }}>
+                    Zero risco de plugins vulneráveis ou invasões. Estabilidade 24 horas.
+                  </span>
+                </div>
+              </div>
+
+              <div className="tech-benefit-item">
+                <Sparkles size={18} className="flex-shrink-0" style={{ color: 'var(--neon-cyan)', marginTop: '2px' }} />
+                <div>
+                  <strong style={{ color: 'var(--ink-pure)', fontSize: '0.86rem', display: 'inline-block' }}>
+                    Propriedade 100% Sua:
+                  </strong>{' '}
+                  <span style={{ color: 'var(--ink-soft)', fontSize: '0.82rem', lineHeight: 1.4 }}>
+                    Código, domínio e dados pertencem a você. Sem fidelidade forçada ou pegadinhas.
+                  </span>
+                </div>
+              </div>
+            </div>
 
             <span
               className="about-subtitle"
               style={{
                 color: 'var(--neon-blue)',
                 fontFamily: "'Poppins', sans-serif",
-                fontSize: '0.82rem',
+                fontSize: '0.78rem',
                 fontWeight: 700,
                 letterSpacing: '0.12em',
                 textTransform: 'uppercase',
                 display: 'block',
-                marginTop: '1.5rem',
-                marginBottom: '0.75rem',
+                marginTop: '1.25rem',
+                marginBottom: '0.65rem',
               }}
             >
               Tecnologias Utilizadas
             </span>
-            <div className="about-tech-grid flex flex-wrap gap-2">
+            <div className="about-tech-grid">
               {skillsData.map((tech, idx) => (
-                <div
-                  key={idx}
-                  className="tech-pill transition-all"
-                  style={{
-                    backgroundColor: 'var(--void-card)',
-                    border: '1px solid var(--void-line)',
-                    color: 'var(--ink-pure)',
-                    fontWeight: 600,
-                    padding: '0.45rem 0.75rem',
-                    borderRadius: '0.5rem',
-                    fontSize: 'clamp(0.75rem, 1.3vw, 0.82rem)',
-                  }}
-                >
+                <div key={idx} className="tech-pill">
                   {tech}
                 </div>
               ))}

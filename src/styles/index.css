@@ -833,9 +833,17 @@ section {
 
 .about-tech-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  gap: 0.75rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.65rem;
 }
+
+@media (max-width: 640px) {
+  .about-tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+}
+
 
 .tech-pill {
   font-family: 'Montserrat', sans-serif;
@@ -1648,23 +1656,178 @@ footer {
 }
 
 .about-section-divider {
-  margin-top: clamp(3rem, 6vw, 5rem);
-  padding-top: clamp(2.5rem, 5vw, 4rem);
+  margin-top: clamp(2.25rem, 4vw, 3.25rem);
+  padding-top: clamp(1.75rem, 3.5vw, 2.5rem);
   border-top: 1px solid var(--void-line);
 }
 
-.comparison-row-grid {
+/* Unified Comparison Table */
+.comparison-table-card {
+  background: var(--void-card);
+  border: 1px solid var(--void-line);
+  border-radius: var(--r-xl);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.comparison-table-header {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
+  grid-template-columns: 125px 1fr 1.15fr;
+  align-items: center;
+  padding: 0.85rem 1.15rem;
+  background: var(--btn-sec-bg);
+  border-bottom: 1px solid var(--void-line);
+}
+
+.comp-header-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.comp-th-agency {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ef4444;
+  letter-spacing: 0.03em;
+}
+
+.comp-th-dev {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--neon-cyan);
+  letter-spacing: 0.03em;
+  padding-left: 0.85rem;
+  border-left: 1px solid var(--void-line);
+}
+
+.comparison-table-row {
+  display: grid;
+  grid-template-columns: 125px 1fr 1.15fr;
+  align-items: stretch;
+  border-bottom: 1px solid var(--void-line);
+  transition: background-color 0.2s ease;
+}
+
+.comparison-table-row:last-child {
+  border-bottom: none;
+}
+
+.comparison-table-row:hover {
+  background: rgba(37, 99, 235, 0.02);
+}
+
+.comp-col-criterion {
+  padding: 0.9rem 0.75rem 0.9rem 1.15rem;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.comp-criterion-tag {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--neon-cyan);
+}
+
+.comp-col-agency {
+  padding: 0.9rem 1rem 0.9rem 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.835rem;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+
+.comp-col-dev {
+  padding: 0.9rem 1.15rem 0.9rem 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.855rem;
+  font-weight: 700;
+  color: var(--ink-pure);
+  line-height: 1.4;
+  background: var(--tag-bg);
+  border-left: 1px solid var(--void-line);
+}
+
+.comp-mobile-label {
+  display: none;
 }
 
 @media (max-width: 640px) {
-  .comparison-row-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .comp-mobile-label {
+    display: inline;
+  }
+
+  .comparison-table-header {
+    display: none;
+  }
+
+  .comparison-table-row {
+    display: flex;
+    flex-direction: column;
+    padding: 0.9rem 1rem;
+    gap: 0.55rem;
+  }
+
+  .comp-col-criterion {
+    padding: 0;
+  }
+
+  .comp-col-agency {
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--r-sm);
+    background: rgba(239, 68, 68, 0.05);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+  }
+
+  .comp-col-dev {
+    padding: 0.55rem 0.75rem;
+    border-radius: var(--r-sm);
+    background: var(--tag-bg);
+    border: 1px solid var(--neon-cyan);
   }
 }
+
+/* Tech benefits styling */
+.tech-benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--r-md);
+  background: var(--void-card);
+  border: 1px solid var(--void-line);
+  box-shadow: var(--card-shadow);
+  transition: all 0.25s var(--ease-quiet);
+}
+
+.tech-benefit-item:hover {
+  border-color: var(--neon-cyan);
+  transform: translateX(3px);
+}
+
 
 .guarantee-card {
   display: flex;
