@@ -1,6 +1,5 @@
 import React from 'react';
 import { ThemeProvider } from './context/ThemeContext';
-import { Background3D } from './components/Background3D';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -13,7 +12,6 @@ export const App: React.FC = () => {
   return (
     <ThemeProvider>
       <div className="app-root">
-        <Background3D />
         <Navbar />
         <main>
           <Hero />

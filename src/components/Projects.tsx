@@ -61,7 +61,7 @@ export const Projects: React.FC = () => {
             fontWeight: 500,
           }}
         >
-          De R$ 500 a R$ 2.000 - Veja soluções reais no ar funcionando com carregamento rápido e sem plataformas pesadas.
+          A partir de 500R$ - Veja soluções reais no ar.
         </p>
 
         {/* Categories Filter */}
@@ -100,7 +100,7 @@ export const Projects: React.FC = () => {
               cursor: 'pointer',
             }}
           >
-            Sites & Lojas Virtuais
+            Sites e Lojas Virtuais
           </button>
           <button
             className={`filter-btn ${activeCategory === 'mobile' ? 'active' : ''}`}
@@ -136,7 +136,7 @@ export const Projects: React.FC = () => {
               cursor: 'pointer',
             }}
           >
-            Sistemas & Automações
+            Sistemas e Automações
           </button>
         </div>
 

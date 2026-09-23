@@ -1,13 +1,21 @@
-import React from 'react';
-import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
 import { reportWhatsAppConversion } from '../utils/analytics';
 
 const WHATSAPP_URL =
   'https://wa.me/5511976920649?text=' +
-  encodeURIComponent('Olá, quero uma proposta de site profissional') +
+  encodeURIComponent('Olá, vim pelo seu site, quero uma proposta para o meu negócio.') +
   '&utm_source=site_hero';
 
 export const Hero: React.FC = () => {
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current && videoRef.current.readyState >= 3) {
+      setIsVideoLoaded(true);
+    }
+  }, []);
+
   const handleWhatsAppClick = () => {
     reportWhatsAppConversion('hero_cta');
   };
@@ -15,12 +23,90 @@ export const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative pt-24 pb-14 sm:pt-28 sm:pb-16 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24 overflow-hidden flex flex-col justify-center items-center transition-colors duration-300"
+      className="relative overflow-hidden flex flex-col items-center transition-colors duration-300"
       style={{
         backgroundColor: 'var(--void-black)',
         color: 'var(--ink-pure)',
+        minHeight: 'auto',
+        justifyContent: 'flex-start',
+        paddingTop: 'clamp(3.5rem, 5.5vw, 4.25rem)',
+        paddingBottom: 'clamp(2rem, 3.5vw, 3rem)',
       }}
     >
+      {/* Container dos dispositivos (imagem carregada primeiro + vídeo em loop sobreposto) */}
+      <div
+        className="hero-devices-container w-full relative overflow-hidden"
+        style={{
+          width: '100%',
+          overflow: 'hidden',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          position: 'relative',
+        }}
+      >
+        <div
+          style={{
+            position: 'relative',
+            width: '100%',
+            maxWidth: '1000px',
+            height: 'clamp(240px, 42vw, 440px)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            transform: 'scale(1.4)',
+            transformOrigin: 'center center',
+          }}
+        >
+          {/* 1. Imagem carregada primeiro imediatamente (desaparece quando o vídeo carrega) */}
+          <img
+            src="/devices_image.webp"
+            alt="Demonstração dos dispositivos"
+            loading="eager"
+            decoding="async"
+            aria-hidden={isVideoLoaded}
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain',
+              display: 'block',
+              zIndex: 1,
+              opacity: isVideoLoaded ? 0 : 1,
+              transition: 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+              pointerEvents: 'none',
+            }}
+          />
+
+          {/* 2. Vídeo carregando em segundo plano e iniciando o loop acima da imagem */}
+          <video
+            ref={videoRef}
+            src="/device_video.webm"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            onCanPlay={() => setIsVideoLoaded(true)}
+            onCanPlayThrough={() => setIsVideoLoaded(true)}
+            onPlaying={() => setIsVideoLoaded(true)}
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain',
+              display: 'block',
+              zIndex: 2,
+              opacity: isVideoLoaded ? 1 : 0,
+              transition: 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+              pointerEvents: 'none',
+            }}
+          />
+        </div>
+      </div>
+
       <div className="hero-content relative z-20 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1
           id="hero-title"
@@ -35,10 +121,31 @@ export const Hero: React.FC = () => {
             lineHeight: 1.15,
             letterSpacing: '-0.02em',
             marginBottom: 'clamp(1rem, 2vw, 1.5rem)',
+            textShadow: '0 2px 14px rgba(0, 0, 0, 0.65)',
           }}
         >
-          Seu Negócio Merece um Site Profissional<br />
-          Que Explica o Seu Valor e Traz Contatos no WhatsApp
+          Quando alguém procura{' '}
+          <span
+            style={{
+              color: 'var(--h1-highlight)',
+              WebkitTextFillColor: 'var(--h1-highlight)',
+              fontWeight: 900,
+            }}
+          >
+            seu negócio
+          </span>{' '}
+          na internet,<br />
+          acha{' '}
+          <span
+            style={{
+              color: 'var(--h1-highlight)',
+              WebkitTextFillColor: 'var(--h1-highlight)',
+              fontWeight: 900,
+            }}
+          >
+            você
+          </span>{' '}
+          ou o seu concorrente?
         </h1>
 
         <p
@@ -52,7 +159,9 @@ export const Hero: React.FC = () => {
             lineHeight: 1.6,
           }}
         >
-          Chega de páginas confusas ou perder clientes por falta de presença digital. Tenha um Design limpo, carregamento instantâneo e foco no contato. Sites a partir de R$ 500, aplicativos e sistemas sob consulta.
+
+          Coloco seu negócio no Google com uma página rápida e organizada.<br />
+          Seu cliente te encontra, entende oque você faz vai direto para o seu WhatsApp.
         </p>
 
         <div className="hero-cta-group relative z-30 mb-3 sm:mb-4 flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 w-full sm:w-auto px-2 sm:px-0">
@@ -90,50 +199,15 @@ export const Hero: React.FC = () => {
             </svg>
             <span>Pedir Proposta no WhatsApp</span>
           </a>
-          <a
-            href="#projetos"
-            className="btn-secondary w-full sm:w-auto justify-center"
-            style={{
-              backgroundColor: 'var(--btn-sec-bg)',
-              color: 'var(--ink-pure)',
-              borderColor: 'var(--void-line-hover)',
-              borderWidth: '1.5px',
-              borderStyle: 'solid',
-              fontSize: 'clamp(0.85rem, 1.6vw, 0.95rem)',
-              padding: 'clamp(0.85rem, 2vw, 1rem) clamp(1.25rem, 2.5vw, 1.75rem)',
-            }}
-          >
-            <span>Ver Projetos Entregues</span>
-            <ArrowUpRight size={16} />
-          </a>
         </div>
 
         {/* Badge pequeno de resposta rápida */}
         <p
-          className="text-xs text-zinc-500 font-medium tracking-wide mb-6 sm:mb-8"
-          style={{ color: 'var(--ink-soft)', fontSize: '0.78rem' }}
+          className="text-xs text-zinc-500 font-medium tracking-wide"
+          style={{ color: 'var(--ink-soft)', fontSize: '0.8rem' }}
         >
-          Resposta em até 30min | Sem fidelidade
+          Resposta rápida | Atendimento humano | Orçamento gratuito.
         </p>
-
-        {/* Micro-Trust Badges */}
-        <div
-          className="hero-trust-row relative z-20 flex flex-col sm:flex-row flex-wrap justify-center items-center gap-2.5 sm:gap-6 text-xs sm:text-sm"
-          style={{ color: 'var(--ink-soft)' }}
-        >
-          <div className="hero-trust-item flex items-center gap-2">
-            <CheckCircle2 size={16} color="var(--neon-cyan)" />
-            <span>Design Limpo e Foco no Contato</span>
-          </div>
-          <div className="hero-trust-item flex items-center gap-2">
-            <CheckCircle2 size={16} color="var(--neon-cyan)" />
-            <span>8 Projetos Entregues no Ar</span>
-          </div>
-          <div className="hero-trust-item flex items-center gap-2">
-            <CheckCircle2 size={16} color="var(--neon-cyan)" />
-            <span>A partir de R$ 500 + R$ 50/mês sem&nbsp;surpresa</span>
-          </div>
-        </div>
       </div>
 
       {/* Fade suave sem apagar o botao */}
@@ -143,6 +217,6 @@ export const Hero: React.FC = () => {
           background: 'linear-gradient(to top, var(--void-black) 0%, transparent 100%)',
         }}
       />
-    </section>
+    </section >
   );
 };

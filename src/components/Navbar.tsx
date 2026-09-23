@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowUpRight, Sun, Moon } from 'lucide-react';
+import { Sun, Moon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
@@ -16,125 +15,112 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Travar o scroll do body quando o menu mobile estiver aberto
-  useEffect(() => {
-    if (isMobileOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isMobileOpen]);
-
-  const handleLinkClick = () => {
-    setIsMobileOpen(false);
-  };
-
   return (
-    <>
-      <nav className={`navbar ${isScrolled ? 'scrolled' : ''} ${isMobileOpen ? 'menu-open' : ''}`}>
-        <a href="#hero" className="nav-logo" onClick={handleLinkClick} aria-label="Início">
-          <img
-            src="/favicon.svg"
-            alt="Logo"
-            style={{
-              width: '28px',
-              height: '28px',
-              filter: 'drop-shadow(0 0 10px var(--neon-glow-strong))',
-              display: 'block',
-            }}
-          />
-        </a>
-
-        {/* Desktop Links */}
-        <ul className="nav-links">
-          <li><a href="#hero">Início</a></li>
-          <li><a href="#sobre">Soluções</a></li>
-          <li><a href="#projetos">Projetos</a></li>
-          <li><a href="#faq">Dúvidas</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-
-        {/* Desktop Actions & Theme Toggle */}
-        <div className="nav-actions">
-          <button
-            className="theme-toggle-btn"
-            onClick={toggleTheme}
-            aria-label={theme === 'light' ? 'Mudar para tema escuro' : 'Mudar para tema claro'}
-            title={theme === 'light' ? 'Modo Escuro' : 'Modo Claro'}
-          >
-            {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
-          </button>
-
-          {/* Mobile Toggle Button */}
-          <button
-            className={`nav-mobile-toggle ${isMobileOpen ? 'open' : ''}`}
-            onClick={() => setIsMobileOpen(!isMobileOpen)}
-            aria-label={isMobileOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação'}
-            aria-expanded={isMobileOpen}
-          >
-            <span />
-            <span />
-            <span />
-          </button>
-        </div>
-      </nav>
-
-      {/* Mobile Menu Overlay - renderizado fora da navbar para não ser afetado pelo backdrop-filter */}
-      <div
-        className={`nav-mobile-menu ${isMobileOpen ? 'open' : ''}`}
-        aria-hidden={!isMobileOpen}
-        role="dialog"
-        aria-modal="true"
+    <header
+      className={`navbar ${isScrolled ? 'scrolled' : ''}`}
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: isScrolled ? '0.5rem 1rem' : '0.75rem 1.25rem',
+        zIndex: 10000,
+        maxWidth: '100vw',
+      }}
+    >
+      {/* 1. Canto Esquerdo: Logo */}
+      <a
+        href="#hero"
+        aria-label="Início"
+        style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '36px',
+          height: '36px',
+          flexShrink: 0,
+          textDecoration: 'none',
+        }}
       >
-        <a href="#hero" onClick={handleLinkClick}>
-          <span>Início</span>
-          <ArrowUpRight size={18} />
-        </a>
-        <a href="#sobre" onClick={handleLinkClick}>
-          <span>Soluções para Negócios</span>
-          <ArrowUpRight size={18} />
-        </a>
-        <a href="#projetos" onClick={handleLinkClick}>
-          <span>Projetos & Portfólio</span>
-          <ArrowUpRight size={18} />
-        </a>
-        <a href="#faq" onClick={handleLinkClick}>
-          <span>Perguntas Frequentes</span>
-          <ArrowUpRight size={18} />
-        </a>
-        <a href="#contato" onClick={handleLinkClick}>
-          <span>Contato</span>
-          <ArrowUpRight size={18} />
-        </a>
+        <img
+          src="/favicon.svg"
+          alt="Logo Evandro Mqs"
+          style={{
+            width: '26px',
+            height: '26px',
+            filter: 'drop-shadow(0 0 10px var(--neon-glow-strong))',
+            display: 'block',
+          }}
+        />
+      </a>
 
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1rem 0', borderBottom: '1px solid var(--void-line)' }}>
-          <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: '1.2rem', fontWeight: 600, color: 'var(--ink-pure)' }}>
-            Tema: {theme === 'light' ? 'Claro' : 'Escuro'}
-          </span>
-          <button
-            className="theme-toggle-btn"
-            onClick={toggleTheme}
-            aria-label="Alternar tema"
-            style={{ width: '44px', height: '44px' }}
-          >
-            {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-          </button>
-        </div>
-
+      {/* 2. Centro: Nome e Título com espaço livre total */}
+      <div
+        style={{
+          flex: 1,
+          textAlign: 'center',
+          padding: '0 0.5rem',
+          minWidth: 0,
+        }}
+      >
         <a
-          href="https://github.com/evandromqs"
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={handleLinkClick}
-          style={{ color: 'var(--neon-cyan)', marginTop: '0.5rem' }}
+          href="#hero"
+          style={{
+            fontFamily: "'Montserrat', sans-serif",
+            fontWeight: 700,
+            fontSize: 'clamp(0.78rem, 2.4vw, 1.05rem)',
+            letterSpacing: '-0.01em',
+            color: 'var(--ink-pure)',
+            textDecoration: 'none',
+            display: 'inline-block',
+            maxWidth: '100%',
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+          }}
         >
-          <span>GitHub Profile</span>
-          <ArrowUpRight size={20} />
+          Evandro Mqs - Criador de Sites e Apps
         </a>
       </div>
-    </>
+
+      {/* 3. Canto Direito: Botão de Tema (Sol / Lua) */}
+      <div
+        style={{
+          width: '36px',
+          height: '36px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'flex-end',
+          flexShrink: 0,
+        }}
+      >
+        <button
+          type="button"
+          className="theme-toggle-btn"
+          onClick={toggleTheme}
+          aria-label={theme === 'light' ? 'Mudar para tema escuro' : 'Mudar para tema claro'}
+          title={theme === 'light' ? 'Ativar modo escuro' : 'Ativar modo claro'}
+          style={{
+            width: '36px',
+            height: '36px',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            border: '1px solid var(--void-line)',
+            backgroundColor: 'var(--btn-sec-bg)',
+            color: 'var(--ink-pure)',
+            cursor: 'pointer',
+            padding: 0,
+            transition: 'all 0.25s ease',
+          }}
+        >
+          {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+        </button>
+      </div>
+    </header>
   );
 };

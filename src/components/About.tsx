@@ -2,7 +2,6 @@ import React from 'react';
 import {
   solutionsData,
   processSteps,
-  sectionCheckpoints,
   skillsData,
 } from '../data/skills';
 import { comparisonData } from '../data/timeline';
@@ -16,95 +15,66 @@ export const About: React.FC = () => {
       style={{
         backgroundColor: 'var(--void-black)',
         color: 'var(--ink-pure)',
-      }}
-    >
-      <div className="section-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* ==========================================================================
-            1. COMO FUNCIONA (Respiro generoso e responsivo)
-           ========================================================================== */}
-        <div id="como-funciona" className="pt-2 sm:pt-4">
-          <span
-            className="section-label"
-            style={{
-              color: 'var(--neon-cyan)',
-              fontWeight: 700,
-              fontSize: 'clamp(0.75rem, 1.5vw, 0.85rem)',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              display: 'block',
-              marginBottom: '0.5rem',
-            }}
-          >
-            // como funciona o processo
-          </span>
-
-          <h2
-            style={{
-              fontFamily: "'Montserrat', sans-serif",
-              fontSize: 'clamp(1.5rem, 3.2vw, 2.35rem)',
-              fontWeight: 900,
-              color: 'var(--ink-pure)',
-              marginBottom: '0.75rem',
-              lineHeight: 1.25,
-            }}
-          >
-            Como funciona - Simples e sem burocracia para microempreendedores
-          </h2>
-
-          <p
-            className="text-xs sm:text-sm md:text-base leading-relaxed mb-8 sm:mb-10 max-w-2xl"
-            style={{ color: 'var(--ink-soft)' }}
-          >
-            Um processo claro e sem enrolação, do primeiro contato até o lançamento oficial com suporte garantido.
-          </p>
-
-          <div className="process-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {processSteps.map((step, idx) => (
-              <div
-                key={idx}
-                className="process-card rounded-2xl p-5 sm:p-6 transition-all flex flex-col justify-between"
-                style={{
-                  backgroundColor: 'var(--void-card)',
-                  border: '1px solid var(--void-line)',
-                  boxShadow: 'var(--card-shadow)',
-                }}
-              >
-                <div>
-                  <div
-                    className="process-number"
-                    style={{
-                      color: 'var(--neon-cyan)',
-                      fontFamily: "'Poppins', sans-serif",
-                      fontWeight: 900,
-                      fontSize: 'clamp(1.5rem, 2.5vw, 1.85rem)',
-                      marginBottom: '0.5rem',
-                    }}
-                  >
-                    {step.step}
-                  </div>
-                  <h4
-                    className="process-title text-sm sm:text-base font-bold mb-1.5 sm:mb-2"
-                    style={{
-                      fontFamily: "'Montserrat', sans-serif",
-                      color: 'var(--ink-pure)',
-                      lineHeight: 1.35,
-                    }}
-                  >
-                    {step.title}
-                  </h4>
-                  <p
-                    className="process-desc text-xs sm:text-sm leading-relaxed"
-                    style={{
-                      fontFamily: "'Montserrat', sans-serif",
-                      color: 'var(--ink-soft)',
-                    }}
-                  >
-                    {step.description}
-                  </p>
+      }}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          style={{
+            fontFamily: "'Montserrat', sans-serif",
+            fontSize: 'clamp(1.5rem, 3.2vw, 2.35rem)',
+            fontWeight: 900,
+            textAlign: 'center',
+            color: 'var(--ink-pure)',
+            marginBottom: '2rem',
+            lineHeight: 1.25,
+          }}>
+          Um processo simples de 4 passos.
+        </h2>
+        <div className="process-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {processSteps.map((step, idx) => (
+            <div
+              key={idx}
+              className="process-card rounded-2xl p-5 sm:p-6 transition-all flex flex-col justify-between"
+              style={{
+                backgroundColor: 'var(--void-card)',
+                border: '1px solid var(--void-line)',
+                boxShadow: 'var(--card-shadow)',
+              }}
+            >
+              <div>
+                <div
+                  className="process-number"
+                  style={{
+                    color: 'var(--neon-cyan)',
+                    fontFamily: "'Poppins', sans-serif",
+                    fontWeight: 900,
+                    fontSize: 'clamp(1.5rem, 2.5vw, 1.85rem)',
+                    marginBottom: '1rem',
+                  }}
+                >
+                  {step.step}
                 </div>
+                <h4
+                  className="process-title text-sm sm:text-base font-bold mb-1.5 sm:mb-2"
+                  style={{
+                    fontFamily: "'Montserrat', sans-serif",
+                    color: 'var(--ink-pure)',
+                    lineHeight: 1.35,
+                  }}
+                >
+                  {step.title}
+                </h4>
+                <p
+                  className="process-desc text-xs sm:text-sm leading-relaxed"
+                  style={{
+                    fontFamily: "'Montserrat', sans-serif",
+                    color: 'var(--ink-soft)',
+                  }}
+                >
+                  {step.description}
+                </p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
         {/* ==========================================================================
@@ -114,50 +84,19 @@ export const About: React.FC = () => {
           id="solucoes"
           className="about-section-divider"
         >
-          <span
-            className="section-label"
-            style={{
-              color: 'var(--neon-cyan)',
-              fontWeight: 700,
-              fontSize: 'clamp(0.75rem, 1.5vw, 0.85rem)',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              display: 'block',
-              marginBottom: '0.5rem',
-            }}
-          >
-            // soluções & diferenciais
-          </span>
-
           <h2
             style={{
               fontFamily: "'Montserrat', sans-serif",
               fontSize: 'clamp(1.5rem, 3.2vw, 2.35rem)',
               fontWeight: 900,
+              textAlign: 'center',
               color: 'var(--ink-pure)',
               marginBottom: '0.85rem',
               lineHeight: 1.2,
             }}
           >
-            O que desenvolvo para o seu negócio - Design profissional e foco no contato
+            O que desenvolvo para o seu negócio de acordo com sua necessidade.
           </h2>
-
-          {/* 3 Bullets com check embaixo do título da seção */}
-          <div className="checkpoints-grid mb-8 sm:mb-10">
-            {sectionCheckpoints.map((point, idx) => (
-              <div key={idx} className="checkpoint-chip" style={{ minHeight: '52px' }}>
-                <CheckCircle2
-                  size={18}
-                  className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0"
-                  color="var(--neon-cyan)"
-                />
-                <span style={{ fontSize: '0.86rem', fontWeight: 600, color: 'var(--ink-soft)' }}>
-                  {point}
-                </span>
-              </div>
-            ))}
-          </div>
-
           <div className="solutions-grid grid grid-cols-1 md:grid-cols-2 gap-6">
             {solutionsData.map((sol, idx) => (
               <div
@@ -420,7 +359,7 @@ export const About: React.FC = () => {
             </p>
           </div>
         </div>
-      </div>
-    </section>
+      </div >
+    </section >
   );
 };
