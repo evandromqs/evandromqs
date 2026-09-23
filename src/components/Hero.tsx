@@ -29,7 +29,7 @@ export const Hero: React.FC = () => {
         color: 'var(--ink-pure)',
         minHeight: 'auto',
         justifyContent: 'flex-start',
-        paddingTop: 'clamp(3.5rem, 5.5vw, 4.25rem)',
+        paddingTop: 'clamp(3rem, 4vw, 5rem)',
         paddingBottom: 'clamp(2rem, 3.5vw, 3rem)',
       }}
     >
@@ -46,6 +46,7 @@ export const Hero: React.FC = () => {
         }}
       >
         <div
+          className="hero-devices-scaler"
           style={{
             position: 'relative',
             width: '100%',
@@ -54,7 +55,6 @@ export const Hero: React.FC = () => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            transform: 'scale(1.4)',
             transformOrigin: 'center center',
           }}
         >
@@ -121,7 +121,6 @@ export const Hero: React.FC = () => {
             lineHeight: 1.15,
             letterSpacing: '-0.02em',
             marginBottom: 'clamp(1rem, 2vw, 1.5rem)',
-            textShadow: '0 2px 14px rgba(0, 0, 0, 0.65)',
           }}
         >
           Quando alguém procura{' '}

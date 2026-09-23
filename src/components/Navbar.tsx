@@ -26,12 +26,14 @@ export const Navbar: React.FC = () => {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: isScrolled ? '0.5rem 1rem' : '0.75rem 1.25rem',
+        height: isScrolled ? '3.25rem' : '3.75rem',
+        padding: isScrolled ? '0 1rem' : '0 1.25rem',
         zIndex: 10000,
         maxWidth: '100vw',
+        transition: 'all 0.3s ease',
       }}
     >
-      {/* 1. Canto Esquerdo: Logo */}
+      {/* 1. Canto Esquerdo: Logo perfeitamente centralizado verticalmente */}
       <a
         href="#hero"
         aria-label="Início"
@@ -49,19 +51,23 @@ export const Navbar: React.FC = () => {
           src="/favicon.svg"
           alt="Logo Evandro Mqs"
           style={{
-            width: '26px',
-            height: '26px',
+            width: '28px',
+            height: '28px',
+            borderRadius: '50%',
             filter: 'drop-shadow(0 0 10px var(--neon-glow-strong))',
             display: 'block',
           }}
         />
       </a>
 
-      {/* 2. Centro: Nome e Título com espaço livre total */}
+      {/* 2. Centro: Nome e Título alinhado na mesma altura vertical */}
       <div
         style={{
           flex: 1,
-          textAlign: 'center',
+          height: '36px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
           padding: '0 0.5rem',
           minWidth: 0,
         }}
@@ -75,7 +81,10 @@ export const Navbar: React.FC = () => {
             letterSpacing: '-0.01em',
             color: 'var(--ink-pure)',
             textDecoration: 'none',
-            display: 'inline-block',
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            lineHeight: 1,
             maxWidth: '100%',
             whiteSpace: 'nowrap',
             overflow: 'hidden',
@@ -86,14 +95,14 @@ export const Navbar: React.FC = () => {
         </a>
       </div>
 
-      {/* 3. Canto Direito: Botão de Tema (Sol / Lua) */}
+      {/* 3. Canto Direito: Botão de Tema na mesma altura vertical */}
       <div
         style={{
           width: '36px',
           height: '36px',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'flex-end',
+          justifyContent: 'center',
           flexShrink: 0,
         }}
       >
@@ -107,7 +116,7 @@ export const Navbar: React.FC = () => {
             width: '36px',
             height: '36px',
             borderRadius: '50%',
-            display: 'flex',
+            display: 'inline-flex',
             alignItems: 'center',
             justifyContent: 'center',
             border: '1px solid var(--void-line)',
