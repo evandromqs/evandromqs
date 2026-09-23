@@ -23,20 +23,6 @@ export const Projects: React.FC = () => {
       }}
     >
       <div className="section-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <span
-          className="section-label"
-          style={{
-            color: 'var(--neon-cyan)',
-            fontWeight: 700,
-            fontSize: 'clamp(0.75rem, 1.5vw, 0.85rem)',
-            letterSpacing: '0.1em',
-            textTransform: 'uppercase',
-            display: 'block',
-            marginBottom: '0.5rem',
-          }}
-        >
-          // projetos & criações
-        </span>
         <h2
           className="section-headline"
           style={{

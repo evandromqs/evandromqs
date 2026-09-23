@@ -7,14 +7,23 @@ const WHATSAPP_URL =
   '&utm_source=site_hero';
 
 export const Hero: React.FC = () => {
+  const [isIOSDevice] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return (
+        /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+      );
+    }
+    return false;
+  });
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (videoRef.current && videoRef.current.readyState >= 3) {
+    if (!isIOSDevice && videoRef.current && videoRef.current.readyState >= 3) {
       setIsVideoLoaded(true);
     }
-  }, []);
+  }, [isIOSDevice]);
 
   const handleWhatsAppClick = () => {
     reportWhatsAppConversion('hero_cta');
@@ -58,13 +67,13 @@ export const Hero: React.FC = () => {
             transformOrigin: 'center center',
           }}
         >
-          {/* 1. Imagem carregada primeiro imediatamente (desaparece quando o vídeo carrega) */}
+          {/* 1. Imagem carregada primeiro imediatamente (no iOS permanece sempre com transparência perfeita) */}
           <img
             src="/devices_image.webp"
             alt="Demonstração dos dispositivos"
             loading="eager"
             decoding="async"
-            aria-hidden={isVideoLoaded}
+            aria-hidden={!isIOSDevice && isVideoLoaded}
             style={{
               position: 'absolute',
               inset: 0,
@@ -73,37 +82,39 @@ export const Hero: React.FC = () => {
               objectFit: 'contain',
               display: 'block',
               zIndex: 1,
-              opacity: isVideoLoaded ? 0 : 1,
+              opacity: !isIOSDevice && isVideoLoaded ? 0 : 1,
               transition: 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
               pointerEvents: 'none',
             }}
           />
 
-          {/* 2. Vídeo carregando em segundo plano e iniciando o loop acima da imagem */}
-          <video
-            ref={videoRef}
-            src="/device_video.webm"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            onCanPlay={() => setIsVideoLoaded(true)}
-            onCanPlayThrough={() => setIsVideoLoaded(true)}
-            onPlaying={() => setIsVideoLoaded(true)}
-            style={{
-              position: 'absolute',
-              inset: 0,
-              width: '100%',
-              height: '100%',
-              objectFit: 'contain',
-              display: 'block',
-              zIndex: 2,
-              opacity: isVideoLoaded ? 1 : 0,
-              transition: 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
-              pointerEvents: 'none',
-            }}
-          />
+          {/* 2. Vídeo apenas para dispositivos não-iOS (evita o fundo escuro/opaco do WebM no Safari/iPhone) */}
+          {!isIOSDevice && (
+            <video
+              ref={videoRef}
+              src="/device_video.webm"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              onCanPlay={() => setIsVideoLoaded(true)}
+              onCanPlayThrough={() => setIsVideoLoaded(true)}
+              onPlaying={() => setIsVideoLoaded(true)}
+              style={{
+                position: 'absolute',
+                inset: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain',
+                display: 'block',
+                zIndex: 2,
+                opacity: isVideoLoaded ? 1 : 0,
+                transition: 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+                pointerEvents: 'none',
+              }}
+            />
+          )}
         </div>
       </div>
 

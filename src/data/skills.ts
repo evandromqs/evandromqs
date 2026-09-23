@@ -9,45 +9,33 @@ export const solutionsData: ServiceSolution[] = [
   {
     title: 'Sites & Landing Pages',
     badge: 'A partir de R$ 500',
-    description: 'Ideal para microempreendedores que anunciam no Google. Página que abre em 1s e transforma clique pago em cliente no Zap.',
+    description: 'Crio páginas rápidas e personalizadas que geram valor ao seu negócio e direcionam os visitantes para o seu Whatsapp.',
     highlights: [
       'Criação a partir de R$ 500',
-      'Manutenção R$ 50/mês',
-      'Abre em 1s no Celular',
-      'Botão direto pro WhatsApp',
+      'Manutenção opcional a partir de R$ 50 mensais',
+      'Sem templates prontos com informação clara e direta',
     ],
   },
   {
     title: 'Aplicativos Mobile Android e iOS',
     badge: 'A partir de R$ 1.000',
-    description: 'Seu negócio na palma do cliente. Venda, agende e fidelize sem intermediários e sem taxas.',
+    description: 'Seu negócio nas lojas de aplicativo. Venda, agende e fidelize sem intermediários e sem taxas de plataforma.',
     highlights: [
       'Criação a partir de R$ 1.000',
-      'Publicado na Play Store',
-      'Notificações Push',
-      'Painel simples',
+      'Publicado nas Lojas Android e Apple',
+      'Notificações Nativas',
+      'Painel de Usuário e Administrador',
     ],
   },
   {
     title: 'Lojas Virtuais, Catálogo & Delivery',
-    badge: 'Zero Comissão',
-    description: 'Pare de pagar até 27% para iFood. Sistema completo a partir de R$ 2.000 com pedidos direto no seu WhatsApp.',
+    badge: 'Fora das Plataformas',
+    description: 'Pare de pagar até 30% para plataformas de Delivery tenha seu sistema completo a partir de R$ 2.000 com pedidos direto na sua plataforma.',
     highlights: [
       'Sistema a partir de R$ 2.000',
-      'Zero taxa por venda',
-      'Manutenção R$ 50/mês',
-      'Pix e Cartão',
-    ],
-  },
-  {
-    title: 'Automações e Sistemas com IA',
-    badge: 'A partir de R$ 2.000',
-    description: 'Elimine tarefas repetitivas. Atenda no automático com QR Codes e IA.',
-    highlights: [
-      'Projetos a partir de R$ 2.000',
-      'Atendimento no Zap automático',
-      'QR Code inteligente',
-      'Economia de horas',
+      'Taxa somente do seu banco',
+      'Manutenção a partir de R$ 100 mensais',
+      'Pix e Cartão integrados',
     ],
   },
 ];
@@ -76,13 +64,13 @@ export const processSteps = [
 ];
 
 export const sectionCheckpoints = [
-  'Atendimento Direto: Você fala direto comigo no WhatsApp, sem intermediários ou estagiário.',
-  'Entrega Rápida e Garantida: Cronograma real com acompanhamento diário.',
+  'Atendimento personalizado no WhatsApp, sem intermediários ou estagiário.',
+  'Entrega Rápida e Garantida com acompanhamento diário.',
   'Preço Fechado e Suporte: Sem cobranças extras. Manutenção e suporte inclusos nos R$ 50/mês.',
 ];
 
 export const coreHighlights = [
-  { label: 'Sites & Landing Pages', count: 'A partir de R$ 500' },
+  { label: 'Sites e Landing Pages', count: 'A partir de R$ 500' },
   { label: 'Aplicativos Mobile', count: 'A partir de R$ 1.000' },
   { label: 'Sistemas & Lojas', count: 'A partir de R$ 2.000' },
   { label: 'Manutenção & Suporte', count: 'R$ 50/mês' },
@@ -94,7 +82,7 @@ export const skillsData = [
   'TypeScript',
   'Node.js',
   'Flutter',
-  'Android Nativo',
-  'Firebase',
-  'Three.js',
+  'Kotlin',
+  'PostgreeSQL',
+  'Python',
 ];

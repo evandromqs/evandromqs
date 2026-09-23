@@ -8,17 +8,18 @@ export const comparisonData: ComparisonRow[] = [
   {
     criterion: 'Atendimento',
     agency: 'Fala com vendedor/estagiário',
-    direct: 'Fala direto comigo no WhatsApp',
+    direct: 'Atendimento direto com o desenvolvedor no WhatsApp',
   },
   {
     criterion: 'Prazo',
     agency: '60 a 90 dias',
-    direct: 'Entrega em dias',
+    direct: 'Entrega em dias/semanas',
   },
   {
     criterion: 'Tecnologia',
-    agency: 'Sistema pesado que trava',
-    direct: 'Código leve 1s',
+    agency: 'Sistemas pesadow que travam',
+    direct: 'Código leve 1s'
+    ,
   },
   {
     criterion: 'Custo',

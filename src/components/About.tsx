@@ -91,7 +91,7 @@ export const About: React.FC = () => {
               fontWeight: 900,
               textAlign: 'center',
               color: 'var(--ink-pure)',
-              marginBottom: '0.85rem',
+              marginBottom: '1em',
               lineHeight: 1.2,
             }}
           >
@@ -186,11 +186,13 @@ export const About: React.FC = () => {
                 fontFamily: "'Montserrat', sans-serif",
                 fontSize: 'clamp(1.25rem, 2.5vw, 1.45rem)',
                 fontWeight: 900,
+                paddingBottom: '1em',
+                textAlign: 'center',
                 color: 'var(--ink-pure)',
                 lineHeight: 1.3,
               }}
             >
-              Por que microempreendedor foge de agência?
+              Por que empresários estão fungindo de agências?
             </h3>
 
             {/* Unified Comparison Table Card */}
@@ -204,7 +206,7 @@ export const About: React.FC = () => {
                 </div>
                 <div className="comp-th-dev">
                   <CheckCircle2 size={14} />
-                  <span>Comigo (Dev Direto)</span>
+                  <span>Direto com Desenvolvedor</span>
                 </div>
               </div>
 
@@ -243,22 +245,14 @@ export const About: React.FC = () => {
                 fontFamily: "'Montserrat', sans-serif",
                 fontSize: 'clamp(1.25rem, 2.5vw, 1.45rem)',
                 fontWeight: 900,
+                textAlign: 'center',
+                paddingBottom: '1em',
                 color: 'var(--ink-pure)',
                 lineHeight: 1.3,
               }}
             >
               Tecnologia que não te deixa na mão
             </h3>
-            <p
-              style={{
-                color: 'var(--ink-soft)',
-                fontSize: 'clamp(0.88rem, 1.6vw, 0.98rem)',
-                lineHeight: 1.65,
-                marginBottom: '1rem',
-              }}
-            >
-              Em vez de plataformas pesadas e sistemas que travam deixando seu site lento e fazendo você perder contatos, eu construo do zero usando o que as maiores empresas do mundo usam: React, Next.js, Flutter e Firebase. O resultado é um site que carrega em fração de segundos, não trava e passa segurança para quem navega.
-            </p>
 
             {/* 3 Diferenciais de Engenharia */}
             <div className="flex flex-col gap-2.5 my-3">
@@ -281,7 +275,7 @@ export const About: React.FC = () => {
                     Segurança & Alta Disponibilidade:
                   </strong>{' '}
                   <span style={{ color: 'var(--ink-soft)', fontSize: '0.82rem', lineHeight: 1.4 }}>
-                    Zero risco de plugins vulneráveis ou invasões. Estabilidade 24 horas.
+                    Zero risco de ataques vulneráveis ou invasões. Estabilidade 24 horas.
                   </span>
                 </div>
               </div>
