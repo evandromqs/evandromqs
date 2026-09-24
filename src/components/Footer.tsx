@@ -38,11 +38,6 @@ export const Footer: React.FC<FooterProps> = ({
       icon: <GithubIcon size={18} />,
     },
     {
-      name: 'Threads',
-      url: 'https://www.threads.com/@evandromqs',
-      icon: <ThreadsIcon size={18} />,
-    },
-    {
       name: 'Instagram',
       url: 'https://www.instagram.com/evandromqs/',
       icon: <InstagramIcon size={18} />,
@@ -96,7 +91,7 @@ export const Footer: React.FC<FooterProps> = ({
             lineHeight: 1.3,
           }}
         >
-          Pronto para colocar seu projeto no ar essa semana por a partir de R$ 500?
+          Pronto para colocar seu negócio no ar essa semana?
         </h2>
         <p
           className="footer-subtitle"
@@ -107,7 +102,7 @@ export const Footer: React.FC<FooterProps> = ({
             marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)',
           }}
         >
-          Me chama no WhatsApp agora. Em até 30min te mando plano de ação com valor fechado.
+          Me chama agora no Whatsapp que eu te mando orçamento personalizado com o valor gratuitamente.
         </p>
 
         {/* Big WhatsApp Pulsing Button */}
@@ -157,7 +152,7 @@ export const Footer: React.FC<FooterProps> = ({
             marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)',
           }}
         >
-          Resposta em até 30min &bull; Sem compromisso &bull; Manutenção R$ 50/mês
+          Resposta rápida &bull; Sem compromisso
         </p>
 
         {/* E-mail CTA Direct Box */}
@@ -241,7 +236,7 @@ export const Footer: React.FC<FooterProps> = ({
 
         <div className="footer-location-trust mb-4">
           <p className="footer-location text-xs sm:text-sm" style={{ color: 'var(--ink-soft)' }}>
-            São Paulo - SP &bull; Atendimento para microempreendedores de todo o Brasil
+            São Paulo - SP &bull; Atendimento para empreendedores de todo o Brasil
           </p>
           <p className="footer-security text-xs sm:text-sm" style={{ color: 'var(--ink-mute)' }}>
             Suas ideias e informações de projeto são tratadas com total sigilo profissional.

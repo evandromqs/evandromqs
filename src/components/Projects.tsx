@@ -29,6 +29,7 @@ export const Projects: React.FC = () => {
             fontFamily: "'Montserrat', sans-serif",
             fontSize: 'clamp(1.5rem, 3.2vw, 2.35rem)',
             fontWeight: 900,
+            textAlign: 'center',
             color: 'var(--ink-pure)',
             marginBottom: 'clamp(0.5rem, 1vw, 0.75rem)',
             lineHeight: 1.25,
@@ -42,27 +43,30 @@ export const Projects: React.FC = () => {
             color: 'var(--ink-soft)',
             fontSize: 'clamp(0.95rem, 1.8vw, 1.05rem)',
             lineHeight: 1.6,
+            textAlign: 'center',
             maxWidth: '680px',
             marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)',
             fontWeight: 500,
           }}
         >
-          A partir de 500R$ - Veja soluções reais no ar.
+          Veja soluções de negócios no ar.
         </p>
 
         {/* Categories Filter */}
-        <div className="category-filters flex flex-wrap gap-2 mb-8 sm:mb-10">
+        <div className="category-filters flex flex-wrap gap-2 mb-8 sm:mb-10"
+          style={{ textAlign: 'center', justifyContent: 'center' }}>
           <button
             className={`filter-btn ${activeCategory === 'all' ? 'active' : ''}`}
             onClick={() => setActiveCategory('all')}
             style={{
               backgroundColor: activeCategory === 'all' ? 'var(--neon-cyan)' : 'var(--void-card)',
               color: activeCategory === 'all' ? '#ffffff' : 'var(--ink-soft)',
-              border: '1px solid',
+              border: '2px solid',
               borderColor: activeCategory === 'all' ? 'var(--neon-cyan)' : 'var(--void-line)',
               borderRadius: '9999px',
               padding: 'clamp(0.4rem, 1vw, 0.5rem) clamp(0.85rem, 1.8vw, 1.15rem)',
               fontWeight: 700,
+              justifyContent: 'center',
               fontSize: 'clamp(0.78rem, 1.5vw, 0.85rem)',
               transition: 'all 0.2s',
               cursor: 'pointer',

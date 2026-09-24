@@ -598,7 +598,10 @@ button {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 4rem 1.5rem 3.5rem;
+  padding-top: clamp(5rem, 4vw, 5rem);
+  padding-bottom: clamp(2rem, 3.5vw, 3rem);
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   overflow: hidden;
   background: transparent;
   z-index: 1;
@@ -622,11 +625,16 @@ button {
 
 /* Mobile: exatamente como o usuário aprovou */
 @media (max-width: 640px) {
+  #hero {
+    padding-top: clamp(5rem, 4vw, 5rem);
+  }
+
   .hero-devices-scaler {
     transform: scale(1.4);
   }
 
   .hero-devices-container {
+    margin-top: 0;
     margin-bottom: 0;
   }
 
@@ -635,18 +643,23 @@ button {
   }
 }
 
-/* Desktop: 20% menor (scale 1.12) e H1 encostado no rodapé cobrindo 10% da parte inferior */
-@media (min-width: 600px) {
+/* Desktop: espaçamento corrigido do vídeo com o cabeçalho */
+@media (min-width: 641px) {
+  #hero {
+    padding-top: 3rem;
+  }
+
   .hero-devices-scaler {
     transform: scale(1);
   }
 
   .hero-devices-container {
+    margin-top: -3rem;
     margin-bottom: 0;
   }
 
   .hero-content {
-    margin-top: -4rem;
+    margin-top: -3rem;
   }
 }
 

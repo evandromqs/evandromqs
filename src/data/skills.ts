@@ -44,22 +44,22 @@ export const processSteps = [
   {
     step: '01',
     title: 'Conversa no WhatsApp',
-    description: 'Você me conta sua meta. Eu indico a solução mais barata que resolve.',
+    description: 'Você me explica sua necessidade. Eu indico a solução mais barata que resolve.',
   },
   {
     step: '02',
     title: 'Orçamento e Prazo Fechado',
-    description: 'A partir de R$ 500. Valor fixo e data definida. Sem surpresa.',
+    description: 'Após entender o que precisa, te envio no e-mail o orçamento com proposta, Valor e prazo de entrega.',
   },
   {
     step: '03',
     title: 'Criação com Acompanhamento',
-    description: 'Você valida tudo pelo celular.',
+    description: 'Você acompanha o projeto e pode aprovar cada etapa pelo celular.',
   },
   {
     step: '04',
     title: 'Lançamento e Suporte',
-    description: 'Site no ar, treinamento de 5min e suporte incluso nos R$ 50/mês.',
+    description: 'Entrego seu Projeto Online e ativo com treinamento se necessário e suporte incluso no primeiro mês.',
   },
 ];
 

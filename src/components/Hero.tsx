@@ -144,7 +144,7 @@ export const Hero: React.FC = () => {
           >
             seu negócio
           </span>{' '}
-          na internet,<br />
+          na internet,
           acha{' '}
           <span
             style={{
@@ -170,8 +170,8 @@ export const Hero: React.FC = () => {
           }}
         >
 
-          Coloco seu negócio no Google com uma página rápida e organizada.<br />
-          Seu cliente te encontra, entende oque você faz vai direto para o seu WhatsApp.
+          Coloque seu trabalho no ar com uma página rápida e organizada que mostra o seu valor.
+          Quem te encontrar no Google ou nas redes vai te chamar direto no WhatsApp.
         </p>
 
         <div className="hero-cta-group relative z-30 mb-3 sm:mb-4 flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 w-full sm:w-auto px-2 sm:px-0">

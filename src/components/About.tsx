@@ -4,8 +4,7 @@ import {
   processSteps,
   skillsData,
 } from '../data/skills';
-import { comparisonData } from '../data/timeline';
-import { CheckCircle2, XCircle, Award, Zap, ShieldCheck, Sparkles } from 'lucide-react';
+import { CheckCircle2, Award, Zap, ShieldCheck, Sparkles } from 'lucide-react';
 
 export const About: React.FC = () => {
   return (
@@ -173,71 +172,9 @@ export const About: React.FC = () => {
         </div>
 
         {/* ==========================================================================
-            3. COMPARATIVO & TECH STACK (Respiro mt-16 sm:mt-20 md:mt-24 pt-12 sm:pt-16)
+            3. TECH STACK & DIFERENCIAIS
            ========================================================================== */}
-        <div
-          className="about-grid about-section-divider"
-        >
-          {/* COLUNA 1: Por que microempreendedor foge de agência? */}
-          <div>
-            <h3
-              className="text-lg sm:text-xl font-black mb-3 sm:mb-4"
-              style={{
-                fontFamily: "'Montserrat', sans-serif",
-                fontSize: 'clamp(1.25rem, 2.5vw, 1.45rem)',
-                fontWeight: 900,
-                paddingBottom: '1em',
-                textAlign: 'center',
-                color: 'var(--ink-pure)',
-                lineHeight: 1.3,
-              }}
-            >
-              Por que empresários estão fungindo de agências?
-            </h3>
-
-            {/* Unified Comparison Table Card */}
-            <div className="comparison-table-card">
-              {/* Header */}
-              <div className="comparison-table-header">
-                <span className="comp-header-label">Critério</span>
-                <div className="comp-th-agency">
-                  <XCircle size={14} />
-                  <span>Agência Tradicional</span>
-                </div>
-                <div className="comp-th-dev">
-                  <CheckCircle2 size={14} />
-                  <span>Direto com Desenvolvedor</span>
-                </div>
-              </div>
-
-              {/* Rows */}
-              {comparisonData.map((row, idx) => (
-                <div key={idx} className="comparison-table-row">
-                  <div className="comp-col-criterion">
-                    <span className="comp-criterion-tag">{row.criterion}</span>
-                  </div>
-
-                  <div className="comp-col-agency">
-                    <XCircle size={15} className="flex-shrink-0" style={{ color: '#ef4444' }} />
-                    <span>
-                      <strong className="comp-mobile-label" style={{ color: '#ef4444' }}>Agência: </strong>
-                      {row.agency}
-                    </span>
-                  </div>
-
-                  <div className="comp-col-dev">
-                    <CheckCircle2 size={15} className="flex-shrink-0" style={{ color: 'var(--neon-cyan)' }} />
-                    <span>
-                      <strong className="comp-mobile-label" style={{ color: 'var(--neon-cyan)' }}>Comigo: </strong>
-                      {row.direct}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* COLUNA 2: Tecnologia que não te deixa na mão */}
+        <div className="about-section-divider max-w-3xl mx-auto">
           <div className="about-text">
             <h3
               className="text-lg sm:text-xl font-black mb-3 sm:mb-4"
@@ -269,7 +206,7 @@ export const About: React.FC = () => {
               </div>
 
               <div className="tech-benefit-item">
-                <ShieldCheck size={18} className="flex-shrink-0" style={{ color: 'var(--neon-cyan)', marginTop: '2px' }} />
+                <ShieldCheck size={18} className="flex-shrink-0" style={{ color: 'var(--neon-cyan)', marginTop: '2px', marginBottom: '20px' }} />
                 <div>
                   <strong style={{ color: 'var(--ink-pure)', fontSize: '0.86rem', display: 'inline-block' }}>
                     Segurança & Alta Disponibilidade:
@@ -292,30 +229,6 @@ export const About: React.FC = () => {
                 </div>
               </div>
             </div>
-
-            <span
-              className="about-subtitle"
-              style={{
-                color: 'var(--neon-blue)',
-                fontFamily: "'Poppins', sans-serif",
-                fontSize: '0.78rem',
-                fontWeight: 700,
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                display: 'block',
-                marginTop: '1.25rem',
-                marginBottom: '0.65rem',
-              }}
-            >
-              Tecnologias Utilizadas
-            </span>
-            <div className="about-tech-grid">
-              {skillsData.map((tech, idx) => (
-                <div key={idx} className="tech-pill">
-                  {tech}
-                </div>
-              ))}
-            </div>
           </div>
         </div>
 
@@ -330,12 +243,12 @@ export const About: React.FC = () => {
           <div>
             <h4
               style={{
-                fontFamily: "'Montserrat', sans-serif",
-                fontWeight: 900,
+                fontFamily: "'Poppins', sans-serif",
+                fontWeight: 800,
                 fontSize: 'clamp(1.15rem, 2.2vw, 1.35rem)',
                 color: 'var(--ink-pure)',
-                marginBottom: '0.35rem',
-                letterSpacing: '-0.01em',
+                marginBottom: '1rem',
+                letterSpacing: '0.05em',
               }}
             >
               Garantia de Performance e Funcionamento
