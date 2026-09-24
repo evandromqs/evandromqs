@@ -2,7 +2,6 @@ import React from 'react';
 import {
   solutionsData,
   processSteps,
-  skillsData,
 } from '../data/skills';
 import { CheckCircle2, Award, Zap, ShieldCheck, Sparkles } from 'lucide-react';
 

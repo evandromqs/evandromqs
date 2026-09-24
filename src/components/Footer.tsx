@@ -5,7 +5,6 @@ import { GithubIcon } from './icons/GithubIcon';
 import {
   InstagramIcon,
   YoutubeIcon,
-  ThreadsIcon,
 } from './icons/SocialIcons';
 
 interface FooterProps {

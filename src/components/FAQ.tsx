@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { reportWhatsAppConversion } from '../utils/analytics';
 
 interface FAQItem {
   question: string;
@@ -61,10 +60,6 @@ const faqData: FAQItem[] = [
     ),
   },
 ];
-
-const FAQ_WHATSAPP_URL = `https://wa.me/5511976920649?text=${encodeURIComponent(
-  'Olá Evandro, tenho uma dúvida sobre criação de site ou app.'
-)}&utm_source=faq`;
 
 export const FAQ: React.FC = () => {
   // P1 aberta por padrão (defaultOpen=true)
