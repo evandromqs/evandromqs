@@ -216,7 +216,7 @@ export const Hero: React.FC = () => {
           className="text-xs text-zinc-500 font-medium tracking-wide"
           style={{ color: 'var(--ink-soft)', fontSize: '0.8rem' }}
         >
-          Resposta rápida | Atendimento humano | Orçamento gratuito.
+          Orçamento em até 30 min &bull; Atendimento direto com o dev &bull; Sem compromisso
         </p>
       </div>
 

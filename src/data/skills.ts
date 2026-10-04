@@ -34,7 +34,7 @@ export const solutionsData: ServiceSolution[] = [
     highlights: [
       'Sistema a partir de R$ 2.000',
       'Taxa somente do seu banco',
-      'Manutenção a partir de R$ 100 mensais',
+      'Manutenção opcional a partir de R$ 50 mensais',
       'Pix e Cartão integrados',
     ],
   },
@@ -83,6 +83,6 @@ export const skillsData = [
   'Node.js',
   'Flutter',
   'Kotlin',
-  'PostgreeSQL',
+  'PostgreSQL',
   'Python',
 ];

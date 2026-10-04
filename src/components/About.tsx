@@ -261,7 +261,7 @@ export const About: React.FC = () => {
                 margin: 0,
               }}
             >
-              Se seu site não abrir em até 1 segundo no celular após a entrega, eu otimizo de graça até abrir. Suporte e manutenção já inclusos nos R$ 50/mês.
+              Se seu site não abrir em até 2 segundos no celular após a entrega, eu otimizo de graça até abrir.
             </p>
           </div>
         </div>
